@@ -131,7 +131,10 @@ select {
 }
 
 .skill-grid {
-  margin: 5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 1rem 5rem;
 }
 
 .skill-description-table {
