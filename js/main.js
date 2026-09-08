@@ -18,7 +18,7 @@ const init = async () => {
 const loadData = async () => {
   const files = [ "skills", "classes", "meta" ]
   const folder = location.origin + location.pathname
-  const promises = await Promise.all(files.map(file => fetch(`${folder}${file}.json`)))
+  const promises = await Promise.allSettled(files.map(file => fetch(`${folder}${file}.json`).then(res => res.json())))
 
   promises.forEach((promise, i) => {
     const file = files[i]
