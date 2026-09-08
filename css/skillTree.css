@@ -215,8 +215,14 @@ th {
   background: #d4dafc;
 }
 
+.skill .skill-header {
+  display: flex;
+  justify-content: space-between;
+}
+
 .skill .skill-buttons {
-  float: right;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .disabledBtn {
