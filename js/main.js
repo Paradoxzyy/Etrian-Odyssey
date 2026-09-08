@@ -8,8 +8,11 @@ const global = {}
 //--------------------------------------------------------------------------------
 const init = async () => {
   await loadData()
+  console.log(1, "data loaded")
   loadURL()
+  console.log(2, "url loaded")
   html`${Root()}`(document.body)
+  console.log(3, "arrow loaded")
 }
 
 //--------------------------------------------------------------------------------
@@ -20,14 +23,17 @@ const loadData = async () => {
   const folder = location.origin + location.pathname
   const promises = await Promise.allSettled(files.map(file => fetch(`${folder}${file}.json`).then(res => res.json())))
 
+  console.log(11, "")
   promises.forEach((promise, i) => {
     const file = files[i]
 
+  console.log(12, promise.status)
     if (promise.status == "fulfilled")
       global[file] = JSON.parse(promise.value)
     else
       console.warn(`Failed loading: ${file}.json`)
   })
+  console.log(13, "")
 
   state.currentClass = 0
   state.currentLevel = 1
