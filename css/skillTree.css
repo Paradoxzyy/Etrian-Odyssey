@@ -138,10 +138,10 @@ select {
 }
 
 .skill-description-table {
-	margin:0;
-	border-radius: .4rem;
+  margin:0;
+  border-radius: .4rem;
   margin: 4px 2px;
-	background: navy;
+  background: navy;
   position: absolute;
   z-index:3;
   top: 2.9rem;
@@ -199,21 +199,20 @@ th {
 
 .skill {
   color: navy;
-	margin: 0;
-	padding: 4px;
-	border: 2px solid navy;
-	border-radius: .4rem;
-	line-height: .9rem;
-	width: 110px;
-	height: 40px;
+  margin: 0;
+  padding: 4px;
+  border: 2px solid navy;
+  border-radius: .4rem;
+  line-height: .9rem;
+  width: 110px;
+  height: 40px;
   margin: 4px 2px;
-	background: #a4b4f9;
-  position: absolute;
+  background: #A4B4F9;
 }
 
 .skill.disabled {
-	border: 2px solid #B3B7E4;
-	background: #d4dafc;
+  border: 2px solid #B3B7E4;
+  background: #d4dafc;
 }
 
 .skill .skill-buttons {
@@ -237,7 +236,7 @@ th {
   text-align: center;
   text-decoration: none;
   font-size: 16px;
-	border-radius: .4rem;
+  border-radius: .4rem;
   margin: 4px 2px;
   cursor: pointer;
   box-sizing: border-box;
