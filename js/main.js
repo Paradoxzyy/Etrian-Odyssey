@@ -16,7 +16,7 @@ if (promises[0].status == "fulfilled")
 // Classes
 if (promises[1].status == "fulfilled") {
   global.classData = JSON.parse(promises[1].value)
-  global.classes = Object.keys(global.classData)
+  global.classes = classData.map(item => item.name)
   global.selectedClass = global.classData[0].name
 }
 
@@ -184,7 +184,7 @@ const Controls = component(() => {
 
       <div class="retirement-selection">
         <span>Retirement: </span>
-        ${Select({ options: global.retirementData, handleChange })}
+        ${Select({ options: global.retirement.retirementData, handleChange })}
       </div>
 
       <div class="sp-count">
