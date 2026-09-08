@@ -18,7 +18,7 @@ const init = async () => {
 const loadData = async () => {
   const files = [ "skills", "classes", "meta" ]
   const folder = location.origin + location.pathname
-  const promises = await Promise.all(files.map(file => fetch(`${folder}${file}.json)`))
+  const promises = await Promise.all(files.map(file => fetch(`${folder}${file}.json)`)))
 
   promises.forEach((promise, i) => {
     const file = files[i]
@@ -92,7 +92,7 @@ const Root = component(() => {
   return html`
     ${Controls()}
     <div class="skill-grid">
-      ${() => global.skillAllocation.map(item => Skill(item).key(item.name))}
+      ${() => state.skillAllocation.map(item => Skill(item).key(item.name))}
     </div>`
 })
 
