@@ -219,7 +219,7 @@ th {
   float: right;
 }
 
-.skill.disabled .skill-buttons {
+.disabledBtn {
   opacity: 0.4;
   pointer-events: none;
 }
