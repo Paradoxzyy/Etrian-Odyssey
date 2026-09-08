@@ -197,10 +197,10 @@ th {
   border-radius: 0 0 .4rem .4rem;
 }
 
-.skill-icon {
+.skill {
   color: navy;
-	margin:0;
-	padding:4px;
+	margin: 0;
+	padding: 4px;
 	border: 2px solid navy;
 	border-radius: .4rem;
 	line-height: .9rem;
@@ -211,22 +211,18 @@ th {
   position: absolute;
 }
 
-.disabled {
-  color: navy;
-	margin:0;
-	padding:4px;
-	border: 2px solid #b3b7e4;
-	border-radius: .4rem;
-	line-height: .9rem;
-	width: 110px;
-	height: 40px;
-  margin: 4px 2px;
+.skill.disabled {
+	border: 2px solid #B3B7E4;
 	background: #d4dafc;
-  position: absolute;
 }
 
-.skill-allocation {
+.skill .skill-buttons {
   float: right;
+}
+
+.skill.disabled .skill-buttons {
+  opacity: 0.4;
+  pointer-events: none;
 }
 
 .overspend {
@@ -245,11 +241,6 @@ th {
   margin: 4px 2px;
   cursor: pointer;
   box-sizing: border-box;
-}
-
-.disabledBtn {
-  opacity: 0.4;
-  pointer-events: none;
 }
 
 .line {
