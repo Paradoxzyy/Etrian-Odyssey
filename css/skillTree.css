@@ -130,13 +130,13 @@ select {
   left: 25rem;
 }
 
-.skill-description-table {
-  margin:0;
+.skill-info {
+  margin: 0;
   border-radius: .4rem;
   margin: 4px 2px;
   background: navy;
   position: absolute;
-  z-index:3;
+  z-index: 3;
   top: 2.9rem;
   left: -.3rem;
 }
@@ -266,4 +266,8 @@ th {
 .selected {
   background: #5e6fdf;
   color: yellow;
+}
+
+.hidden {
+  display: none;
 }
