@@ -1,152 +1,88 @@
 import { reactive, html, component } from "https://esm.sh/@arrow-js/core@1.0.6"
 
-const global = reactive({})
+const state = reactive({})
+const global = {}
 
-const folder = location.origin + location.pathname
-const promises = await Promise.all([
-  fetch(`${folder}Skills.json`),
-  fetch(`${folder}Classes.json`),
-  fetch(`${folder}Meta.json`)
-])
-
-// Skills
-if (promises[0].status == "fulfilled")
-  global.skills = JSON.parse(promises[0].value)
-
-// Classes
-if (promises[1].status == "fulfilled") {
-  global.classData = JSON.parse(promises[1].value)
-  global.classes = classData.map(item => item.name)
-  global.selectedClass = global.classData[0].name
+//--------------------------------------------------------------------------------
+//---------------------------------------- Init ----------------------------------
+//--------------------------------------------------------------------------------
+const init = async () => {
+  await loadData()
+  loadURL()
+  html`${Root()}`(document.body)
 }
 
-// Meta
-if (promises[2].status == "fulfilled") {
-  const data = JSON.parse(promises[2].value)
+//--------------------------------------------------------------------------------
+//---------------------------------------- Data ----------------------------------
+//--------------------------------------------------------------------------------
+const loadData = async () => {
+  const files = [ "skills", "classes", "meta" ]
+  const folder = location.origin + location.pathname
+  const promises = await Promise.all(files.map(file => fetch(`${folder}${file}.json)`))
 
-  global.skillAllocation = {}
-  global.currentLevel = data.maxLevel
-  global.maxLevel = data.maxLevel
+  promises.forEach((promise, i) => {
+    const file = files[i]
 
-  global.skillPoints = {
-    initialSP: parseInt(data.initialSP),
-    totalSkillPoints: parseInt(data.initialSP) + 1,
-    usedSkillPoints: 0
-  }
+    if (promise.status == "fulfilled")
+      global[file] = JSON.parse(promise.value)
+    else
+      console.warn(`Failed loading: ${file}.json`)
+  })
 
-  global.retirement = {
-    selected: data.retirementData[0][0],
-    retirementData: data.retirementData,
-    retirements: Object.keys(data.retirementData)
-  }
+  state.currentClass = 0
+  state.currentLevel = 1
+  state.currentRetirement = 0
+  state.skillAllocation = Object.keys(global.skills).map(k => ({ [k]: 0 }))
+  state.freeSp = 0
+  state.totalSp = global.meta.initialSp + (global.meta.spPerLevel * state.currentLevel) + state.currentRetirement
 }
 
 //--------------------------------------------------------------------------------
 //---------------------------------------- Functions -----------------------------
 //--------------------------------------------------------------------------------
-const loadURL = () => {
-  if (!location.hash)
-    return
-
-  const data = JSON.parse(LZString.decompressFromEncodedURIComponent(location.hash))
-
-  /*
-  global.class.selected = data.class;
-  global.level.selected = data.level;
-  global.retirement.selected = data.retirement;
-
-  var i = 0
-
-  for (var skill in $scope.class.classData[$scope.class.selected].skills) {
-    $scope.skillAllocation[$scope.class.classData[$scope.class.selected].skills[skill]] = $scope.saveData.Skills[i]
-    $scope.skillPoints.usedSkillPoints += $scope.saveData.Skills[i] == undefined
-      ? 0
-      : $scope.saveData.Skills[i]
-    i++
-  }
-
-  const retiredSp = $scope.retirement.retirementData[$scope.retirement.selected] || 0
-
-  $scope.skillPoints.totalSkillPoints = parseInt($scope.skillPoints.initialSP) + parseInt($scope.level.selected) + parseInt(retiredSp)
-  //*/
-}
-
-//----------------------------------------
-const saveURL = () => {
-  const data = {
-    class: global.selectedClass,
-    level: global.currentLevel,
-    retirement: global.retirement.selected,
-    skills: global.skillAllocation
-  }
-
-  const dataURI = LZString.compressToEncodedURIComponent(JSON.stringify(data))
-
-  history.replaceState(null, "", `#${dataURI}`)
-}
-
-//----------------------------------------
-const updateClass = () => {
-  global.skillAllocation = {}
-  global.skillPoints.usedSkillPoints = 0
-
-  /*
-  for (var skill in $scope.class.classData[$scope.class.selected].skills) {
-    $scope.skillAllocation[
-      $scope.class.classData[$scope.class.selected].skills[skill]
-    ] = 0
-  }
-  //*/
+const changeClass = () => {
+  state.skillAllocation = Object.keys(global.skills).map(k => ({ [k]: 0 }))
+  state.freeSp = 0
+  state.totalSp = global.meta.initialSp + (global.meta.spPerLevel * state.currentLevel) + state.currentRetirement
 
   saveURL()
 }
 
 //----------------------------------------
-const updateSP = () => {
-  const retiredSp = global.retirement.retirementData[global.retirement.selected] || 0
-
-  global.skillPoints.totalSkillPoints = parseInt(global.skillPoints.initialSP) + parseInt(global.currentLevel) + parseInt(retiredSp)
+const changeSp = () => {
+  state.totalSp = global.meta.initialSp + (global.meta.spPerLevel * state.currentLevel) + state.currentRetirement
 
   saveURL()
 }
 
 //----------------------------------------
-const increasePoint = (skill, points = 1) => {
-  /*
-  for (upstream in $scope.skills[skill].Upstream) {
-    if ($scope.skillAllocation[upstream] < $scope.skills[skill].Upstream[upstream])
-      $scope.increasePoint(upstream, $scope.skills[skill].Upstream[upstream] - $scope.skillAllocation[upstream])
-  }
+const increaseSkill = (skill, points = 1) => {
+  Object.entries(global.skills[skill].upstream).forEach(([ k, v ]) => {
+    if (state.skillAllocation[k] < v)
+      increaseSkill(k, v - state.skillAllocation[k])
+  })
 
-  if ($scope.skillAllocation[skill] < $scope.skills[skill].MaxLevel) {
-    $scope.skillAllocation[skill] += points
-    $scope.skillPoints.usedSkillPoints += points
+  if (state.skillAllocation[skill] < global.skills[skill].maxLevel) {
+    state.skillAllocation[skill] += points
+    state.freeSp -= points
   }
-  //*/
 
   saveURL()
 }
 
 //----------------------------------------
-const decreasePoint = (skill, points = 1) => {
-  /*
-  if ($scope.skillPoints.usedSkillPoints > 0 && $scope.skillAllocation[skill] >= points) {
-    $scope.skillAllocation[skill] -= points
-    $scope.skillPoints.usedSkillPoints -= points
+const decreaseSkill = (skill, points = 1) => {
+  if (state.skillAllocation[skill] >= points) {
+    state.skillAllocation[skill] -= points
+    state.freeSp += points
   }
 
-  for (downstream in $scope.skills[skill].Downstream) {
-    if ($scope.skillAllocation[downstream] > 0 && $scope.skillAllocation[skill] < $scope.skills[downstream].Upstream[skill])
-      $scope.decreasePoint(downstream, $scope.skillAllocation[downstream])
-  }
-  //*/
+  Object.entries(global.skills[skill].downstream).forEach(([ k, v ]) => {
+    if (state.skillAllocation[k] > 0 && state.skillAllocation[skill] < global.skills[k].upstream[skill])
+      decreaseSkill(k, state.skillAllocation[k])
+  })
 
   saveURL()
-}
-
-//----------------------------------------
-const isSkillDisabled = skill => {
-  return global.skills[skill].Upstream.some(upstream => global.skillAllocation[upstream] < global.skills[skill].Upstream[upstream])
 }
 
 //--------------------------------------------------------------------------------
@@ -162,10 +98,6 @@ const Root = component(() => {
 
 //----------------------------------------
 const Controls = component(() => {
-  const handleChange = e => {
-    console.log(e)
-  }
-
   return html`
     <div class="controls">
       <div class="logo">
@@ -174,21 +106,21 @@ const Controls = component(() => {
 
       <div class="class-selection">
         <span>Class: </span>
-        ${Select({ options: global.classes, handleChange })}
+        ${Select({ options: global.classes.map((item, value) => ({ value, text: item.name })), handleChange: changeClass })}
       </div>
 
       <div class="level-selection">
         <span>Level: </span>
-        <input type="number" name="level" class="" @change="${handleChange}">
+        <input type="number" name="level" class="" @change="${changeSp}">
       </div>
 
       <div class="retirement-selection">
         <span>Retirement: </span>
-        ${Select({ options: global.retirement.retirementData, handleChange })}
+        ${Select({ options: global.meta.retirementData, handleChange: changeSp })}
       </div>
 
       <div class="sp-count">
-        <span>SP: ${() => global.skillPoints.usedSkillPoints} / ${() => global.skillPoints.totalSkillPoints}</span>
+        <span>SP: ${() => state.freeSp} / ${() => state.totalSp}</span>
       </div>
     </div>`
 })
@@ -197,7 +129,7 @@ const Controls = component(() => {
 const Skill = component(props => {
   const classes = () => createClasses({
     "skill": true,
-    "disabled": isSkillDisabled(props.name)
+    "disabled": Object.entries(global.skills[props.name].upstream).some(([ k, v ]) => state.skillAllocation[k] < v)
   })
 
   const level = () => {
@@ -216,11 +148,11 @@ const Skill = component(props => {
       <div class="skill-buttons">
         ${Button({
           text: "-",
-          handleClick:() => decreasePoint(props.name)
+          handleClick:() => decreaseSkill(props.name)
         })}
         ${Button({
           text: "+",
-          handleClick:() => increasePoint(props.name)
+          handleClick:() => increaseSkill(props.name)
         })}
       </div>
     </div>`
@@ -265,8 +197,120 @@ const createClasses = classes => {
   }, []).join(" ")
 }
 
+//----------------------------------------
+const loadURL = () => {
+  if (!location.hash)
+    return
+
+  const data = JSON.parse(LZString.decompressFromEncodedURIComponent(location.hash))
+
+  Object.entries(data).forEach(([ k, v ]) => state[k] = v)
+
+  /*
+  var i = 0
+
+  for (var skill in $scope.class.classData[$scope.class.selected].skills) {
+    $scope.skillAllocation[$scope.class.classData[$scope.class.selected].skills[skill]] = $scope.saveData.Skills[i]
+    $scope.skillPoints.usedSkillPoints += $scope.saveData.Skills[i] == undefined
+      ? 0
+      : $scope.saveData.Skills[i]
+    i++
+  }
+
+  const retiredSp = $scope.retirement.retirementData[$scope.retirement.selected] || 0
+
+  $scope.skillPoints.totalSkillPoints = parseInt($scope.skillPoints.initialSP) + parseInt($scope.level.selected) + parseInt(retiredSp)
+  //*/
+}
+
+//----------------------------------------
+const saveURL = () => {
+  const keys = [ "currentClass", "currentLevel", "currentRetirement", "skillAllocation" ]
+  const data = {}
+
+  keys.forEach(key => data[key] = state[key])
+
+  const dataURI = LZString.compressToEncodedURIComponent(JSON.stringify(data))
+
+  history.replaceState(null, "", `#${dataURI}`)
+  //location.hash = dataURI
+}
+
+//----------------------------------------
+const drawLine = (skill, element) => {
+  /*
+  Object.keys(global.skills[skill].upstream).forEach(upstream =>
+    const template =
+      '<svg class="line" width="1000" height="805"><marker id="mid" markerWidth="10" markerHeight="10" refX="0" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="navy" /></marker>' +
+      '<polyline id="' +
+      upstream +
+      '-' +
+      skill +
+      '" marker-mid="url(#mid)"  points="' +
+      (180 * parseInt($scope.skills[upstream].Location.x) + 55) +
+      ',' +
+      (70 + 100 * parseInt($scope.skills[upstream].Location.y)) +
+      ' ' +
+      (180 * parseInt($scope.skills[skill].Location.x) + 55) +
+      ',' +
+      (70 + 100 * parseInt($scope.skills[skill].Location.y)) +
+      '"/> <rect x="' +
+      ((180 * parseInt($scope.skills[skill].Location.x) +
+        55 +
+        (180 * parseInt($scope.skills[upstream].Location.x) + 55)) /
+        2 -
+        10) +
+      '" y="' +
+      ((70 +
+        100 * parseInt($scope.skills[upstream].Location.y) +
+        (70 + 100 * parseInt($scope.skills[skill].Location.y))) /
+        2 -
+        10) +
+      '" width="20" height="20" fill="#7373b9"></rect> <text stroke="navy" text-anchor="middle" x="' +
+      (180 * parseInt($scope.skills[skill].Location.x) +
+        55 +
+        (180 * parseInt($scope.skills[upstream].Location.x) + 55)) /
+        2 +
+      '" y="' +
+      ((70 +
+        100 * parseInt($scope.skills[upstream].Location.y) +
+        (70 + 100 * parseInt($scope.skills[skill].Location.y))) /
+        2 +
+        5) +
+      '"> ' +
+      $scope.skills[skill].Upstream[upstream] +
+      '</text></svg>';
+
+    element.append(template);
+    midMarkers(document.getElementById(upstream + '-' + skill), 10);
+  })
+  //*/
+}
+
+//----------------------------------------
+// https://stackoverflow.com/questions/11808860/how-to-place-arrow-head-triangles-on-svg-lines
+const midMarkers = (poly, spacing) => {
+  var svg = poly.ownerSVGElement;
+  for (var pts = poly.points, i = 1; i < pts.numberOfItems; ++i) {
+    var p0 = pts.getItem(i - 1),
+      p1 = pts.getItem(i);
+    var dx = p1.x - p0.x,
+      dy = p1.y - p0.y;
+    var d = Math.sqrt(dx * dx + dy * dy);
+    var numPoints = Math.floor(d / spacing);
+    dx /= numPoints;
+    dy /= numPoints;
+    for (var j = numPoints - 1; j > 0; --j) {
+      var pt = svg.createSVGPoint();
+      pt.x = p0.x + dx * j;
+      pt.y = p0.y + dy * j;
+      pts.insertItemBefore(pt, i);
+    }
+    if (numPoints > 0) i += numPoints - 1;
+  }
+}
+
 //--------------------------------------------------------------------------------
-//---------------------------------------- Init ----------------------------------
 //--------------------------------------------------------------------------------
-loadURL()
-html`${Root()}`(document.body)
+//--------------------------------------------------------------------------------
+init()
