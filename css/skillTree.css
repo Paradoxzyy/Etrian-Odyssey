@@ -132,9 +132,9 @@ select {
 
 .skill-grid {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 1rem;
-  margin: 1rem 5rem;
+  grid-template-columns: repeat(6, min-content);
+  gap: 2.5rem 3rem;
+  margin: 2rem 3rem;
 }
 
 .skill-description-table {
