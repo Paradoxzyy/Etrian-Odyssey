@@ -1,3 +1,5 @@
+import { reactive, html, component } from "https://esm.sh/@arrow-js/core@1.0.6"
+
 const global = reactive({})
 
 const folder = location.origin + location.pathname
