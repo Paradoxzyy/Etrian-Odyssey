@@ -180,6 +180,7 @@ th {
   grid-template-columns: repeat(6, min-content);
   gap: 3rem 3.5rem;
   margin: 2rem 3rem;
+  width: min-content;
 }
 
 .skill {
