@@ -442,33 +442,22 @@ const loadURL = () => {
   if (!location.hash)
     return
 
-  const data = JSON.parse(LZString.decompressFromEncodedURIComponent(location.hash))
+  const keys = [ "currentClass", "currentLevel", "currentRetirement" ]
+  const data = JSON.parse(LZString.decompressFromEncodedURIComponent(location.hash.slice(1)))
 
-  //Object.entries(data).forEach(([ k, v ]) => state[k] = v)
+  keys.forEach(key => state[key] = data[key])
+  state.skillAllocation = global.classes[state.currentClass].skills.reduce((acc, curr, i) => (acc[curr] = data.skillAllocation[i], acc), {})
 
-  /*
-  var i = 0
-
-  for (var skill in global.classes[state.currentClass].skills) {
-    $scope.skillAllocation[global.classes[state.currentClass].skills[skill]] = $scope.saveData.Skills[i]
-    $scope.skillPoints.usedSkillPoints += $scope.saveData.Skills[i] == undefined
-      ? 0
-      : $scope.saveData.Skills[i]
-    i++
-  }
-
-  const retiredSp = $scope.retirement.retirementData[$scope.retirement.selected] || 0
-
-  $scope.skillPoints.totalSkillPoints = parseInt($scope.skillPoints.initialSP) + parseInt($scope.level.selected) + parseInt(retiredSp)
-  //*/
+  changeSp()
 }
 
 //----------------------------------------
 const saveURL = () => {
-  const keys = [ "currentClass", "currentLevel", "currentRetirement", "skillAllocation" ]
+  const keys = [ "currentClass", "currentLevel", "currentRetirement" ]
   const data = {}
 
   keys.forEach(key => data[key] = state[key])
+  data.skillAllocation = global.classes[state.currentClass].skills.map(item => state.skillAllocation[item])
 
   const dataURI = LZString.compressToEncodedURIComponent(JSON.stringify(data))
 
