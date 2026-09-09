@@ -130,18 +130,6 @@ select {
   left: 25rem;
 }
 
-.skill-info {
-  position: relative;
-  width: fit-content;
-  border-radius: 0.4rem;
-  z-index: 9;
-  left: -0.3rem;
-}
-
-.skill-info table {
-  background: navy;
-}
-
 .display-force {
   width: 450px;
 }
@@ -191,6 +179,7 @@ th {
   border-radius: 0 0 .4rem .4rem;
 }
 
+/* ---------- */
 .skill-grid {
   display: grid;
   grid-template-columns: repeat(6, min-content);
@@ -199,6 +188,10 @@ th {
 }
 
 .skill {
+  position: relative;
+}
+
+.skill-box {
   display: flex;
   flex-direction: column;
   gap: 0.1rem;
@@ -213,37 +206,49 @@ th {
   transition: background 0.3s;
 }
 
-.skill.disabled {
+.skill-box.disabled {
   border: 2px solid #B3B7E4;
   background: #D4DAFC;
 }
 
-.skill:hover {
+.skill-box:hover {
   background: #869AF1;
 }
 
-.skill.disabled:hover {
+.skill-box.disabled:hover {
   background: #C6CEFF;
 }
 
-.skill .skill-header {
+.skill-box .skill-header {
   display: flex;
   justify-content: space-between;
 }
 
-.skill .skill-name {
+.skill-box .skill-name {
   color: #000000;
 }
 
-.skill .skill-points {
+.skill-box .skill-points {
   font-size: 0.9rem;
 }
 
-.skill .skill-buttons {
+.skill-box .skill-buttons {
   display: flex;
   justify-content: flex-end;
 }
 
+.skill-info {
+  position: absolute;
+  width: fit-content;
+  border-radius: 0.4rem;
+  z-index: 9;
+}
+
+.skill-info table {
+  background: navy;
+}
+
+/* ---------- */
 .disabledBtn {
   opacity: 0.4;
   pointer-events: none;
