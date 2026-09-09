@@ -446,7 +446,7 @@ const loadURL = () => {
   const data = JSON.parse(LZString.decompressFromEncodedURIComponent(location.hash.slice(1)))
 
   keys.forEach(key => state[key] = data[key])
-  state.skillAllocation = global.classes[state.currentClass].skills.reduce((acc, curr, i) => (acc[curr] = data.skillAllocation[i], acc), {})
+  state.skillAllocation = global.classes[state.currentClass].skills.reduce((acc, curr, i) => (acc[curr] = data.skillAllocation[i] || 0, acc), {})
 
   changeSp()
 }
