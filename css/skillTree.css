@@ -225,6 +225,12 @@ th {
 
 .skill-box .skill-points {
   font-size: 0.9rem;
+  border-radius: 4px;
+  padding: 0 2px;
+}
+
+.skill-box .skill-points.active {
+  background: #64FF64;
 }
 
 .skill-box .skill-buttons {
