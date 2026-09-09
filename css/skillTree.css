@@ -69,7 +69,6 @@ input:checked ~ .custom-checkbox:after {
 
 select,
 input {
-  background-color: #A4B4F9;
   width: 100%;
   font-size: 16px;
   color: navy;
@@ -82,11 +81,12 @@ input {
 }
 
 select {
-  background: url(../EO1/images/dropdown.png) no-repeat 94% 0;
+  background: #A4B4F9 url(../EO1/images/dropdown.png) no-repeat 94% 0;
   cursor: pointer;
 }
 
 input {
+  background: #A4B4F9;
   border: none;
 }
 
