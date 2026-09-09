@@ -10,18 +10,8 @@ body {
   font-family: sans-serif;
 }
 
-.header::before {
-  background-image: url(../EO1/Etrian_Odyssey_logo.png);
-}
-
 img {
   padding: 10px;
-}
-
-.header {
-  margin: 0;
-  width: 100%;
-  font-size: 22px;
 }
 
 .boost-selection {
@@ -101,35 +91,6 @@ select {
   display: inline-block;
 }
 
-.logo {
-  margin-left: 60px;
-}
-.class-selection {
-  position: absolute;
-  top: 2rem;
-  left: 25rem;
-}
-.level-selection {
-  position: absolute;
-  top: 2rem;
-  left: 37rem;
-}
-.retirement-selection {
-  position: absolute;
-  top: 2rem;
-  left: 44rem;
-}
-.boost-selection {
-  position: absolute;
-  top: 5rem;
-  left: 37rem;
-}
-.sp-count{
-  position: absolute;
-  top: 5rem;
-  left: 25rem;
-}
-
 .display-force {
   width: 450px;
 }
@@ -158,6 +119,27 @@ th {
 }
 .table-bottom {
   border-radius: 0 0 .4rem .4rem;
+}
+
+/* ---------- */
+.header {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin: 1rem 3rem;
+}
+
+.header-right {
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
+  font-size: 1.5rem;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
 }
 
 /* ---------- */
