@@ -135,7 +135,7 @@ select {
   border-radius: .4rem;
   margin: 4px 2px;
   background: navy;
-  position: absolute;
+  position: relative;
   z-index: 3;
   top: 2.9rem;
   left: -.3rem;
@@ -258,7 +258,7 @@ th {
 }
 
 .line {
-  pointer-events:none;
+  pointer-events: none;
   position: absolute;
   z-index: -1;
 }
