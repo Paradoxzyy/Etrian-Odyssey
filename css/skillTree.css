@@ -254,13 +254,9 @@ th {
 }
 
 /* ---------- */
-.sp {
-  border-radius: 4px;
-  padding: 0 4px;
-}
-
-.sp.overspend {
+.overspend {
   background: #DD3F3F;
+  border-radius: 4px;
 }
 
 /* ---------- */
