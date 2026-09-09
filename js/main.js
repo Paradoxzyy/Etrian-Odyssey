@@ -1,4 +1,7 @@
-import { reactive, html, component } from "https://esm.sh/@arrow-js/core@1.0.6"
+import { reactive, html, svg, component, watch } from "https://esm.sh/@arrow-js/core@1.0.6"
+
+// Hacks
+HTMLCollection.prototype.forEach = Array.prototype.forEach
 
 const state = reactive({})
 const global = {}
@@ -10,6 +13,8 @@ const init = async () => {
   await loadData()
   loadURL()
   html`${Root()}`(document.body)
+  watch(() => state.skillAllocation, handleDrawLines)
+  handleDrawLines()
 }
 
 //--------------------------------------------------------------------------------
@@ -23,8 +28,10 @@ const loadData = async () => {
   promises.forEach((promise, i) => {
     const file = files[i]
 
-    if (promise.status == "fulfilled")
+    if (promise.status == "fulfilled") {
       global[file] = promise.value
+      Object.freeze(global[file])
+    }
     else
       console.warn(`Failed loading: ${file}.json`)
   })
@@ -32,35 +39,33 @@ const loadData = async () => {
   state.currentClass = 0
   state.currentLevel = 1
   state.currentRetirement = 0
-  state.skillAllocation = Object.keys(global.skills).map(k => ({ [k]: 0 }))
-  state.freeSp = 0
-  state.totalSp = global.meta.initialSp + (global.meta.spPerLevel * state.currentLevel) + state.currentRetirement
+
+  changeClass()
 }
 
 //--------------------------------------------------------------------------------
 //---------------------------------------- Functions -----------------------------
 //--------------------------------------------------------------------------------
 const changeClass = () => {
-  state.skillAllocation = Object.keys(global.skills).map(k => ({ [k]: 0 }))
-  state.freeSp = 0
-  state.totalSp = global.meta.initialSp + (global.meta.spPerLevel * state.currentLevel) + state.currentRetirement
+  state.skillAllocation = global.classes[state.currentClass].skills.reduce((acc, curr) => (acc[curr] = 0, acc), {})
 
-  saveURL()
+  changeSp()
 }
 
 //----------------------------------------
 const changeSp = () => {
   state.totalSp = global.meta.initialSp + (global.meta.spPerLevel * state.currentLevel) + state.currentRetirement
-
-  saveURL()
+  state.freeSp = Object.values(state.skillAllocation).reduce((acc, curr) => acc -= curr, state.totalSp)
 }
 
 //----------------------------------------
 const increaseSkill = (skill, points = 1) => {
-  Object.entries(global.skills[skill].upstream).forEach(([ k, v ]) => {
-    if (state.skillAllocation[k] < v)
-      increaseSkill(k, v - state.skillAllocation[k])
-  })
+  if (global.skills[skill].upstream) {
+    Object.entries(global.skills[skill].upstream).forEach(([ k, v ]) => {
+      if (state.skillAllocation[k] < v)
+        increaseSkill(k, v - state.skillAllocation[k])
+    })
+  }
 
   if (state.skillAllocation[skill] < global.skills[skill].maxLevel) {
     state.skillAllocation[skill] += points
@@ -77,10 +82,12 @@ const decreaseSkill = (skill, points = 1) => {
     state.freeSp += points
   }
 
-  Object.entries(global.skills[skill].downstream).forEach(([ k, v ]) => {
-    if (state.skillAllocation[k] > 0 && state.skillAllocation[skill] < global.skills[k].upstream[skill])
-      decreaseSkill(k, state.skillAllocation[k])
-  })
+  if (global.skills[skill].downstream) {
+    Object.entries(global.skills[skill].downstream).forEach(([ k, v ]) => {
+      if (state.skillAllocation[k] > 0 && state.skillAllocation[skill] < global.skills[k].upstream[skill])
+        decreaseSkill(k, state.skillAllocation[k])
+    })
+  }
 
   saveURL()
 }
@@ -90,83 +97,239 @@ const decreaseSkill = (skill, points = 1) => {
 //--------------------------------------------------------------------------------
 const Root = component(() => {
   return html`
-    ${Controls()}
-    <div class="skill-grid">
-      ${() => state.skillAllocation.map(item => Skill(item).key(item.name))}
+    <div class="header">
+      <div class="logo">
+        <img src="images/Etrian_Odyssey_logo.png" width="180px" height="100px" alt="Header Logo"></img>
+      </div>
+
+      ${Controls()}
+    </div>
+
+    <div class="main">
+      <div class="skill-grid">
+        ${SkillGrid()}
+      </div>
+
+      <div class="svg-grid">
+        ${SvgGrid()}
+      </div>
     </div>`
 })
 
 //----------------------------------------
 const Controls = component(() => {
+  const handleChangeClass = e => {
+    state.currentClass = +e.target.value
+    changeClass()
+    saveURL()
+  }
+
+  const handleChangeLevel = e => {
+    const value = Math.max(Math.min(+e.target.value, e.target.max), e.target.min)
+
+    if (+e.target.value != value)
+      e.target.value = value
+
+    state.currentLevel = value
+    changeSp()
+    saveURL()
+  }
+
+  const handleChangeRetirement = e => {
+    state.currentRetirement = +e.target.value
+    changeSp()
+    saveURL()
+  }
+
   return html`
-    <div class="controls">
-      <div class="logo">
-        <img src="images/Etrian_Odyssey_logo.png" height="100px"></img>
+    <div class="controls-container">
+      <div class="controls">
+        <div>
+          <label>
+            <span>Class</span>
+            ${Select({ name: "class", options: global.classes.map((item, value) => ({ value, text: item.name })), handleChange: handleChangeClass })}
+          </label>
+        </div>
+
+        <div>
+          <label>
+            <span>Level</span>
+            <input type="number" min="1" max="${global.meta.maxLevel}" value="1" name="level" @change="${handleChangeLevel}">
+          </label>
+        </div>
+
+        <div>
+          <label>
+            <span>Retirement</span>
+            ${Select({ name: "retirement", options: global.meta.retirementData, handleChange: handleChangeRetirement })}
+          </label>
+        </div>
       </div>
 
-      <div class="class-selection">
-        <span>Class: </span>
-        ${Select({ options: global.classes.map((item, value) => ({ value, text: item.name })), handleChange: changeClass })}
-      </div>
-
-      <div class="level-selection">
-        <span>Level: </span>
-        <input type="number" name="level" class="" @change="${changeSp}">
-      </div>
-
-      <div class="retirement-selection">
-        <span>Retirement: </span>
-        ${Select({ options: global.meta.retirementData, handleChange: changeSp })}
-      </div>
-
-      <div class="sp-count">
-        <span>SP: ${() => state.freeSp} / ${() => state.totalSp}</span>
+      <div>
+        <span>SP: <span class="${() => state.freeSp < 0 ? "overspend" : ""}">${() => state.freeSp}</span> / ${() => state.totalSp}</span>
       </div>
     </div>`
+})
+
+//----------------------------------------
+const SkillGrid = component(() => {
+  const data = () => Object.keys(state.skillAllocation)
+    .reduce((acc, curr) => {
+      const item = global.skills[curr]
+
+      // TODO verify all skills exist in skills.json
+      if (!item)
+        return acc
+
+      const index = item.location.x + 6 * item.location.y
+      item.id = curr
+      acc[index] = item
+
+      return acc
+    }, Array(48).fill(null))
+    .map((item, i) => SkillContainer(item).key(`${state.currentClass}-${i}`))
+
+  return html`
+    ${data}`
+})
+
+//----------------------------------------
+const SvgGrid = component(() => {
+  const data = () => Object.keys(state.skillAllocation).map(id => LineContainer({ id }).key(`${state.currentClass}-${id}`))
+
+  return html`
+    ${data}`
+})
+
+//----------------------------------------
+const SkillContainer = component(props => {
+  if (props.id)
+    return html`${Skill(props)}`
+
+  return html`<div></div>`
 })
 
 //----------------------------------------
 const Skill = component(props => {
-  const classes = () => createClasses({
-    "skill": true,
-    "disabled": Object.entries(global.skills[props.name].upstream).some(([ k, v ]) => state.skillAllocation[k] < v)
+  const localState = reactive({
+    showSkillInfo: false
   })
 
-  const level = () => {
+  const classes = () => createClasses({
+    "skill-box": true,
+    // TODO disabled isn't being readded
+    "disabled": global.skills[props.id].upstream && Object.entries(global.skills[props.id].upstream).some(([ k, v ]) => state.skillAllocation[k] < v)
+  })
+
+  const classesLevel = () => createClasses({
+    "skill-points": true,
+    "active": state.skillAllocation[props.id]
+  })
+
+  const toggleSkillInfo = toggle => localState.showSkillInfo = toggle
+  const level = () => props.maxLevel ? `${state.skillAllocation[props.id]}/${props.maxLevel}` : ""
+
+  const buttons = () => {
     if (!props.maxLevel)
       return ""
 
-    return `${global.skillAllocation[props.name]}/${props.maxLevel}`
-  }
-
-  return html`
-    <div class="${classes}">
-      <div class="skill-header">
-        <div>${props.name}</div>
-        <div>${level}</div>
-      </div>
+    return html`
       <div class="skill-buttons">
         ${Button({
           text: "-",
-          handleClick:() => decreaseSkill(props.name)
+          disabled: state.skillAllocation[props.id] == 0,
+          handleClick: () => decreaseSkill(props.id)
         })}
         ${Button({
           text: "+",
-          handleClick:() => increaseSkill(props.name)
+          disabled: state.skillAllocation[props.id] == props.maxLevel,
+          handleClick: () => increaseSkill(props.id)
         })}
+      </div>`
+  }
+
+  return html`
+    <div class="skill">
+      <div class="${classes}" @mouseenter="${() => toggleSkillInfo(true)}" @mouseleave="${() => toggleSkillInfo(false)}">
+        <div class="skill-header">
+          <div class="skill-name">${props.name}</div>
+          <div class="${classesLevel}">${level}</div>
+        </div>
+        ${buttons}
       </div>
+      ${() => SkillInfo({ ...props, showSkillInfo: localState.showSkillInfo })}
     </div>`
 })
 
 //----------------------------------------
-const Button = component(props => {
+const SkillInfo = component(props => {
   const classes = () => createClasses({
-    "button": true,
-    "disabled": false
+    "skill-info": true,
+    "display-top": props.location.y > 3,
+    "display-left": props.location.x > 3,
+    "hidden": !props.showSkillInfo
   })
 
+  const cols = Math.max(props.maxLevel, 5) + 2
+  const col2 = Math.floor(cols / (props.body ? 3 : 2))
+  const col1 = cols - col2 * (props.body ? 2 : 1)
+
   return html`
-    <button class="${classes}" @click="${props.handleClick}">${props.text}</button>`
+    <div class="${classes}">
+      <table>
+        <tr>
+          <th colspan="${col1}">Name</th>
+          <th colspan="${col2}" class="${props.body ? "" : "hidden"}">Body Part</th>
+          <th colspan="${col2}">Skill Type</th>
+        </tr>
+        <tr>
+          <td colspan="${col1}">${props.name}</td>
+          <td colspan="${col2}" class="${props.body ? "" : "hidden"}">${props.body}</td>
+          <td colspan="${col2}">${props.type}</td>
+        </tr>
+        <tr>
+          <td colspan="${cols}">${props.description}</td>
+        </tr>
+        <tr class="${!props.note ? "hidden" : ""}">
+          <th colspan="${cols}">Note</td>
+        </tr>
+        <tr class="${!props.note ? "hidden" : ""}">
+          <td colspan="${cols}">${props.note}</td>
+        </tr>
+        <tr class="${!props.maxLevel ? "hidden" : ""}">
+          <th colspan="2">Level</th>
+          ${() => Array.from(Array(props.maxLevel).keys()).map(i => html`<th class="${state.skillAllocation[props.id] == i + 1 ? "selected" : ""}">${i + 1}</th>`)}
+        </tr>
+        ${SkillInfoRows(props)}
+      </table>
+    </div>`
+})
+
+//----------------------------------------
+const SkillInfoRows = component(props => {
+  if (!global.skills[props.id].levelData)
+    return html``
+
+  return html`
+    ${() => Object.entries(global.skills[props.id].levelData).map(([ name, data ]) => SkillInfoRow({ name, data, id: props.id, maxLevel: props.maxLevel }))}`
+})
+
+//----------------------------------------
+const SkillInfoRow = component(props => {
+  if (!Array.isArray(props.data)) {
+    return html`
+      <tr>
+        <th colspan="2">${props.name}</th>
+        <td colspan="${props.maxLevel}" class="${state.skillAllocation[props.id] ? "selected" : ""}">${props.data}</td>
+      </tr>`
+  }
+
+  return html`
+    <tr>
+      <th colspan="2">${props.name}</th>
+      ${() => props.data.map((value, i) => html`<td colspan="${props.maxLevel ? 1 : 5}" class="${state.skillAllocation[props.id] == i + 1 ? "selected" : ""}">${value}</td>`)}
+    </tr>`
 })
 
 //--------------------------------------------------------------------------------
@@ -174,7 +337,7 @@ const Button = component(props => {
 //--------------------------------------------------------------------------------
 const Select = component(props => {
   return html`
-    <select @change="${props.handleChange}">
+    <select name="${props.name}" @change="${props.handleChange}">
       ${() => props.options.map(item => Option(item).key(item.value))}
     </select>`
 })
@@ -183,6 +346,83 @@ const Select = component(props => {
 const Option = component(props => {
   return html`
     <option value="${props.value}">${props.text}</option>`
+})
+
+//----------------------------------------
+const Button = component(props => {
+  const classes = () => createClasses({
+    "button": true,
+    "disabled": props.disabled
+  })
+
+  return html`
+    <button class="${classes}" @click="${props.handleClick}">${props.text}</button>`
+})
+
+//----------------------------------------
+const LineContainer = component(props => {
+  if (props.id)
+    return html`${Line(props)}`
+
+  return html`<div></div>`
+})
+
+//----------------------------------------
+const Line = component(props => {
+  // TODO why optional chaining?
+  if (!global.skills[props.id]?.upstream)
+    return html``
+
+  const lines = Object.keys(global.skills[props.id].upstream).map(upstream => {
+    const downskill = global.skills[props.id].location
+    const upskill = global.skills[upstream].location
+
+    const getX = v => 61 + 178 * v
+    const getY = v => 26 + 100 * v
+
+    const upX = getX(upskill.x)
+    const upY = getY(upskill.y)
+    const downX = getX(downskill.x)
+    const downY = getY(downskill.y)
+
+    const x = (downX + upX) / 2
+    const y = (upY + downY) / 2
+
+    const points = `${upX},${upY} ${downX},${downY}`
+    const id = `${upstream}-${props.id}`
+
+    const marker = svg`
+      <marker id="mid" refX="0" refY="3" orient="auto" markerWidth="10" markerHeight="10" markerUnits="strokeWidth">
+        <path d="M0,0 L0,6 L9,3 z" fill="navy" />
+      </marker>`
+
+    const polyline = svg`
+      <polyline id="${id}" marker-mid="url(#mid)" points="${points}">
+      </polyline>`
+
+    const rect = svg`
+      <rect width="20" height="20" fill="#7373B9"
+        x="${x - 10}"
+        y="${y - 10}">
+      </rect>`
+
+    const text = svg`
+      <text stroke="navy" text-anchor="middle"
+        x="${x}"
+        y="${y + 5}">
+        ${global.skills[props.id].upstream[upstream]}
+      </text>`
+
+    return html`
+      <svg class="line" width="1012" height="752">
+        ${marker}
+        ${polyline}
+        ${rect}
+        ${text}
+      </svg>`
+  })
+
+  return html`${lines}`
 })
 
 //--------------------------------------------------------------------------------
@@ -204,13 +444,13 @@ const loadURL = () => {
 
   const data = JSON.parse(LZString.decompressFromEncodedURIComponent(location.hash))
 
-  Object.entries(data).forEach(([ k, v ]) => state[k] = v)
+  //Object.entries(data).forEach(([ k, v ]) => state[k] = v)
 
   /*
   var i = 0
 
-  for (var skill in $scope.class.classData[$scope.class.selected].skills) {
-    $scope.skillAllocation[$scope.class.classData[$scope.class.selected].skills[skill]] = $scope.saveData.Skills[i]
+  for (var skill in global.classes[state.currentClass].skills) {
+    $scope.skillAllocation[global.classes[state.currentClass].skills[skill]] = $scope.saveData.Skills[i]
     $scope.skillPoints.usedSkillPoints += $scope.saveData.Skills[i] == undefined
       ? 0
       : $scope.saveData.Skills[i]
@@ -237,80 +477,39 @@ const saveURL = () => {
 }
 
 //----------------------------------------
-const drawLine = (skill, element) => {
-  /*
-  Object.keys(global.skills[skill].upstream).forEach(upstream =>
-    const template =
-      '<svg class="line" width="1000" height="805"><marker id="mid" markerWidth="10" markerHeight="10" refX="0" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="navy" /></marker>' +
-      '<polyline id="' +
-      upstream +
-      '-' +
-      skill +
-      '" marker-mid="url(#mid)"  points="' +
-      (180 * parseInt($scope.skills[upstream].Location.x) + 55) +
-      ',' +
-      (70 + 100 * parseInt($scope.skills[upstream].Location.y)) +
-      ' ' +
-      (180 * parseInt($scope.skills[skill].Location.x) + 55) +
-      ',' +
-      (70 + 100 * parseInt($scope.skills[skill].Location.y)) +
-      '"/> <rect x="' +
-      ((180 * parseInt($scope.skills[skill].Location.x) +
-        55 +
-        (180 * parseInt($scope.skills[upstream].Location.x) + 55)) /
-        2 -
-        10) +
-      '" y="' +
-      ((70 +
-        100 * parseInt($scope.skills[upstream].Location.y) +
-        (70 + 100 * parseInt($scope.skills[skill].Location.y))) /
-        2 -
-        10) +
-      '" width="20" height="20" fill="#7373b9"></rect> <text stroke="navy" text-anchor="middle" x="' +
-      (180 * parseInt($scope.skills[skill].Location.x) +
-        55 +
-        (180 * parseInt($scope.skills[upstream].Location.x) + 55)) /
-        2 +
-      '" y="' +
-      ((70 +
-        100 * parseInt($scope.skills[upstream].Location.y) +
-        (70 + 100 * parseInt($scope.skills[skill].Location.y))) /
-        2 +
-        5) +
-      '"> ' +
-      $scope.skills[skill].Upstream[upstream] +
-      '</text></svg>';
-
-    element.append(template);
-    midMarkers(document.getElementById(upstream + '-' + skill), 10);
-  })
-  //*/
-}
+const handleDrawLines = () => document.getElementsByClassName("svg-grid")[0]?.children?.forEach(child => midMarkers(child.querySelector("polyline")))
 
 //----------------------------------------
 // https://stackoverflow.com/questions/11808860/how-to-place-arrow-head-triangles-on-svg-lines
-const midMarkers = (poly, spacing) => {
+const midMarkers = poly => {
   var svg = poly.ownerSVGElement;
+
   for (var pts = poly.points, i = 1; i < pts.numberOfItems; ++i) {
     var p0 = pts.getItem(i - 1),
-      p1 = pts.getItem(i);
+        p1 = pts.getItem(i);
+
     var dx = p1.x - p0.x,
-      dy = p1.y - p0.y;
+        dy = p1.y - p0.y;
+
     var d = Math.sqrt(dx * dx + dy * dy);
-    var numPoints = Math.floor(d / spacing);
+    var numPoints = Math.floor(d / 16);
+
     dx /= numPoints;
     dy /= numPoints;
+
     for (var j = numPoints - 1; j > 0; --j) {
       var pt = svg.createSVGPoint();
       pt.x = p0.x + dx * j;
       pt.y = p0.y + dy * j;
       pts.insertItemBefore(pt, i);
     }
-    if (numPoints > 0) i += numPoints - 1;
+
+    if (numPoints > 0)
+      i += numPoints - 1;
   }
 }
 
 //--------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------
-//init()
+init()
