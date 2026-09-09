@@ -161,7 +161,7 @@ th {
   margin: 1rem 3rem;
 }
 
-.header-right {
+.controls-container {
   display: flex;
   gap: 1rem;
   flex-direction: column;
@@ -175,14 +175,27 @@ th {
 }
 
 /* ---------- */
-.skill-grid {
+.main {
   display: grid;
-  grid-template-columns: repeat(6, min-content);
-  gap: 3rem 3.5rem;
   margin: 2rem 3rem;
   width: min-content;
 }
 
+.skill-grid {
+  grid-column: 1;
+  grid-row: 1;
+
+  display: grid;
+  grid-template-columns: repeat(6, min-content);
+  gap: 3rem 3.5rem;
+}
+
+.svg-grid {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+/* ---------- */
 .skill {
   position: relative;
 }
