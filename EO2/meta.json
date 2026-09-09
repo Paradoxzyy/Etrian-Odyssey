@@ -1,0 +1,14 @@
+{
+  "maxLevel": 99,
+  "initialSp": 2,
+  "spPerLevel": 1,
+  "retirementData": [
+    { "value": 0, "text": "No Retirement" },
+    { "value": 4, "text": "30-39" },
+    { "value": 5, "text": "40-49" },
+    { "value": 6, "text": "50-59" },
+    { "value": 7, "text": "60-69" },
+    { "value": 8, "text": "70-98" },
+    { "value": 10, "text": "99" }
+  ]
+}
