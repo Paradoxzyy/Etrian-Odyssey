@@ -131,13 +131,12 @@ select {
 }
 
 .skill-info {
-  margin: 0;
-  border-radius: .4rem;
-  margin: 4px 2px;
   position: relative;
-  z-index: 3;
-  top: 2.9rem;
-  left: -.3rem;
+  width: fit-content;
+  border-radius: 0.4rem;
+  margin: 4px 2px;
+  z-index: 9;
+  left: -0.3rem;
 }
 
 .skill-info table {
@@ -151,20 +150,21 @@ select {
 .display-top {
   -webkit-transform: translateY(-100%);
   transform: translateY(-100%);
-  top: -0.4rem;
-  left: -.3rem;
+  top: -3.8rem;
+  left: -0.3rem;
 }
 
 .display-left {
   -webkit-transform: translateX(-100%);
   transform: translateX(-100%);
-  left: 7.4rem;
+  left: 6.4rem;
 }
 
 .display-top-left {
   -webkit-transform: translateX(-100%) translateY(-100%);
   transform: translateX(-100%) translateY(-100%);
-  left: 7.4rem;
+  top: -3.8rem;
+  left: 6.4rem;
 }
 
 td, th {
