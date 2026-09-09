@@ -67,6 +67,7 @@ input:checked ~ .custom-checkbox:after {
   transform: rotate(45deg);
 }
 
+/* ---------- */
 select,
 input {
   width: 100%;
@@ -90,10 +91,42 @@ input {
   border: none;
 }
 
+/* ---------- */
 .display-force {
   width: 450px;
 }
 
+.disabledBtn {
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.button {
+  background-color: #A4B4F9;
+  width: 2rem;
+  height: 1.3rem;
+  color: navy;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  border-radius: .4rem;
+  margin: 4px 2px;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.line {
+  pointer-events: none;
+  position: absolute;
+  z-index: -1;
+}
+
+.selected {
+  background: #5e6fdf;
+  color: yellow;
+}
+
+/* ---------- */
 td, th {
   padding: 5px;
   text-align: center;
@@ -221,40 +254,16 @@ th {
 }
 
 /* ---------- */
-.disabledBtn {
-  opacity: 0.4;
-  pointer-events: none;
+.sp {
+  border-radius: 4px;
+  padding: 0 4px;
 }
 
-.overspend {
-  background: red;
+.sp.overspend {
+  background: #DD3F3F;
 }
 
-.button {
-  background-color: #A4B4F9;
-  width: 2rem;
-  height: 1.3rem;
-  color: navy;
-  text-align: center;
-  text-decoration: none;
-  font-size: 16px;
-  border-radius: .4rem;
-  margin: 4px 2px;
-  cursor: pointer;
-  box-sizing: border-box;
-}
-
-.line {
-  pointer-events: none;
-  position: absolute;
-  z-index: -1;
-}
-
-.selected {
-  background: #5e6fdf;
-  color: yellow;
-}
-
+/* ---------- */
 .hidden {
   display: none;
 }
