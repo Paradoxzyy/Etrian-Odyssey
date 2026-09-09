@@ -67,9 +67,9 @@ input:checked ~ .custom-checkbox:after {
   transform: rotate(45deg);
 }
 
-select {
-  background: url(../EO1/images/dropdown.png) no-repeat 94% 0;
-  background-color: #a4b4f9;
+select,
+input {
+  background-color: #A4B4F9;
   width: 100%;
   font-size: 16px;
   color: navy;
@@ -79,16 +79,15 @@ select {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  }
+}
 
-.logo
-.class-selection,
-.level-selection,
-.retirement-selection,
-.boost-selection,
-.sp-count,
-.save-button {
-  display: inline-block;
+select {
+  background: url(../EO1/images/dropdown.png) no-repeat 94% 0;
+  cursor: pointer;
+}
+
+input {
+  border: none;
 }
 
 .display-force {
