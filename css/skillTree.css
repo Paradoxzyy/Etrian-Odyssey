@@ -134,25 +134,6 @@ select {
   width: 450px;
 }
 
-.display-top {
-  -webkit-transform: translateY(-100%);
-  transform: translateY(-100%);
-  top: -3.8rem;
-  left: -0.3rem;
-}
-
-.display-left {
-  align-self: end;
-  left: 0.4rem;
-}
-
-.display-top-left {
-  -webkit-transform: translateX(-100%) translateY(-100%);
-  transform: translateX(-100%) translateY(-100%);
-  top: -3.8rem;
-  left: 6.4rem;
-}
-
 td, th {
   padding: 5px;
   text-align: center;
@@ -246,6 +227,16 @@ th {
 
 .skill-info table {
   background: navy;
+}
+
+.skill-info.display-top {
+  -webkit-transform: translateY(-100%);
+  transform: translateY(-100%);
+  top: 0;
+}
+
+.skill-info.display-left {
+  right: 0;
 }
 
 /* ---------- */
