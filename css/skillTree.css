@@ -235,6 +235,7 @@ th {
 
 .skill-box .skill-name {
   color: #000000;
+  font-weight: bold;
 }
 
 .skill-box .skill-points {
