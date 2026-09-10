@@ -416,7 +416,7 @@ const Line = component(props => {
       </text>`
 
     return html`
-      <svg class="line" width="1012" height="752">
+      <svg class="line">
         ${marker}
         ${polyline}
         ${rect}
