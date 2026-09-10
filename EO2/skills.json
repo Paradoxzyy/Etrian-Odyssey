@@ -3975,7 +3975,7 @@
     "description": "Restores one party member's HP.",
     "type": "Active",
     "maxLevel": 10,
-    "location": { "x": 11, "y": 1 },
+    "location": { "x": 5, "y": 1 },
     "boostAllowed": false,
     "levelData": {
       "TP Cost": ["9", "10", "11", "12", "13", "14", "15", "16", "17", "18"],
@@ -3988,7 +3988,7 @@
     "description": "Fully restores one party member's HP.",
     "type": "Active",
     "maxLevel": 5,
-    "location": { "x": 12, "y": 1 },
+    "location": { "x": 5, "y": 1 },
     "boostAllowed": false,
     "levelData": {
       "TP Cost": ["38", "34", "30", "26", "22"],
@@ -4000,7 +4000,7 @@
     "description": "Restores the entire party's HP.",
     "type": "Active",
     "maxLevel": 5,
-    "location": { "x": 13, "y": 1 },
+    "location": { "x": 5, "y": 1 },
     "boostAllowed": false,
     "levelData": {
       "TP Cost": ["18", "21", "24", "27", "30"],
@@ -4013,7 +4013,7 @@
     "description": "Restores the entire party's HP.",
     "type": "Active",
     "maxLevel": 5,
-    "location": { "x": 14, "y": 1 },
+    "location": { "x": 5, "y": 1 },
     "boostAllowed": false,
     "levelData": {
       "TP Cost": ["36", "39", "42", "45", "48"],
@@ -4026,7 +4026,7 @@
     "description": "Increases one party member's damage output for 5 turns. The damage buff is applied directly to the party members' base damage, so untyped attacks such as the Alchemist's Megido skill are also affected.",
     "type": "Active",
     "maxLevel": 5,
-    "location": { "x": 15, "y": 1 },
+    "location": { "x": 5, "y": 1 },
     "boostAllowed": false,
     "levelData": {
       "TP Cost": ["2", "3", "4", "5", "6"],
@@ -4039,7 +4039,7 @@
     "description": "Decreases the amount of damage one party member takes for 5 turns.",
     "type": "Active",
     "maxLevel": 5,
-    "location": { "x": 16, "y": 1 },
+    "location": { "x": 5, "y": 1 },
     "boostAllowed": false,
     "levelData": {
       "TP Cost": ["2", "3", "4", "5", "6"],
@@ -4052,7 +4052,7 @@
     "description": "Increases one party member's AGI for 5 turns.",
     "type": "Active",
     "maxLevel": 5,
-    "location": { "x": 17, "y": 1 },
+    "location": { "x": 5, "y": 1 },
     "boostAllowed": false,
     "levelData": {
       "TP Cost": ["2", "3", "4", "5", "6"],
@@ -4065,7 +4065,7 @@
     "description": "Dispels buffs from one enemy.",
     "type": "Active",
     "maxLevel": 5,
-    "location": { "x": 18, "y": 1 },
+    "location": { "x": 5, "y": 1 },
     "boostAllowed": false,
     "levelData": {
       "TP Cost": ["1", "2", "3", "2", "1"],
