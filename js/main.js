@@ -10,12 +10,13 @@ const global = {}
 //---------------------------------------- Init ----------------------------------
 //--------------------------------------------------------------------------------
 const init = async () => {
-  return
   await loadData()
   loadURL()
+
   html`${Root()}`(document.body)
-  watch(() => state.skillAllocation, handleDrawLines)
+
   handleDrawLines()
+  watch(() => state.skillAllocation, handleDrawLines)
 }
 
 //--------------------------------------------------------------------------------
@@ -148,21 +149,21 @@ const Controls = component(() => {
         <div>
           <label>
             <span>Class</span>
-            ${Select({ name: "class", options: global.classes.map((item, value) => ({ value, text: item.name })), handleChange: handleChangeClass })}
+            ${Select({ name: "class", options: global.classes.map((item, value) => ({ value, text: item.name })), default: state.currentClass, handleChange: handleChangeClass })}
           </label>
         </div>
 
         <div>
           <label>
             <span>Level</span>
-            <input type="number" min="1" max="${global.meta.maxLevel}" value="1" name="level" @change="${handleChangeLevel}">
+            <input type="number" min="1" max="${global.meta.maxLevel}" value="${state.currentLevel}" name="level" @change="${handleChangeLevel}">
           </label>
         </div>
 
         <div>
           <label>
             <span>Retirement</span>
-            ${Select({ name: "retirement", options: global.meta.retirementData, handleChange: handleChangeRetirement })}
+            ${Select({ name: "retirement", options: global.meta.retirementData, default: state.currentRetirement, handleChange: handleChangeRetirement })}
           </label>
         </div>
       </div>
@@ -339,14 +340,14 @@ const SkillInfoRow = component(props => {
 const Select = component(props => {
   return html`
     <select name="${props.name}" @change="${props.handleChange}">
-      ${() => props.options.map(item => Option(item).key(item.value))}
+      ${() => props.options.map(item => (item.default = item.value == props.default,  Option(item).key(item.value)))}
     </select>`
 })
 
 //----------------------------------------
 const Option = component(props => {
   return html`
-    <option value="${props.value}">${props.text}</option>`
+    <option value="${props.value}" .selected="${props.default}">${props.text}</option>`
 })
 
 //----------------------------------------
