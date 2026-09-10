@@ -2,6 +2,7 @@ import { reactive, html, svg, component, watch } from "https://esm.sh/@arrow-js/
 
 // Hacks
 HTMLCollection.prototype.forEach = Array.prototype.forEach
+//const rem = parseFloat(getComputedStyle(document.documentElement).fontSize)
 
 const state = reactive({})
 const global = {}
@@ -108,13 +109,8 @@ const Root = component(() => {
     </div>
 
     <div class="main">
-      <div class="skill-grid">
-        ${SkillGrid()}
-      </div>
-
-      <div class="svg-grid">
-        ${SvgGrid()}
-      </div>
+      ${SkillGrid()}
+      ${SvgGrid()}
     </div>`
 })
 
@@ -176,6 +172,16 @@ const Controls = component(() => {
 
 //----------------------------------------
 const SkillGrid = component(() => {
+  const gridSize = Object.values(global.skills).reduce((acc, curr) => {
+    acc.x.push(curr.location.x)
+    acc.y.push(curr.location.y)
+
+    return acc
+  }, { x: [ 0 ], y: [ 0 ] })
+
+  gridSize.x = Math.max(...gridSize.x) + 1
+  gridSize.y = Math.max(...gridSize.y) + 1
+
   const data = () => Object.keys(state.skillAllocation)
     .reduce((acc, curr) => {
       const item = global.skills[curr]
@@ -184,16 +190,18 @@ const SkillGrid = component(() => {
       if (!item)
         return acc
 
-      const index = item.location.x + 6 * item.location.y
+      const index = item.location.x + gridSize.x * item.location.y
       item.id = curr
       acc[index] = item
 
       return acc
-    }, Array(48).fill(null))
+    }, Array(gridSize.x * gridSize.y).fill(null))
     .map((item, i) => SkillContainer(item).key(`${state.currentClass}-${i}`))
 
   return html`
-    ${data}`
+    <div class="skill-grid" data-columns="${gridSize.x}">
+      ${data}
+    </div>`
 })
 
 //----------------------------------------
@@ -201,7 +209,9 @@ const SvgGrid = component(() => {
   const data = () => Object.keys(state.skillAllocation).map(id => LineContainer({ id }).key(`${state.currentClass}-${id}`))
 
   return html`
-    ${data}`
+    <div class="svg-grid">
+      ${data}
+    </div>`
 })
 
 //----------------------------------------
@@ -220,7 +230,7 @@ const Skill = component(props => {
 
   const classes = () => createClasses({
     "skill-box": true,
-    // TODO disabled isn't being readded
+    // TODO disabled isn't being readded -- fixed??
     "disabled": global.skills[props.id].upstream && Object.entries(global.skills[props.id].upstream).some(([ k, v ]) => state.skillAllocation[k] < v)
   })
 
@@ -376,6 +386,9 @@ const Line = component(props => {
     return html``
 
   const lines = Object.keys(global.skills[props.id].upstream).map(upstream => {
+    if (!state.skillAllocation.hasOwnProperty(upstream))
+      return ""
+
     const downskill = global.skills[props.id].location
     const upskill = global.skills[upstream].location
 
