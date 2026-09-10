@@ -261,6 +261,7 @@ th {
 .skill-info {
   position: absolute;
   width: fit-content;
+  min-width: 25rem;
   border-radius: 0.4rem;
   z-index: 9;
 }
