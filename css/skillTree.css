@@ -179,7 +179,7 @@ th {
   grid-column: 1;
   grid-row: 1;
   display: grid;
-  grid-template-columns: repeat(6, min-content);
+  grid-template-columns: repeat(attr(data-columns, 6), min-content);
   gap: 3rem 3.5rem;
 }
 
