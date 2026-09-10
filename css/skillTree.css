@@ -222,6 +222,7 @@ th {
 
 .skill-box:hover {
   background: #869AF1;
+  z-index: 10;
 }
 
 .skill-box.disabled:hover {
