@@ -239,9 +239,10 @@ th {
 }
 
 .skill-box .skill-points {
-  font-size: 0.9rem;
-  border-radius: 4px;
+  height: min-content;
   padding: 0 2px;
+  border-radius: 4px;
+  font-size: 0.9rem;
 }
 
 .skill-box .skill-points.active {
