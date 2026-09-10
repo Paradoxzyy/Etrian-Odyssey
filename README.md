@@ -1,5 +1,5 @@
 # Link
-https://paradoxzyy.github.io/Etrian-Odyssey/EO2/
+https://paradoxzyy.github.io/Etrian-Odyssey/
 
 ---
 
