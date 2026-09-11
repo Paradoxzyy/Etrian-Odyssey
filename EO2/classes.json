@@ -133,9 +133,9 @@
 }, {
   "name": "Beast",
   "skills": [
-    "HpUpS", "TpUpS", "StrUpS", "VitUpS",
-    "TecUpS", "AgiUpS", "LucUpS", "EscUpS",
-    "Loyalty", "Autocure", "Autoheal", "En Garde",
+    "HpUpB", "TpUpB", "StrUpB", "VitUpB",
+    "TecUpB", "AgiUpB", "LucUpB", "EscUpB",
+    "Loyalty", "Autocure", "Autoheal", "En GardeB",
     "Tenacity", "Maul", "Devour", "Bodyslam",
     "Rampage", "Claw", "Wildcut", "Bristle",
     "Preen", "Wildwall", "Roar", "Saliva",
