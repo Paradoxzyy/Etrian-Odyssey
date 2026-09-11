@@ -371,7 +371,7 @@
   "EscUpL": {
     "name": "Esc Up",
     "description": "Increase Escape.",
-    "maxLevel": 10,
+    "maxLevel": 1,
     "type": "Stat Increase",
     "location": { "x": 0, "y": 7 },
     "levelData": {
@@ -742,7 +742,7 @@
   "EscUpS": {
     "name": "Esc Up",
     "description": "Increase Escape.",
-    "maxLevel": 10,
+    "maxLevel": 1,
     "type": "Stat Increase",
     "location": { "x": 0, "y": 7 },
     "levelData": {
@@ -1088,7 +1088,7 @@
   "EscUpP": {
     "name": "Esc Up",
     "description": "Increase Escape.",
-    "maxLevel": 10,
+    "maxLevel": 1,
     "type": "Stat Increase",
     "location": { "x": 0, "y": 7 },
     "levelData": {
@@ -1412,7 +1412,7 @@
   "EscUpD": {
     "name": "Esc Up",
     "description": "Increase Escape.",
-    "maxLevel": 10,
+    "maxLevel": 1,
     "type": "Stat Increase",
     "location": { "x": 0, "y": 7 },
     "levelData": {
@@ -1741,7 +1741,7 @@
   "EscUpM": {
     "name": "Esc Up",
     "description": "Increase Escape.",
-    "maxLevel": 10,
+    "maxLevel": 1,
     "type": "Stat Increase",
     "location": { "x": 0, "y": 7 },
     "levelData": {
@@ -1958,7 +1958,7 @@
   "EscUpA": {
     "name": "Esc Up",
     "description": "Increase Escape.",
-    "maxLevel": 10,
+    "maxLevel": 1,
     "type": "Stat Increase",
     "location": { "x": 0, "y": 7 },
     "levelData": {
@@ -2299,7 +2299,7 @@
   "EscUpT": {
     "name": "Esc Up",
     "description": "Increase Escape.",
-    "maxLevel": 10,
+    "maxLevel": 1,
     "type": "Stat Increase",
     "location": { "x": 0, "y": 7 },
     "levelData": {
@@ -2632,7 +2632,7 @@
   "EscUpR": {
     "name": "Esc Up",
     "description": "Increase Escape.",
-    "maxLevel": 10,
+    "maxLevel": 1,
     "type": "Stat Increase",
     "location": { "x": 0, "y": 7 },
     "levelData": {
@@ -2986,7 +2986,7 @@
   "EscUpH": {
     "name": "Esc Up",
     "description": "Increase Escape.",
-    "maxLevel": 10,
+    "maxLevel": 1,
     "type": "Stat Increase",
     "location": { "x": 0, "y": 7 },
     "levelData": {
@@ -3304,7 +3304,7 @@
   "EscUpG": {
     "name": "Esc Up",
     "description": "Increase Escape.",
-    "maxLevel": 10,
+    "maxLevel": 1,
     "type": "Stat Increase",
     "location": { "x": 0, "y": 7 },
     "levelData": {
@@ -3648,7 +3648,7 @@
   "EscUpW": {
     "name": "Esc Up",
     "description": "Increase Escape.",
-    "maxLevel": 10,
+    "maxLevel": 1,
     "type": "Stat Increase",
     "location": { "x": 0, "y": 7 },
     "levelData": {
@@ -3915,7 +3915,7 @@
   "EscUpB": {
     "name": "Esc Up",
     "description": "Increase Escape.",
-    "maxLevel": 10,
+    "maxLevel": 1,
     "type": "Stat Increase",
     "location": { "x": 0, "y": 7 },
     "levelData": {
