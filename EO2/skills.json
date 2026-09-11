@@ -3642,7 +3642,7 @@
     "maxLevel": 10,
     "type": "Active",
     "upstream": {"StrUpW": 2, "War Edge": 2},
-    "location": {"x": 2, "y": 2},
+    "location": {"x": 4, "y": 5},
     "levelData": {
       "TP Cost": [4,5,6,7,8,9,10,11,12,13],
       "Damage": ["125%", "127%", "131%", "137%", "145%", "155%", "167%", "181%", "197%", "215%"],
@@ -3753,7 +3753,7 @@
     "description": "Restores the entire party's HP.",
     "maxLevel": 5,
     "type": "Active",
-    "location": {"x": 0, "y": 2},
+    "location": {"x": 1, "y": 7},
     "levelData": {
       "TP Cost": [18,21,24,27,30],
       "Base Healing": [47,55,65,77,91],
@@ -3765,7 +3765,7 @@
     "description": "Restores the entire party's HP.",
     "maxLevel": 5,
     "type": "Active",
-    "location": {"x": 1, "y": 2},
+    "location": {"x": 2, "y": 7},
     "levelData": {
       "TP Cost": [36,39,42,45,48],
       "Base Healing": [148,160,175,193,214],
@@ -3813,7 +3813,7 @@
     "description": "Dispels buffs from one enemy.",
     "maxLevel": 5,
     "type": "Active",
-    "location": {"x": 5, "y": 2},
+    "location": {"x": 4, "y": 1},
     "levelData": {
       "TP Cost": [1,2,3,2,1],
       "Buffs Dispelled": [1,2,3,3,3],
@@ -3924,7 +3924,7 @@
     "maxLevel": 10,
     "type": "Passive",
     "downstream": {"Doze Off": 1, "Preen": 2, "Bristle": 3, "Rampage": 10},
-    "location": {"x": 2, "y": 0},
+    "location": {"x": 2, "y": 3},
     "levelData": {
       "Activation Rate": ["30%", "31%", "33%", "36%", "40%", "45%", "51%", "58%", "66%", "75%"],
       "Self-Damage Multiplier": ["105%", "102%", "99%", "96%", "93%", "90%", "87%", "84%", "81%", "78%"]
@@ -4015,7 +4015,7 @@
     "maxLevel": 10,
     "type": "Active",
     "downstream": {"Rampage": 5},
-    "location": {"x": 5, "y": 6},
+    "location": {"x": 4, "y": 4},
     "levelData": {
       "TP Cost": [8,9,10,11,12,13,14,15,16,17],
       "Damage": ["30%", "35%", "45%", "60%", "80%", "105%", "135%", "170%", "210%", "255%"],
@@ -4030,7 +4030,7 @@
     "maxLevel": 10,
     "type": "Active",
     "upstream": {"Loyalty": 10, "Bodyslam": 5},
-    "location": {"x": 5, "y": 5},
+    "location": {"x": 3, "y": 4},
     "levelData": {
       "TP Cost": [8,10,12,14,16,18,20,22,24,26],
       "Damage": ["70%", "72%", "76%", "82%", "90%", "100%", "112%", "126%", "142%", "160%"],
@@ -4141,7 +4141,7 @@
     "maxLevel": 5,
     "type": "Active",
     "upstream": {"Loyalty": 1},
-    "location": {"x": 5, "y": 5},
+    "location": {"x": 5, "y": 3},
     "levelData": {
       "TP Cost": [1],
       "Base Healing": [100,120,160,220,300],
@@ -4153,7 +4153,7 @@
     "description": "Can only be used on the field. Any non-red FOEs within a certain range will be lured to the tile this skill gets used on. Once they reach that tile, they will be stunned for a set duration.",
     "maxLevel": 5,
     "type": "Active",
-    "location": {"x": 5, "y": 6},
+    "location": {"x": 5, "y": 4},
     "levelData": {
       "TP Cost": [15,13,11,9,7],
       "Lure Radius": [3,3,4,4,5],
