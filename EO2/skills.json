@@ -5,7 +5,7 @@
     "maxLevel": 10,
     "type": "Stat Increase",
     "downstream": { "Blazer": 5, "Freezer": 5, "Shocker": 5, "Tornado": 3, "Cleaver": 1, "Allslash": 5, "Hypercut": 5, "2HitL": 5, "Riskcut": 7, "Counter": 8 },
-    "location": { "x": 3, "y": 5 },
+    "location": { "x": 3, "y": 4 },
     "levelData": {
       "Damage Increase": ["2%", "3%", "4%", "5%", "6%", "7%", "8%", "9%", "10%", "11%"]
     }
