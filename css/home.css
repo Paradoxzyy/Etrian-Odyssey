@@ -13,14 +13,27 @@ body {
 }
 
 .item {
+  padding: 1rem;
+  border: 2px solid #C3C3C3;
+  border-radius: 2rem;
+  width: 20rem;
+  height: 12rem;
+
+  background: #3E3E3E;
+  color: #FEFEFE;
+  font-size: 2rem;
+  font-family: arial;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.item a {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 1rem;
-  padding: 1rem;
-  border: 2px solid #C3C3C3;
-  border-radius: 2rem;
-  background: #3E3E3E;
-  width: 20rem;
-  height: 12rem;
+}
+
+.item img {
+  height: 9rem;
 }
