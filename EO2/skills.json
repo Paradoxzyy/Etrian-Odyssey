@@ -3924,7 +3924,7 @@
     "maxLevel": 10,
     "type": "Passive",
     "downstream": {"Doze Off": 1, "Preen": 2, "Bristle": 3, "Rampage": 10},
-    "location": {"x": 1, "y": 2},
+    "location": {"x": 2, "y": 0},
     "levelData": {
       "Activation Rate": ["30%", "31%", "33%", "36%", "40%", "45%", "51%", "58%", "66%", "75%"],
       "Self-Damage Multiplier": ["105%", "102%", "99%", "96%", "93%", "90%", "87%", "84%", "81%", "78%"]
@@ -3937,7 +3937,7 @@
     "type": "Passive",
     "upstream": {"HpUpB": 3},
     "downstream": {"Autoheal": 5},
-    "location": {"x": 2, "y": 2},
+    "location": {"x": 1, "y": 0},
     "levelData": {
       "% of HP Restored": ["1%", "2%", "3%", "4%", "5%", "6%", "7%", "8%", "9%", "10%"]
     }
@@ -3948,7 +3948,7 @@
     "maxLevel": 5,
     "type": "Passive",
     "upstream": {"Autocure": 5},
-    "location": {"x": 3, "y": 2},
+    "location": {"x": 2, "y": 0},
     "levelData": {
       "Activation Rate": ["10%", "20%", "30%", "40%", "50%"]
     }
@@ -3960,7 +3960,7 @@
     "type": "Passive",
     "upstream": {"VitUpB": 10},
     "downstream": {"Tenacity": 5},
-    "location": {"x": 4, "y": 2},
+    "location": {"x": 3, "y": 0},
     "levelData": {
       "Activation Rate": ["10%", "11%", "13%", "16%", "20%", "25%", "31%", "38%", "46%", "55%"]
     }
@@ -3982,7 +3982,7 @@
     "maxLevel": 10,
     "type": "Active",
     "downstream": {"Devour": 5},
-    "location": {"x": 5, "y": 2},
+    "location": {"x": 2, "y": 6},
     "levelData": {
       "TP Cost": [1,2,3,4,5,6,7,8,9,10],
       "Base Damage": ["101%", "102%", "104%", "107%", "111%", "116%", "122%", "129%", "137%", "146%"],
@@ -4000,7 +4000,7 @@
     "maxLevel": 5,
     "type": "Active",
     "upstream": {"Maul": 5},
-    "location": {"x": 5, "y": 2},
+    "location": {"x": 3, "y": 6},
     "levelData": {
       "TP Cost": [3,5,7,9,11],
       "Damage": ["130%", "136%", "150%", "172%", "202%"],
@@ -4015,7 +4015,7 @@
     "maxLevel": 10,
     "type": "Active",
     "downstream": {"Rampage": 5},
-    "location": {"x": 5, "y": 2},
+    "location": {"x": 5, "y": 6},
     "levelData": {
       "TP Cost": [8,9,10,11,12,13,14,15,16,17],
       "Damage": ["30%", "35%", "45%", "60%", "80%", "105%", "135%", "170%", "210%", "255%"],
@@ -4030,7 +4030,7 @@
     "maxLevel": 10,
     "type": "Active",
     "upstream": {"Loyalty": 10, "Bodyslam": 5},
-    "location": {"x": 5, "y": 2},
+    "location": {"x": 5, "y": 5},
     "levelData": {
       "TP Cost": [8,10,12,14,16,18,20,22,24,26],
       "Damage": ["70%", "72%", "76%", "82%", "90%", "100%", "112%", "126%", "142%", "160%"],
@@ -4049,7 +4049,7 @@
     "maxLevel": 10,
     "type": "Active",
     "downstream": {"Wildcut": 5},
-    "location": {"x": 5, "y": 2},
+    "location": {"x": 1, "y": 5},
     "levelData": {
       "TP Cost": [2,3,4,5,6,7,8,9,10,11],
       "Base Damage": ["70%", "72%", "74%", "77%", "80%", "84%", "89%", "94%", "99%", "104%"],
@@ -4063,7 +4063,7 @@
     "maxLevel": 5,
     "type": "Active",
     "upstream": {"Claw": 5},
-    "location": {"x": 0, "y": 1},
+    "location": {"x": 5, "y": 0},
     "levelData": {
       "TP Cost": [15,17,19,21,23],
       "Damage": ["150%", "156%", "170%", "192%", "222%"],
@@ -4178,7 +4178,7 @@
     "maxLevel": 5,
     "type": "Active",
     "upstream": {"LucUpB": 5, "TecUpB": 5},
-    "location": {"x": 5, "y": 7},
+    "location": {"x": 1, "y": 3},
     "levelData": {
       "Gathering Attempts": [1,2,3,4,5]
     }
