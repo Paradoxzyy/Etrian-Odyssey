@@ -13,18 +13,18 @@ body {
 }
 
 .item {
-  padding: 1rem;
   border: 2px solid #C3C3C3;
   border-radius: 2rem;
-  width: 20rem;
-  height: 12rem;
-
+  width: 21rem;
+  height: 14rem;
   background: #3E3E3E;
-  color: #FEFEFE;
   font-size: 2rem;
   font-family: arial;
   font-weight: bold;
-  text-decoration: none;
+}
+
+.item:hover {
+  box-shadow: 0 0 4px 4px #7A7A7A;
 }
 
 .item a {
@@ -32,6 +32,9 @@ body {
   flex-direction: column;
   align-items: center;
   gap: 1rem;
+  padding: 1rem;
+  color: #FEFEFE;
+  text-decoration: none;
 }
 
 .item img {
