@@ -12,6 +12,12 @@ const global = {}
 //--------------------------------------------------------------------------------
 const init = async () => {
   await loadData()
+
+  state.currentClass = 0
+  state.currentLevel = 1
+  state.currentRetirement = 0
+  changeClass()
+  changeSp()
   loadURL()
 
   html`${Root()}`(document.body)
@@ -38,12 +44,6 @@ const loadData = async () => {
     else
       console.warn(`Failed loading: ${file}.json`)
   })
-
-  state.currentClass = 0
-  state.currentLevel = 1
-  state.currentRetirement = 0
-
-  changeClass()
 }
 
 //--------------------------------------------------------------------------------
@@ -51,8 +51,6 @@ const loadData = async () => {
 //--------------------------------------------------------------------------------
 const changeClass = () => {
   state.skillAllocation = global.classes[state.currentClass].skills.reduce((acc, curr) => (acc[curr] = 0, acc), {})
-
-  changeSp()
 }
 
 //----------------------------------------
@@ -119,6 +117,7 @@ const Controls = component(() => {
   const handleChangeClass = e => {
     state.currentClass = +e.target.value
     changeClass()
+    changeSp()
     saveURL()
   }
 
@@ -230,7 +229,6 @@ const Skill = component(props => {
 
   const classes = () => createClasses({
     "skill-box": true,
-    // TODO disabled isn't being readded -- fixed??
     "disabled": global.skills[props.id].upstream && Object.entries(global.skills[props.id].upstream).some(([ k, v ]) => state.skillAllocation[k] < v)
   })
 
@@ -311,7 +309,7 @@ const SkillInfo = component(props => {
         </tr>
         <tr class="${!props.maxLevel ? "hidden" : ""}">
           <th colspan="2">Level</th>
-          ${() => Array.from(Array(props.maxLevel).keys()).map(i => html`<th class="${state.skillAllocation[props.id] == i + 1 ? "selected" : ""}">${i + 1}</th>`)}
+          ${() => Array.from(Array(props.maxLevel).keys()).map(i => html`<th colspan="${props.maxLevel == 1 ? 5 : 1}" class="${state.skillAllocation[props.id] == i + 1 ? "selected" : ""}">${i + 1}</th>`)}
         </tr>
         ${SkillInfoRows(props)}
       </table>
@@ -329,18 +327,58 @@ const SkillInfoRows = component(props => {
 
 //----------------------------------------
 const SkillInfoRow = component(props => {
-  if (!Array.isArray(props.data)) {
+  if (!props.maxLevel || props.data.length == 1) {
+    const classes = () => createClasses({
+      "selected": state.skillAllocation[props.id]
+    })
+
     return html`
       <tr>
         <th colspan="2">${props.name}</th>
-        <td colspan="${props.maxLevel}" class="${state.skillAllocation[props.id] ? "selected" : ""}">${props.data}</td>
+        <td colspan="${Math.max(props.maxLevel, 5)}" class="${classes}">${props.data}</td>
       </tr>`
   }
+
+  const cells = () => props.data.reduce((acc, curr, i) => {
+    if (props.data[i + 1] == curr)
+      return acc
+
+    const colspan = (() => {
+      if (props.data[i - 1] != curr)
+        return 1
+
+      const prevValues = props.data.slice(0, i + 1).reverse()
+      const prevIndex = prevValues.findIndex(n => n != curr)
+
+      return prevIndex == -1 ? prevValues.length : prevIndex
+    })()
+
+    const isLevelWithinSelected = (() => {
+      if (!state.skillAllocation[props.id])
+        return false
+
+      if (state.skillAllocation[props.id] - 1 == i)
+        return true
+
+      const min = Math.min(state.skillAllocation[props.id] - 1, i)
+      const max = Math.max(state.skillAllocation[props.id] - 1, i)
+
+      return props.data.slice(min, max + 1).every(v => v == props.data[state.skillAllocation[props.id] - 1])
+    })()
+
+    const classes = () => createClasses({
+      "selected": isLevelWithinSelected
+    })
+
+    acc.push(html`<td colspan="${colspan}" class="${classes}">${curr}</td>`)
+
+    return acc
+  }, [])
 
   return html`
     <tr>
       <th colspan="2">${props.name}</th>
-      ${() => props.data.map((value, i) => html`<td colspan="${props.maxLevel ? 1 : 5}" class="${state.skillAllocation[props.id] == i + 1 ? "selected" : ""}">${value}</td>`)}
+      ${cells}
     </tr>`
 })
 
