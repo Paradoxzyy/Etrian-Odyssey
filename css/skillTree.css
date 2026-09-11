@@ -37,12 +37,12 @@ img {
   left: 3.2em;
   height: 25px;
   width: 25px;
-  background-color: #a4b4f9;
+  background: #a4b4f9;
   border-radius: 1rem;
 }
 /* On mouse-over, add a grey background color */
 .custom-checkbox:hover input {
-  background-color: #ccc;
+  background: #ccc;
 }
 
 .custom-checkbox:after {
@@ -92,35 +92,6 @@ input {
 }
 
 /* ---------- */
-.display-force {
-  width: 450px;
-}
-
-.disabledBtn {
-  opacity: 0.4;
-  pointer-events: none;
-}
-
-.button {
-  background-color: #A4B4F9;
-  width: 2rem;
-  height: 1.3rem;
-  color: navy;
-  text-align: center;
-  text-decoration: none;
-  font-size: 16px;
-  border-radius: .4rem;
-  margin: 4px 2px;
-  cursor: pointer;
-  box-sizing: border-box;
-}
-
-.selected {
-  background: #5e6fdf;
-  color: yellow;
-}
-
-/* ---------- */
 td, th {
   padding: 5px;
   text-align: center;
@@ -166,6 +137,11 @@ th {
   display: flex;
   align-items: center;
   gap: 2rem;
+}
+
+.overspend {
+  background: #DD3F3F;
+  border-radius: 4px;
 }
 
 /* ---------- */
@@ -270,6 +246,11 @@ th {
   background: navy;
 }
 
+.skill-info .selected {
+  background: #5E6FDF;
+  color: yellow;
+}
+
 .skill-info.display-top {
   -webkit-transform: translateY(-100%);
   transform: translateY(-100%);
@@ -281,9 +262,23 @@ th {
 }
 
 /* ---------- */
-.overspend {
-  background: #DD3F3F;
-  border-radius: 4px;
+.button {
+  background: #A4B4F9;
+  width: 2rem;
+  height: 1.3rem;
+  color: navy;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  border-radius: .4rem;
+  margin: 4px 2px;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.button.disabled {
+  background: #9BA8DD;
+  pointer-events: none;
 }
 
 /* ---------- */
