@@ -2,7 +2,6 @@ import { reactive, html, svg, component, watch } from "https://esm.sh/@arrow-js/
 
 // Hacks
 HTMLCollection.prototype.forEach = Array.prototype.forEach
-//const rem = parseFloat(getComputedStyle(document.documentElement).fontSize)
 
 const state = reactive({})
 const global = {}
@@ -37,10 +36,8 @@ const loadData = async () => {
   promises.forEach((promise, i) => {
     const file = files[i]
 
-    if (promise.status == "fulfilled") {
-      global[file] = promise.value
-      Object.freeze(global[file])
-    }
+    if (promise.status == "fulfilled")
+      global[file] = Object.freeze(promise.value)
     else
       console.warn(`Failed loading: ${file}.json`)
   })
@@ -246,12 +243,12 @@ const Skill = component(props => {
 
     return html`
       <div class="skill-buttons">
-        ${Button({
+        ${() => Button({
           text: "-",
           disabled: state.skillAllocation[props.id] == 0,
           handleClick: () => decreaseSkill(props.id)
         })}
-        ${Button({
+        ${() => Button({
           text: "+",
           disabled: state.skillAllocation[props.id] == props.maxLevel,
           handleClick: () => increaseSkill(props.id)
@@ -353,18 +350,15 @@ const SkillInfoRow = component(props => {
       return prevIndex == -1 ? prevValues.length : prevIndex
     })()
 
-    const isLevelWithinSelected = (() => {
-      if (!state.skillAllocation[props.id])
+    const isLevelWithinSelected = (level => {
+      if (level == -1)
         return false
 
-      if (state.skillAllocation[props.id] - 1 == i)
+      if (level == i)
         return true
 
-      const min = Math.min(state.skillAllocation[props.id] - 1, i)
-      const max = Math.max(state.skillAllocation[props.id] - 1, i)
-
-      return props.data.slice(min, max + 1).every(v => v == props.data[state.skillAllocation[props.id] - 1])
-    })()
+      return props.data.slice(Math.min(level, i), Math.max(level, i) + 1).every(v => v == props.data[level])
+    })(state.skillAllocation[props.id] -1)
 
     const classes = () => createClasses({
       "selected": isLevelWithinSelected
@@ -430,6 +424,8 @@ const Line = component(props => {
     const downskill = global.skills[props.id].location
     const upskill = global.skills[upstream].location
 
+    // TODO use rem to calculate values
+    //const rem = parseFloat(getComputedStyle(document.documentElement).fontSize)
     const getX = v => 61 + 178 * v
     const getY = v => 26 + 100 * v
 
