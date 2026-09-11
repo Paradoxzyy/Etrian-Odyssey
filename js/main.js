@@ -97,7 +97,7 @@ const Root = component(() => {
   return html`
     <div class="header">
       <div class="logo">
-        <img src="images/Etrian_Odyssey_logo.png" width="180px" height="100px" alt="Header Logo"></img>
+        <img src="images/Etrian_Odyssey_logo.png" width="180px" height="100px" alt="Etrian Odyssey Logo" />
       </div>
 
       ${Controls()}
@@ -106,6 +106,14 @@ const Root = component(() => {
     <div class="main">
       ${SkillGrid()}
       ${SvgGrid()}
+    </div>
+
+    <div class="footer">
+      <div>
+        <a href="https://github.com/Paradoxzyy/Etrian-Odyssey">
+          <img src="https://img.shields.io/badge/github-repo-blue?logo=github" alt="GitHub Logo" />
+        </a>
+      </div>
     </div>`
 })
 
@@ -450,7 +458,7 @@ const Line = component(props => {
       </polyline>`
 
     const rect = svg`
-      <rect width="20" height="20" fill="#7373B9"
+      <rect width="20" height="20" fill="var(--background)"
         x="${x - 10}"
         y="${y - 10}">
       </rect>`
