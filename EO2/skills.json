@@ -71,7 +71,7 @@
     "name": "En Garde",
     "description": "Passively gives the Protector a chance to reduce any instance of damage they take by 50%.",
     "maxLevel": 10,
-    "type": "Passive Skill",
+    "type": "Passive",
     "upstream": { "Shields": 5 },
     "location": { "x": 3, "y": 0 },
     "levelData": {
@@ -99,7 +99,7 @@
     "location": { "x": 1, "y": 2 },
     "levelData": {
       "TP Cost": [1, 2, 3, 4, 1],
-      "Ailments Dispelled": ["Blind", "Poison", "Sleep", "Fear", "Paralyze", "Curse", "Confuse", "N/A"
+      "Ailments Dispelled": ["Blind", "Poison / Sleep", "Fear / Paralyze", "Curse / Confuse", ""
       ],
       "Speed": ["50%", "55%", "65%", "80%", "100%"]
     }
@@ -114,7 +114,7 @@
     "location": { "x": 2, "y": 5 },
     "levelData": {
       "TP Cost": [1, 2, 3, 4, 5, 6, 7, 8, 4, 1],
-      "Ailments Dispelled": ["Blind", "Poison", "Sleep", "Fear", "Paralyze", "Curse", "Confuse", "Petrify", "N/A"],
+      "Ailments Dispelled": ["Blind", "Poison", "Sleep", "Fear", "Paralyze", "Curse", "Confuse", "Petrify", ""],
       "Speed": ["100%"]
     }
   },
@@ -141,8 +141,8 @@
     "downstream": { "Freedom": 5 },
     "location": { "x": 3, "y": 5 },
     "levelData": {
-      "TP Cost": [1, 2, 3, 4, 5, 4, 3, 2, 1],
-      "Binds Removed": [1, 2, 3],
+      "TP Cost": [1, 2, 3, 4, 5, 5, 4, 3, 2, 1],
+      "Binds Removed": [1, 1, 2, 2, 3, 3, 3, 3, 3, 3],
       "Speed": ["100%"]
     }
   },
@@ -792,7 +792,7 @@
     "name": "Ambush",
     "description": "Passively increases the chance of your party getting a preemptive attack on enemies. Will not work for guaranteed blindside encounters.",
     "maxLevel": 5,
-    "type": "Passive Skill",
+    "type": "Passive",
     "upstream": { "AgiUpS": 3 },
     "downstream": { "1stHit": 5 },
     "location": { "x": 1, "y": 6 },
@@ -804,7 +804,7 @@
     "name": "Sagacity",
     "description": "Passively decreases the chance of enemies blindsiding your party. Will not work for guaranteed blindside encounters.",
     "maxLevel": 5,
-    "type": "Passive Skill",
+    "type": "Passive",
     "upstream": { "AgiUpS": 5 },
     "downstream": { "1stHit": 3 },
     "location": { "x": 1, "y": 7 },
@@ -815,8 +815,8 @@
   "1stHit": {
     "name": "1st Hit",
     "description": "Passively gives the Survivalist a chance to act first in a turn.",
-    "maxLevel": 10,
-    "type": "Passive Skill",
+    "maxLevel": 5,
+    "type": "Passive",
     "upstream": { "Ambush": 5, "Sagacity": 3 },
     "location": { "x": 2, "y": 6 },
     "levelData": {
@@ -1110,7 +1110,7 @@
     "name": "Aegis",
     "description": "If the Protector dies, this passive has a chance to revive them with 1 HP. Only works once per battle. Won't activate if the Protector gets killed by instant death.",
     "maxLevel": 10,
-    "type": "Passive Skill",
+    "type": "Passive",
     "upstream": { "HP Regen": 5, "Riskwall": 5 },
     "location": { "x": 2, "y": 0 },
     "levelData": {
@@ -1121,7 +1121,7 @@
     "name": "HP Regen",
     "description": "Passively restores the Protector's HP at the end of each turn.",
     "maxLevel": 5,
-    "type": "Passive Skill",
+    "type": "Passive",
     "upstream": { "HpUpP": 1 },
     "downstream": { "Aegis": 5 },
     "location": { "x": 1, "y": 0 },
@@ -1163,7 +1163,7 @@
   "Front Guard": {
     "name": "Front Guard",
     "description": "At the start of the turn, the Protector prepares to reduce the amount of damage the front row takes from physical attacks for the current turn. Remains active until the turn ends or the Protector dies. Every time the skill activates, the chance of it activating again is reduced. The base activation rate is 100% at all levels.",
-    "maxLevel": 5,
+    "maxLevel": 10,
     "type": "",
     "upstream": { "Shields": 1 },
     "downstream": { "All Guard": 5 },
@@ -1172,7 +1172,7 @@
       "TP Cost": [2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
       "Damage Reduction": ["15%", "16%", "18%", "21%", "25%", "30%", "36%", "43%", "51%", "60%"],
       "Chance Reduction": ["100%", "91%", "82%", "73%", "64%", "55%", "46%", "37%", "28%", "10%"],
-      "Max Activations": [1, 2, 3, 4, 10]
+      "Max Activations": [1, 2, 3, 3, 4, 4, 4, 4, 4, 10]
     }
   },
   "Back Guard": {
@@ -1187,7 +1187,7 @@
       "TP Cost": [2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
       "Damage Reduction": ["15%", "16%", "18%", "21%", "25%", "30%", "36%", "43%", "51%", "60%"],
       "Chance Reduction": ["100%", "91%", "82%", "73%", "64%", "55%", "46%", "37%", "28%", "10%"],
-      "Max Activations": [1, 2, 3, 4, 10]
+      "Max Activations": [1, 2, 3, 3, 4, 4, 4, 4, 4, 10]
     }
   },
   "All Guard": {
@@ -1201,7 +1201,7 @@
       "TP Cost": [6, 8, 10, 12, 14],
       "Damage Reduction": ["13%", "16%", "23%", "24%", "49%"],
       "Chance Reduction": ["100%", "56%", "68%", "50%", "32%"],
-      "Max Activations": [1, 2, 4]
+      "Max Activations": [1, 2, 2, 2, 4]
     }
   },
   "1 Guard": {
@@ -1228,9 +1228,9 @@
     "levelData": {
       "TP Cost": [2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
       "Damage Reduction": ["50%", "55%", "61%", "68%", "76%", "85%", "95%", "100%", "0%"],
-      "Damage Absorption": ["0%", "25%", "50%"],
+      "Damage Absorption": ["0%", "0%", "0%", "0%", "0%", "0%", "0%", "0%", "25%", "50%"],
       "Chance Reduction": ["90%", "80%", "70%", "60%", "50%", "40%", "30%", "20%", "10%", "0%"],
-      "Max Activations": [2, 3, 4, 5, 10, "Infinite"]
+      "Max Activations": [2, 2, 2, 2, 2, 3, 4, 5, 10, "∞"]
     }
   },
   "Anticold": {
@@ -1243,9 +1243,9 @@
     "levelData": {
       "TP Cost": [2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
       "Damage Reduction": ["50%", "55%", "61%", "68%", "76%", "85%", "95%", "100%", "0%"],
-      "Damage Absorption": ["0%", "25%", "50%"],
+      "Damage Absorption": ["0%", "0%", "0%", "0%", "0%", "0%", "0%", "0%", "25%", "50%"],
       "Chance Reduction": ["90%", "80%", "70%", "60%", "50%", "40%", "30%", "20%", "10%", "0%"],
-      "Max Activations": [2, 3, 4, 5, 10, "Infinite"]
+      "Max Activations": [2, 2, 2, 2, 2, 3, 4, 5, 10, "∞"]
     }
   },
   "Antivolt": {
@@ -1258,9 +1258,9 @@
     "levelData": {
       "TP Cost": [2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
       "Damage Reduction": ["50%", "55%", "61%", "68%", "76%", "85%", "95%", "100%", "0%"],
-      "Damage Absorption": ["0%", "25%", "50%"],
+      "Damage Absorption": ["0%", "0%", "0%", "0%", "0%", "0%", "0%", "0%", "25%", "50%"],
       "Chance Reduction": ["90%", "80%", "70%", "60%", "50%", "40%", "30%", "20%", "10%", "0%"],
-      "Max Activations": [2, 3, 4, 5, 10, "Infinite"]
+      "Max Activations": [2, 2, 2, 2, 2, 3, 4, 5, 10, "∞"]
     }
   },
   "Antiall": {
@@ -1273,9 +1273,9 @@
     "levelData": {
       "TP Cost": [6, 8, 10, 12, 14],
       "Damage Reduction": ["50%", "55%", "61%", "68%", "0%"],
-      "Damage Absorption": ["0%", "10%"],
+      "Damage Absorption": ["0%", "0%", "0%", "0%", "10%"],
       "Chance Reduction": ["100%", "82%", "64%", "46%", "28%"],
-      "Max Activations": [1, 2, 3, 4]
+      "Max Activations": [1, 2, 2, 3, 4]
     }
   },
   "Fortify": {
@@ -1301,7 +1301,7 @@
     "levelData": {
       "TP Cost": [3, 4, 5, 6, 7, 8, 9, 8, 7, 6],
       "Defense Increase": ["0%", "3%", "6%", "9%", "12%", "15%", "18%", "21%", "24%", "27%"],
-      "Provoke Rate": ["20%", "25%", "35%", "50%", "70%", "95%", "100%"],
+      "Provoke Rate": ["20%", "25%", "35%", "50%", "70%", "95%", "100%", "100%", "100%", "100%"],
       "Speed": ["100%", "103%", "109%", "118%", "130%", "145%", "163%", "184%", "208%", "235%"]
     }
   },
@@ -1652,7 +1652,7 @@
     "location": { "x": 1, "y": 6 },
     "levelData": {
       "TP Cost": [15, 13, 11, 9, 7],
-      "Lure Radius": [3, 4, 5],
+      "Lure Radius": [3, 3, 4, 4, 5],
       "Stun Duration": [4, 5, 6, 7, 8]
     }
   },
@@ -1816,7 +1816,7 @@
     "location": { "x": 3, "y": 6 },
     "levelData": {
       "TP Cost": [3, 6, 9, 12, 15],
-      "Binds Removed": [1, 2, 3],
+      "Binds Removed": [1, 1, 2, 2, 3],
       "Speed": ["100%"]
     }
   },
@@ -1829,7 +1829,7 @@
     "location": { "x": 2, "y": 6 },
     "levelData": {
       "TP Cost": [6, 12, 18, 24, 18],
-      "Ailments Dispelled": ["Blind", "Poison", "Sleep", "Fear", "Paralyze", "Curse", "Confuse", "N/A"],
+      "Ailments Dispelled": ["Blind", "Poison / Sleep", "Fear / Paralyze", "Curse / Confuse", ""],
       "Speed": ["100%"]
     }
   },
@@ -2470,7 +2470,7 @@
     "location": { "x": 5, "y": 5 },
     "levelData": {
       "TP Cost": [1, 2, 3, 2, 1],
-      "Buffs Dispelled": [1, 2, 3],
+      "Buffs Dispelled": [1, 2, 3, 3, 3],
       "Speed": ["200%", "202%", "206%", "212%", "220%"]
     }
   },
@@ -2483,7 +2483,7 @@
     "location": { "x": 5, "y": 4 },
     "levelData": {
       "TP Cost": [3, 4, 5, 4, 3],
-      "Buffs Dispelled": [1, 2, 3],
+      "Buffs Dispelled": [1, 2, 3, 3, 3],
       "Speed": ["100%", "102%", "106%", "112%", "120%"]
     }
   },
@@ -2532,7 +2532,7 @@
     "location": { "x": 1, "y": 4 },
     "levelData": {
       "TP Cost": [15, 13, 11, 9, 7],
-      "Lure Radius": [3, 4, 5],
+      "Lure Radius": [3, 3, 4, 4, 5],
       "Stun Duration": [4, 5, 6, 7, 8]
     }
   },
@@ -2544,7 +2544,7 @@
     "location": { "x": 1, "y": 5 },
     "levelData": {
       "TP Cost": [15, 13, 11, 9, 7],
-      "Stun Radius": [3, 4, 5],
+      "Stun Radius": [3, 3, 4, 4, 5],
       "Stun Duration": [4, 5, 6, 7, 8]
     }
   },
@@ -2735,7 +2735,7 @@
     "levelData": {
       "TP Cost": [12, 13, 14, 15, 16, 17, 18, 19, 20, 21],
       "Damage": ["60%", "62%", "66%", "72%", "80%", "90%", "102%", "116%", "132%", "140%"],
-      "Number of Hits": [2, 3],
+      "Number of Hits": [2, 2, 2, 2, 2, 2, 2, 2, 2, 3],
       "Total Damage": ["120%", "124%", "132%", "144%", "160%", "180%", "204%", "232%", "264%", "420%"],
       "Speed": ["1%", "3%", "7%", "13%", "21%", "31%", "43%", "57%", "73%", "91%"],
       "Accuracy": ["95%", "96%", "98%", "101%", "105%", "110%", "116%", "123%", "131%", "140%"]
@@ -3181,7 +3181,7 @@
     "location": { "x": 2, "y": 7 },
     "levelData": {
       "TP Cost": [10, 8, 6, 4, 2],
-      "Suicide Attacks": [1, 2, 3]
+      "Attacks": [1, 1, 2, 2, 3]
     }
   },
   "Betrayal": {
@@ -3193,7 +3193,7 @@
     "location": { "x": 3, "y": 7 },
     "levelData": {
       "TP Cost": [10, 8, 6, 4, 2],
-      "Suicide Attacks": [1, 2, 3]
+      "Attacks": [1, 1, 2, 2, 3]
     }
   },
   "Paralyze": {
@@ -3204,8 +3204,7 @@
     "upstream": { "Evil Eye": 1 },
     "location": { "x": 4, "y": 7 },
     "levelData": {
-      "TP Cost": [10, 8, 6, 4, 2],
-      "Suicide Attacks": [1, 2, 3]
+      "TP Cost": [10, 8, 6, 4, 2]
     }
   },
   "Revenge": {
@@ -3550,15 +3549,7 @@
     "location": { "x": 1, "y": 1 },
     "levelData": {
       "TP Cost": [3, 6, 9, 12, 9],
-      "Ailments Dispelled": [
-        "Blind",
-        "Poison",
-        "Sleep",
-        "Fear",
-        "Paralyze",
-        "Curse",
-        "Confuse"
-      ],
+      "Ailments Dispelled": [ "Blind", "Poison / Sleep", "Fear / Paralyze", "Curse / Confuse", "" ],
       "Speed": ["100%", "102%", "106%", "112%", "120%"]
     }
   },
@@ -3570,7 +3561,7 @@
     "location": { "x": 2, "y": 7 },
     "levelData": {
       "TP Cost": [15, 13, 11, 9, 7],
-      "Stun Radius": [3, 4, 5],
+      "Stun Radius": [3, 3, 4, 4, 5],
       "Stun Duration": [4, 5, 6, 7, 8]
     }
   },
@@ -3830,7 +3821,7 @@
     "location": { "x": 5, "y": 1 },
     "levelData": {
       "TP Cost": [1, 2, 3, 2, 1],
-      "Buffs Dispelled": [1, 2, 3],
+      "Buffs Dispelled": [1, 2, 3, 3, 3],
       "Speed": ["200%", "202%", "206%", "212%", "220%"]
     }
   },
@@ -4035,13 +4026,13 @@
     "levelData": {
       "TP Cost": [8, 10, 12, 14, 16, 18, 20, 22, 24, 26],
       "Damage": ["70%", "72%", "76%", "82%", "90%", "100%", "112%", "126%", "142%", "160%"],
-      "Number of Hits": ["3-4", "3-5", "3-6"],
+      "Number of Hits": ["3-4", "3-5", "3-5", "3-5", "3-5", "3-5", "3-5", "3-6", "3-6", "3-6"],
       "Speed": ["10%", "12%", "16%", "22%", "30%", "40%", "52%", "66%", "82%", "100%"],
       "Accuracy": ["30%", "31%", "33%", "36%", "40%", "45%", "51%", "58%", "66%", "75%"],
-      "Chance of 3 Hits": ["70%", "60%", "50%", "40%", "30%", "20%", "10%"],
+      "Chance of 3 Hits": ["70%", "60%", "50%", "40%", "30%", "20%", "10%", "10%", "10%", "10%"],
       "Chance of 4 Hits": ["30%", "25%", "45%", "50%", "60%", "65%", "75%", "65%", "55%", "45%"],
-      "Chance of 5 Hits": ["0%", "5%", "10%", "15%", "20%", "25%"],
-      "Chance of 6 Hits": ["0%", "5%", "10%", "20%"]
+      "Chance of 5 Hits": ["0%", "5%", "5%", "10%", "10%", "15%", "15%", "20%", "25%", "25%"],
+      "Chance of 6 Hits": ["0%", "0%", "0%", "0%", "0%", "0%", "0%", "5%", "10%", "20%"]
     }
   },
   "Claw": {
@@ -4096,7 +4087,7 @@
     "levelData": {
       "TP Cost": [3, 4, 5, 6, 7, 8, 9, 8, 7, 6],
       "Defense Increase": ["0%", "2%", "4%", "6%", "8%", "10%", "12%", "14%", "16%", "18%"],
-      "Provoke Rate": ["20%", "25%", "35%", "50%", "70%", "95%", "100%"],
+      "Provoke Rate": ["20%", "25%", "35%", "50%", "70%", "95%", "100%", "100%", "100%", "100%"],
       "Speed": ["100%", "103%", "109%", "118%", "130%", "145%", "163%", "184%", "208%", "235%"]
     }
   },
@@ -4157,7 +4148,7 @@
     "location": { "x": 5, "y": 6 },
     "levelData": {
       "TP Cost": [15, 13, 11, 9, 7],
-      "Lure Radius": [3, 4, 5],
+      "Lure Radius": [3, 3, 4, 4, 5],
       "Stun Duration": [4, 5, 6, 7, 8]
     }
   },
@@ -4169,7 +4160,7 @@
     "location": { "x": 5, "y": 7 },
     "levelData": {
       "TP Cost": [15, 13, 11, 9, 7],
-      "Stun Radius": [3, 4, 5],
+      "Stun Radius": [3, 3, 4, 4, 5],
       "Stun Duration": [4, 5, 6, 7, 8]
     }
   },
