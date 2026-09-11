@@ -1,0 +1,25 @@
+name: Minify-JSON
+on:
+  push:
+    branches:
+    - main
+    paths:
+    - '**.json'
+    - '!**/minified/*.json'
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+
+    - name: Minify JSON
+      uses: StefanEnsmann/Minify-JSON-Action@1.1.0
+      with:
+        input_file: .
+        output_file: minified/
+
+    - name: Commit
+      uses: stefanzweifel/git-auto-commit-action@v5
+      with:
+        commit_message: "[bot] auto-minify"
