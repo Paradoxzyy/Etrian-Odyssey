@@ -14,10 +14,10 @@ jobs:
     outputs:
       matrix: ${{ steps.matrix.outputs.value }}
     steps:
-      #- name: Checkout
-      #  uses: actions/checkout@v7
-      #  with:
-      #    ref: ${{ github.ref }}
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ github.ref }}
 
       - name: Get changed files
         id: changed-files
@@ -34,6 +34,7 @@ jobs:
               echo "path=${file%/*}" >> $GITHUB_OUTPUT
               echo "pathmin=${file%/*}/minified" >> $GITHUB_OUTPUT
               echo "file=${file##*/}" >> $GITHUB_OUTPUT
+              echo "filer=[\"${file##*/}\"]" >> $GITHUB_OUTPUT
               ;;
             esac
           done
@@ -47,6 +48,10 @@ jobs:
       matrix:
         value: ${{fromJSON(needs.setup.outputs.matrix)}}
     steps:
+      - name: debug
+        run: |
+          echo ${{ matrix.value }}
+
       - name: Checkout
         uses: actions/checkout@v7
         with:
