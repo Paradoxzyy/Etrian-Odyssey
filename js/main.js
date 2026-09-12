@@ -16,8 +16,8 @@ const init = async () => {
   state.currentLevel = 1
   state.currentRetirement = 0
   changeClass()
-  changeSp()
   loadURL()
+  changeSp()
 
   html`${Root()}`(document.body)
 
@@ -525,8 +525,6 @@ const loadURL = () => {
 
   keys.forEach(key => state[key] = data[key])
   state.skillAllocation = global.classes[state.currentClass].skills.reduce((acc, curr, i) => (acc[curr] = data.skillAllocation[i] || 0, acc), {})
-
-  changeSp()
 }
 
 //----------------------------------------
