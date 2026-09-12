@@ -27,7 +27,7 @@ jobs:
         env:
           ALL_CHANGED_FILES: ${{ steps.changed-files.outputs.all_changed_files }}
         run: |
-          ALL_CHANGED_FILESr=("EO1/meta.json" "EO1/skills.json")
+          ALL_CHANGED_FILESr=("EO1/meta.json" "EO1/skills.json" "EO1/classes.json" "EO2/meta.json" "EO2/skills.json" "EO2/classes.json")
           matrix=()
 
           for file in "${ALL_CHANGED_FILESr[@]}"; do
@@ -43,11 +43,9 @@ jobs:
 
           echo value=["${matrix[@]//$'\n'/}"] >> $GITHUB_OUTPUT
 
-  build:
+  prepare:
     needs: [ setup ]
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
     strategy:
       matrix:
         value: ${{ fromJSON(needs.setup.outputs.matrix) }}
@@ -68,6 +66,17 @@ jobs:
         with:
           input_file: "${{ matrix.value.path }}"
           output_file: "${{ matrix.value.dirmin }}${{ matrix.value.filename }}"
+
+  commit:
+    needs: [ prepare ]
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ github.ref }}
 
       - name: Commit
         uses: stefanzweifel/git-auto-commit-action@v7
