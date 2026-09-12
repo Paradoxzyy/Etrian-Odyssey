@@ -6,34 +6,55 @@ on:
     paths:
     - '**.json'
     - '!**/minified/*.json'
+
 jobs:
-  build:
+  setup:
     runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.matrix.outputs.value }}
     steps:
-    - name: Checkout
-      uses: actions/checkout@v7
-      with:
-        ref: ${{ github.ref }}
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ github.ref }}
 
-    - name: Get changed files
-      id: changed-files
-      uses: tj-actions/changed-files@9426d40962ed5378910ee2e21d5f8c6fcbf2dd96
+      - name: Get changed files
+        id: changed-files
+        uses: tj-actions/changed-files@9426d40962ed5378910ee2e21d5f8c6fcbf2dd96
 
-    - name: List all changed files
-      env:
-        ALL_CHANGED_FILES: ${{ steps.changed-files.outputs.all_changed_files }}
-      run: |
-        for file in ${ALL_CHANGED_FILES}; do
-          echo "$file was changed"
-        done
+      - id: matrix
+        env:
+          ALL_CHANGED_FILES: ${{ steps.changed-files.outputs.all_changed_files }}
+        run: |
+          for file in ${ALL_CHANGED_FILES}; do
+            echo "$file" >> $GITHUB_OUTPUT
+          done
 
-    #- name: Minify JSON
-    #  uses: StefanEnsmann/Minify-JSON-Action@1.1.0
-    #  with:
-    #    input_file: .
-    #    output_file: minified/
+      #- id: matrix
+      #  run: |
+      #    echo "value=[\"a\", \"b\", \"c\"]" >> $GITHUB_OUTPUT
+      #- run: |
+      #    echo "${{ steps.matrix.outputs.value }}"
 
-    #- name: Commit
-    #  uses: stefanzweifel/git-auto-commit-action@v7
-    #  with:
-    #    commit_message: "[bot] auto-minify"
+  build:
+    needs: [ setup ]
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        value: ${{fromJSON(needs.setup.outputs.matrix)}}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ github.ref }}
+
+      - name: Minify JSON
+        uses: StefanEnsmann/Minify-JSON-Action@1.1.0
+        with:
+          input_file: "${{ matrix.value }}"
+          output_file: minified/"${{ matrix.value }}"
+
+      - name: Commit
+        uses: stefanzweifel/git-auto-commit-action@v7
+        with:
+          commit_message: "[bot] auto-minify"
