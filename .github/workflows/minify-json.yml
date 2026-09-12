@@ -1,11 +1,11 @@
 name: Minify-JSON
-on:
-  push:
-    branches:
-    - main
-    paths:
-    - '**.json'
-    - '!**/minified/*.json'
+on: workflow_dispatch
+  #push:
+  #  branches:
+  #  - main
+  #  paths:
+  #  - '**.json'
+  #  - '!**/minified/*.json'
 
 jobs:
   setup:
@@ -22,10 +22,20 @@ jobs:
         id: changed-files
         uses: tj-actions/changed-files@9426d40962ed5378910ee2e21d5f8c6fcbf2dd96
 
+      - name: List Files
+        id: list-files
+        uses: mirko-felice/list-files-action@v3.0.5
+        with:
+          repo: ${{ github.repository }}
+          ref: ${{ github.ref }}
+          path: "."
+          ext: ".yml"
+
       - name: Create matrix of all changed json files
         id: matrix
         env:
-          ALL_CHANGED_FILES: ${{ steps.changed-files.outputs.all_changed_files }}
+          ALL_CHANGED_FILES: ${{ steps.list-files.outputs.paths }}
+          # ALL_CHANGED_FILES: ${{ steps.changed-files.outputs.all_changed_files }}
         run: |
           for file in ${ALL_CHANGED_FILES}; do
             case $file in *.json)
