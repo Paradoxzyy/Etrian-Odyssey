@@ -43,9 +43,11 @@ jobs:
 
           echo value=["${matrix[@]//$'\n'/}"] >> $GITHUB_OUTPUT
 
-  prepare:
+  build:
     needs: [ setup ]
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     strategy:
       matrix:
         value: ${{ fromJSON(needs.setup.outputs.matrix) }}
@@ -66,17 +68,6 @@ jobs:
         with:
           input_file: "${{ matrix.value.path }}"
           output_file: "${{ matrix.value.dirmin }}${{ matrix.value.filename }}"
-
-  commit:
-    needs: [ prepare ]
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v7
-        with:
-          ref: ${{ github.ref }}
 
       - name: Commit
         uses: stefanzweifel/git-auto-commit-action@v7
