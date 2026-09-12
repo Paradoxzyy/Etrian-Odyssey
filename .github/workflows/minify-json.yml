@@ -22,22 +22,13 @@ jobs:
         id: changed-files
         uses: tj-actions/changed-files@9426d40962ed5378910ee2e21d5f8c6fcbf2dd96
 
-      - name: List Files
-        id: list-files
-        uses: mirko-felice/list-files-action@v3.0.5
-        with:
-          repo: ${{ github.repository }}
-          ref: ${{ github.ref }}
-          path: "**"
-          ext: ".json"
-
       - name: Create matrix of all changed json files
         id: matrix
         env:
-          ALL_CHANGED_FILES: ${{ steps.list-files.outputs.paths }}
-          # ALL_CHANGED_FILES: ${{ steps.changed-files.outputs.all_changed_files }}
+          ALL_CHANGED_FILES: ${{ steps.changed-files.outputs.all_changed_files }}
         run: |
-          for file in ${ALL_CHANGED_FILES}; do
+          ALL_CHANGED_FILESr=("EO1/classes.json", "EO1/meta.json", "EO1/skills.json", "EO2/classes.json", "EO2/meta.json", "EO2/skills.json")
+          for file in ${ALL_CHANGED_FILESr}; do
             case $file in *.json)
               echo "value=[{ \"path\": \"$file\", \"dirmin\": \"${file%/*}/minified/\", \"filename\": \"${file##*/}\" }]" >> $GITHUB_OUTPUT
               ;;
