@@ -33,7 +33,8 @@ jobs:
               echo "path=${file%/*}" >> $GITHUB_OUTPUT
               echo "pathmin=${file%/*}/minified" >> $GITHUB_OUTPUT
               echo "file=${file##*/}" >> $GITHUB_OUTPUT
-            ;;
+              ;;
+            esac
           done
 
   build:
