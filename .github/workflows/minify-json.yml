@@ -31,7 +31,7 @@ jobs:
           for file2 in ${CHANGED_FILES}; do
             file=EO2/test.json
             case $file in *.json)
-              echo "value=[\"path\"=\"$file\", \"dir\"=\"${file%/*}\", \"dirmin\"=\"${file%/*}/minified\", \"file\"=\"${file##*/}\"]" >> $GITHUB_OUTPUT
+              echo "value=[{ \"path\": \"$file\", \"dir\": \"${file%/*}\", \"dirmin\": \"${file%/*}/minified\", \"file\": \"${file##*/}\" }]" >> $GITHUB_OUTPUT
               ;;
             esac
           done
