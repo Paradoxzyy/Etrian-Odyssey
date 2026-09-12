@@ -41,6 +41,16 @@ const loadData = async () => {
     else
       console.warn(`Failed loading: ${file}.json`)
   })
+
+  Object.entries(global.skills).forEach(([ id, skill ]) => {
+    if (!skill.upstream)
+      return
+
+    Object.entries(skill.upstream).forEach(([ k, v ]) => {
+      global.skills[k].downstream ??= {}
+      global.skills[k].downstream[id] = v
+    })
+  })
 }
 
 //--------------------------------------------------------------------------------
