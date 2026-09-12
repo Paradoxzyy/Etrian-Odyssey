@@ -3677,7 +3677,7 @@
     "maxLevel": 5,
     "type": "Active",
     "upstream": {"War Lore": 7, "CureW": 3},
-    "location": {"x": 1, "y": 7},
+    "location": {"x": 4, "y": 0},
     "levelData": {
       "TP Cost": [18,21,24,27,30],
       "Base Healing": [47,55,65,77,91],
@@ -3690,7 +3690,7 @@
     "maxLevel": 5,
     "type": "Active",
     "upstream": {"War Lore": 10, "Cure 2W": 4},
-    "location": {"x": 2, "y": 7},
+    "location": {"x": 5, "y": 0},
     "levelData": {
       "TP Cost": [36,39,42,45,48],
       "Base Healing": [148,160,175,193,214],
