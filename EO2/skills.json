@@ -2798,6 +2798,16 @@
       "Speed": ["100%"]
     }
   },
+  "MineR": {
+    "name": "Mine",
+    "description": "Mine for materials at item points.",
+    "maxLevel": 5,
+    "type": "Search Skill",
+    "location": {"x": 1, "y": 7},
+    "levelData": {
+      "Gather Up": [1,2,3,4,5]
+    }
+  },
   "Issen": {
     "name": "Force: Issen",
     "description": "Deals 500% melee STR-based Cut damage to all enemies. Has a 50% chance to inflict instant death. Has a 1% speed modifier. Has a 100% accuracy modifier.",
