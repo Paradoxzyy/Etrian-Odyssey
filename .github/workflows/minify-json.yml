@@ -30,11 +30,7 @@ jobs:
         run: |
           for file in ${CHANGED_FILES}; do
             case $file in *.json)
-              echo "fullpath=$file" >> $GITHUB_OUTPUT
-              echo "path=${file%/*}" >> $GITHUB_OUTPUT
-              echo "pathmin=${file%/*}/minified" >> $GITHUB_OUTPUT
-              echo "file=${file##*/}" >> $GITHUB_OUTPUT
-              echo "filer=[\"${file##*/}\"]" >> $GITHUB_OUTPUT
+              echo "fullpath=[\"$file\"], path=[\"${file%/*}\"], pathmin=[\"${file%/*}/minified\"], file=[\"${file##*/}\"]" >> $GITHUB_OUTPUT
               ;;
             esac
           done
@@ -51,6 +47,7 @@ jobs:
       - name: debug
         run: |
           echo ${{ matrix.value }}
+          echo ${{ matrix.value.fullpath }}
 
       - name: Checkout
         uses: actions/checkout@v7
