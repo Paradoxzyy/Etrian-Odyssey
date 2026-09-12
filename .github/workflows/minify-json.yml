@@ -1,11 +1,12 @@
 name: Minify-JSON
-on:
-  push:
-    branches:
-    - main
-    paths:
-    - '**.json'
-    - '!**/minified/*.json'
+on: workflow_dispatch
+#on:
+#  push:
+#    branches:
+#    - main
+#    paths:
+#    - '**.json'
+#    - '!**/minified/*.json'
 
 jobs:
   setup:
@@ -13,10 +14,10 @@ jobs:
     outputs:
       matrix: ${{ steps.matrix.outputs.value }}
     steps:
-      - name: Checkout
-        uses: actions/checkout@v7
-        with:
-          ref: ${{ github.ref }}
+      #- name: Checkout
+      #  uses: actions/checkout@v7
+      #  with:
+      #    ref: ${{ github.ref }}
 
       - name: Get changed files
         id: changed-files
