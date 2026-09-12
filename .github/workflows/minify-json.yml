@@ -25,15 +25,22 @@ jobs:
       - name: Create matrix
         id: matrix
         env:
-          ALL_CHANGED_FILES: ${{ steps.changed-files.outputs.all_changed_files }}
+          CHANGED_FILES: ${{ steps.changed-files.outputs.all_changed_files }}
         run: |
-          for file in ${ALL_CHANGED_FILES}; do
-            echo "value=[\"$file\"]" >> $GITHUB_OUTPUT
+          for file in ${CHANGED_FILES}; do
+            case $file in *.json)
+              echo "fullpath=$file" >> $GITHUB_OUTPUT
+              echo "path=${file%/*}" >> $GITHUB_OUTPUT
+              echo "pathmin=${file%/*}/minified" >> $GITHUB_OUTPUT
+              echo "file=${file##*/}" >> $GITHUB_OUTPUT
+            ;;
           done
 
   build:
     needs: [ setup ]
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     strategy:
       matrix:
         value: ${{fromJSON(needs.setup.outputs.matrix)}}
@@ -43,26 +50,18 @@ jobs:
         with:
           ref: ${{ github.ref }}
 
-      - name: Split string to path & folder
-        id: split
-        env:
-          FULLPATH: "${{ matrix.value }}"
-        run: |
-          echo "path=${FULLPATH%/*}" >> $GITHUB_OUTPUT
-          echo "file=${FULLPATH##*/}" >> $GITHUB_OUTPUT
-
       - name: Create folder
         run: |
-          if [ ! -d "${{ steps.split.outputs.path }}/minified" ]; then
-            mkdir -p "${{ steps.split.outputs.path }}/minified"
-            echo "created folder: ${{ steps.split.outputs.path }}"
+          if [ ! -d "${{ matrix.value.pathmin }}" ]; then
+            mkdir -p "${{ matrix.value.pathmin }}"
+            echo "created folder: ${{ matrix.value.pathmin }}"
           fi
 
       - name: Minify JSON
         uses: StefanEnsmann/Minify-JSON-Action@1.1.0
         with:
-          input_file: "${{ matrix.value }}"
-          output_file: ${{ steps.split.outputs.path }}/minified/${{ steps.split.outputs.file }}
+          input_file: "${{ matrix.value.fullpath }}"
+          output_file: "${{ matrix.value.pathmin }}${{ matrix.value.file }}"
 
       - name: Commit
         uses: stefanzweifel/git-auto-commit-action@v7
