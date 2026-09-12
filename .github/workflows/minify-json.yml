@@ -41,7 +41,7 @@ jobs:
             esac
           done
 
-          echo value=["${matrix[@]}"] >> $GITHUB_OUTPUT
+          echo value=["${matrix[@]//$'\n'/}"] >> $GITHUB_OUTPUT
 
   build:
     needs: [ setup ]
