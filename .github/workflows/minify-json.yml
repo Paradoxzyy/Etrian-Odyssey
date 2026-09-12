@@ -27,9 +27,9 @@ jobs:
         env:
           ALL_CHANGED_FILES: ${{ steps.changed-files.outputs.all_changed_files }}
         run: |
-          ALL_CHANGED_FILESr=("EO1/classes.json", "EO1/meta.json", "EO1/skills.json", "EO2/classes.json", "EO2/meta.json", "EO2/skills.json")
-          for file in ${ALL_CHANGED_FILESr}; do
-            case $file in *.json)
+          ALL_CHANGED_FILESr=("EO1/classes.json" "EO1/meta.json" "EO1/skills.json" "EO2/classes.json" "EO2/meta.json" "EO2/skills.json")
+          for file in "${ALL_CHANGED_FILESr[@]}"; do
+            case "$file" in *.json)
               echo "value=[{ \"path\": \"$file\", \"dirmin\": \"${file%/*}/minified/\", \"filename\": \"${file##*/}\" }]" >> $GITHUB_OUTPUT
               ;;
             esac
