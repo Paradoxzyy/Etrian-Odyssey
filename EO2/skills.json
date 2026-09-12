@@ -1071,6 +1071,16 @@
       "Escape/Warp Activation Rate": ["60%","64%","72%","84%","100%"]
     }
   },
+  "MineP": {
+    "name": "Mine",
+    "description": "Mine for materials at item points.",
+    "maxLevel": 5,
+    "type": "Search Skill",
+    "location": {"x": 1, "y": 7},
+    "levelData": {
+      "Gather Up": [1,2,3,4,5]
+    }
+  },
   "Painless": {
     "name": "Force: Painless",
     "description": "The Protector sets up the perfect defense at the start of the turn, nullifying any damage taken and prevents any status effects or binds from landing until the end of the turn. Does not affect debuffs or buff dispels.",
@@ -1419,6 +1429,16 @@
       "Stun Duration": [4,5,6,7,8]
     }
   },
+  "ChopD": {
+    "name": "Chop",
+    "description": "Chop for materials at item points.",
+    "maxLevel": 5,
+    "type": "Search Skill",
+    "location": {"x": 1, "y": 7},
+    "levelData": {
+      "Gather Up": [1,2,3,4,5]
+    }
+  },
   "Dominate": {
     "name": "Force: Dominate",
     "description": "Binds an enemy's head, arms, and legs with a 10000% success rate. Nothing in the game is immune to any bind, so it is guaranteed to work. Has a 1% speed modifier.",
@@ -1742,6 +1762,16 @@
       "TP Cost": [5,6,7,8,9],
       "Damage Reduction": ["20%","40%","60%","80%","100%"],
       "Duration": [25,50,75,100,125]
+    }
+  },
+  "TakeM": {
+    "name": "Take",
+    "description": "Take for materials at item points.",
+    "maxLevel": 5,
+    "type": "Search Skill",
+    "location": {"x": 1, "y": 7},
+    "levelData": {
+      "Gather Up": [1,2,3,4,5]
     }
   },
   "H. Touch": {
@@ -2077,6 +2107,16 @@
       "Damage Increase": ["5%","10%","20%","35%","55%"]
     }
   },
+  "ChopA": {
+    "name": "Chop",
+    "description": "Chop for materials at item points.",
+    "maxLevel": 5,
+    "type": "Search Skill",
+    "location": {"x": 1, "y": 7},
+    "levelData": {
+      "Gather Up": [1,2,3,4,5]
+    }
+  },
   "Eschaton": {
     "name": "Force: Eschaton",
     "description": "Deals ranged TEC-based untyped damage to all enemies. Has no damage type, so it ignores damage resistances altogether. A 1.5x damage multiplier is applied to the Alchemist's base damage when using this skill. Has a spell power of 200. Has a speed modifier of 300%. Has an accuracy modifier of 300%.",
@@ -2402,6 +2442,16 @@
       "TP Cost": [15,13,11,9,7],
       "Stun Radius": [3,3,4,4,5],
       "Stun Duration": [4,5,6,7,8]
+    }
+  },
+  "TakeT": {
+    "name": "Take",
+    "description": "Take for materials at item points.",
+    "maxLevel": 5,
+    "type": "Search Skill",
+    "location": {"x": 1, "y": 7},
+    "levelData": {
+      "Gather Up": [1,2,3,4,5]
     }
   },
   "Crusade": {
@@ -3074,6 +3124,16 @@
       "Accuracy": ["100%","102%","106%","112%","120%","130%","142%","156%","172%","190%"]
     }
   },
+  "TakeH": {
+    "name": "Take",
+    "description": "Take for materials at item points.",
+    "maxLevel": 5,
+    "type": "Search Skill",
+    "location": {"x": 1, "y": 7},
+    "levelData": {
+      "Gather Up": [1,2,3,4,5]
+    }
+  },
   "Caprice": {
     "name": "Force: Caprice",
     "description": "Attempts to inflict every single status ailment at once on all enemies. How this skill works is that there is a priority system in place. First, the skill tries to inflict stun. Afterward, whether the attempt was successful or not, the skill then attempts to inflict all status ailments in this order: Instant death > Petrify > Fear > Curse > Poison > Sleep > Confuse > Paralyze > Blind. The game will continue checking for each status effect until one is applied, or none get applied, and repeats the process for the next enemy. If poison is the ailment chosen, it will deal 350 poison damage. Has an infliction rate of 95%. Has a speed modifier of 500%.",
@@ -3424,6 +3484,16 @@
       "Stun Duration": [4,5,6,7,8]
     }
   },
+  "TakeG": {
+    "name": "Take",
+    "description": "Take for materials at item points.",
+    "maxLevel": 5,
+    "type": "Search Skill",
+    "location": {"x": 1, "y": 7},
+    "levelData": {
+      "Gather Up": [1,2,3,4,5]
+    }
+  },
   "Riot Gun": {
     "name": "Force: Riot Gun",
     "description": "Attempts to inflict every single status ailment at once on all enemies. How this skill works is that there is a priority system in place. First, the skill tries to inflict stun. Afterward, whether the attempt was successful or not, the skill then attempts to inflict all status ailments in this order: Instant death > Petrify > Fear > Curse > Poison > Sleep > Confuse > Paralyze > Blind. The game will continue checking for each status effect until one is applied, or none get applied, and repeats the process for the next enemy. If poison is the ailment chosen, it will deal 350 poison damage. Has an infliction rate of 95%. Has a speed modifier of 500%.",
@@ -3761,6 +3831,24 @@
       "TP Restored": [10,13,19,28,40],
       "Speed": ["200%","202%","206%","212%","220%"]
     }
+  },
+  "ChopW": {
+    "name": "Chop",
+    "description": "Chop for materials at item points.",
+    "maxLevel": 5,
+    "type": "Search Skill",
+    "location": {"x": 1, "y": 7},
+    "levelData": {
+      "Gather Up": [1,2,3,4,5]
+    }
+  },
+  "Invoke": {
+    "name": "Force: Invoke",
+    "description": "Fully restores the entire party's HP and places a buff on the party that increases their resistances to all damage types, other than untyped, by 50% for 5 turns. Does not revive dead allies or dispels ailments or binds. Has a speed modifier of 200%.",
+    "maxLevel": 0,
+    "type": "",
+    "body": "Legs",
+    "location": {"x": 1, "y": 0}
   },
 
   "HpUpB": {
@@ -4101,5 +4189,13 @@
     "levelData": {
       "Gathering Attempts": [1,2,3,4,5]
     }
+  },
+  "Salivall": {
+    "name": "Force: Salivall",
+    "description": "Heals and revives the entire party, along with dispelling any status ailments they have. Has no effect on binds or stuns. Has a base healing of 500. Has a speed modifier of 200%.",
+    "maxLevel": 0,
+    "type": "",
+    "body": "Head",
+    "location": {"x": 3, "y": 0}
   }
 }
