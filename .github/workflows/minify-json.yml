@@ -28,15 +28,10 @@ jobs:
         env:
           CHANGED_FILES: ${{ steps.changed-files.outputs.all_changed_files }}
         run: |
-          for file in ${CHANGED_FILES}; do
-            file2=EO2/test.json
-            case $file2 in *.json)
-              echo "$file2 -- value=[\"$file\"]"
-              echo "value=[\"$file\"]" >> $GITHUB_OUTPUT
-              #echo "fullpath=[\"$file\"]" >> $GITHUB_OUTPUT
-              #echo "path=${file%/*}" >> $GITHUB_OUTPUT
-              #echo "pathmin=${file%/*}/minified" >> $GITHUB_OUTPUT
-              #echo "file=${file##*/}" >> $GITHUB_OUTPUT
+          for file2 in ${CHANGED_FILES}; do
+            file=EO2/test.json
+            case $file in *.json)
+              echo "value=[\"path\"=\"$file\", \"dir\"=\"${file%/*}\", \"dirmin\"=\"${file%/*}/minified\", \"file\"=\"${file##*/}\"]" >> $GITHUB_OUTPUT
               ;;
             esac
           done
@@ -48,12 +43,15 @@ jobs:
       contents: write
     strategy:
       matrix:
-        value: ${{fromJSON(needs.setup.outputs.matrix)}}
+        value: ${{ fromJSON(needs.setup.outputs.matrix) }}
     steps:
       - name: debug
         run: |
           echo ${{ matrix.value }}
-          echo ${{ matrix.value.fullpath }}
+          echo ${{ matrix.value.path }}
+          echo ${{ matrix.value.dir }}
+          echo ${{ matrix.value.dirmin }}
+          echo ${{ matrix.value.file }}
 
       - name: Checkout
         uses: actions/checkout@v7
@@ -62,16 +60,16 @@ jobs:
 
       - name: Create folder
         run: |
-          if [ ! -d "${{ matrix.value.pathmin }}" ]; then
-            mkdir -p "${{ matrix.value.pathmin }}"
-            echo "created folder: ${{ matrix.value.pathmin }}"
+          if [ ! -d "${{ matrix.value.dirmin }}" ]; then
+            mkdir -p "${{ matrix.value.dirmin }}"
+            echo "created folder: ${{ matrix.value.dirmin }}"
           fi
 
       - name: Minify JSON
         uses: StefanEnsmann/Minify-JSON-Action@1.1.0
         with:
-          input_file: "${{ matrix.value.fullpath }}"
-          output_file: "${{ matrix.value.pathmin }}${{ matrix.value.file }}"
+          input_file: "${{ matrix.value.path }}"
+          output_file: "${{ matrix.value.dirmin }}${{ matrix.value.file }}"
 
       - name: Commit
         uses: stefanzweifel/git-auto-commit-action@v7
