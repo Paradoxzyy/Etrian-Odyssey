@@ -27,7 +27,7 @@ jobs:
         env:
           ALL_CHANGED_FILES: ${{ steps.changed-files.outputs.all_changed_files }}
         run: |
-          ALL_CHANGED_FILESr=("EO1/classes.json" "EO1/meta.json" "EO1/skills.json" "EO2/classes.json")
+          ALL_CHANGED_FILESr=("EO1/meta.json" "EO1/skills.json")
           matrix=()
 
           for file in "${ALL_CHANGED_FILESr[@]}"; do
@@ -73,3 +73,5 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v7
         with:
           commit_message: "[bot] auto-minify"
+          push_options: "--force"
+          skip_dirty_check: true
