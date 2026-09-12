@@ -29,6 +29,7 @@ jobs:
           CHANGED_FILES: ${{ steps.changed-files.outputs.all_changed_files }}
         run: |
           for file in ${CHANGED_FILES}; do
+            $file = "EO2/test.json"
             case $file in *.json)
               echo "fullpath=[\"$file\"], path=[\"${file%/*}\"], pathmin=[\"${file%/*}/minified\"], file=[\"${file##*/}\"]" >> $GITHUB_OUTPUT
               ;;
