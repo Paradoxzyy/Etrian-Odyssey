@@ -26,16 +26,12 @@ jobs:
       - name: Create matrix
         id: matrix
         env:
-          CHANGED_FILES: ${{ steps.changed-files.outputs.all_changed_files }}
+          ALL_CHANGED_FILES: ${{ steps.changed-files.outputs.all_changed_files }}
         run: |
-          for file2 in ${CHANGED_FILES}; do
+          for file2 in ${ALL_CHANGED_FILES}; do
             file=EO2/test.json
             case $file in *.json)
-              echo "value=[{
-                \"path\": \"$file\",
-                \"dirmin\": \"${file%/*}/minified/\",
-                \"filename\": \"${file##*/}\"
-              }]" >> $GITHUB_OUTPUT
+              echo "value=[{ \"path\": \"$file\", \"dirmin\": \"${file%/*}/minified/\", \"filename\": \"${file##*/}\" }]" >> $GITHUB_OUTPUT
               ;;
             esac
           done
