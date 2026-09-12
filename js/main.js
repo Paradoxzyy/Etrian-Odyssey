@@ -307,6 +307,8 @@ const SkillInfo = component(props => {
   const cols = Math.max(props.maxLevel, 5) + 2
   const col2 = Math.floor(cols / (props.body ? 3 : 2))
   const col1 = cols - col2 * (props.body ? 2 : 1)
+  const totalLevels = props.maxLevel + (props.boostAllowed ? 5 : 0)
+  // TODO update EO1/skills.json TP cost level data for boost
 
   return html`
     <div class="${classes}">
@@ -315,6 +317,7 @@ const SkillInfo = component(props => {
           <th colspan="${col1}">Name</th>
           <th colspan="${col2}" class="${props.body ? "" : "hidden"}">Body Part</th>
           <th colspan="${col2}">Skill Type</th>
+          <th colspan="5" rowspan="${props.body ? 3 : 2}" class="${props.boostAllowed ? "" : "hidden"}">Boost</th>
         </tr>
         <tr>
           <td colspan="${col1}">${props.name}</td>
@@ -332,7 +335,7 @@ const SkillInfo = component(props => {
         </tr>
         <tr class="${!props.maxLevel ? "hidden" : ""}">
           <th colspan="2">Level</th>
-          ${() => Array.from(Array(props.maxLevel).keys()).map(i => html`<th colspan="${props.maxLevel == 1 ? 5 : 1}" class="${state.skillAllocation[props.id] == i + 1 ? "selected" : ""}">${i + 1}</th>`)}
+          ${() => Array.from(Array(totalLevels).keys()).map(i => html`<th colspan="${props.maxLevel == 1 ? 5 : 1}" class="${state.skillAllocation[props.id] == i + 1 ? "selected" : ""}">${i + 1}</th>`)}
         </tr>
         ${SkillInfoRows(props)}
       </table>
