@@ -1,3 +1,5 @@
+# Automatically creates a minified json file in the subdir ./minified when a json file is edited
+
 name: Minify-JSON
 on:
   push:
