@@ -1,19 +1,18 @@
-# Automatically creates a minified json file in the subdir ./minified when a json file is edited
+# Automatically creates a minified json file when a json file is edited
 
-name: Minify-JSON
+name: Minify JSON
 on:
   push:
     branches:
     - main
     paths:
     - '**.json'
-    - '!**/minified/*.json'
 
 jobs:
-  setup:
+  build:
     runs-on: ubuntu-latest
-    outputs:
-      matrix: ${{ steps.matrix.outputs.value }}
+    permissions:
+      contents: write
     steps:
       - name: Checkout
         uses: actions/checkout@v7
@@ -24,57 +23,32 @@ jobs:
         id: changed-files
         uses: tj-actions/changed-files@9426d40962ed5378910ee2e21d5f8c6fcbf2dd96
 
-      - name: Create matrix of all changed json files
-        id: matrix
+      - name: Create list of all changed json files
+        id: json-list
         env:
           ALL_CHANGED_FILES: ${{ steps.changed-files.outputs.all_changed_files }}
         run: |
-          matrix=()
+          files=""
 
           for file in "${ALL_CHANGED_FILES[@]}"; do
             case "$file" in *.json)
-              matrix+=("{
-                \"path\": \"$file\",
-                \"dirmin\": \"${file%/*}/minified/\",
-                \"filename\": \"${file##*/}\"
-              },")
+              files+="\"$file\","
               ;;
             esac
           done
 
-          echo value=["${matrix[@]//$'\n'/}"] >> $GITHUB_OUTPUT
-
-  build:
-    needs: [ setup ]
-    if: ${{ needs.setup.outputs.matrix != '' }}
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-    strategy:
-      max-parallel: 1
-      matrix:
-        value: ${{ fromJSON(needs.setup.outputs.matrix) }}
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v7
-        with:
-          ref: ${{ github.ref }}
-
-      - name: Create minified dir
-        run: |
-          if [ ! -d "${{ matrix.value.dirmin }}" ]; then
-            mkdir -p "${{ matrix.value.dirmin }}"
-          fi
+          echo files="${files%,}" >> $GITHUB_OUTPUT
 
       - name: Minify JSON
-        uses: StefanEnsmann/Minify-JSON-Action@1.1.0
+        env:
+          JSON_FILES: ${{ steps.json-list.outputs.files }}
+        uses: Paradoxzyy/Minify-JSON-Action@1.3.0
         with:
-          input_file: "${{ matrix.value.path }}"
-          output_file: "${{ matrix.value.dirmin }}${{ matrix.value.filename }}"
+          files: $JSON_FILES
+          prefix: minified/
 
       - name: Commit
         uses: stefanzweifel/git-auto-commit-action@v7
         with:
           commit_message: "[bot] auto-minify"
           push_options: "--force"
-          skip_dirty_check: true
