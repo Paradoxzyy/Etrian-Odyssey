@@ -3946,7 +3946,7 @@
     "description": "Passively gives the Beast a chance to take damage in another party member's place. Can activate multiple times per turn. When Loyalty activates, the defensive stats and buffs on the party member being defended get applied to the Beast, not their own. Has priority over the Protector's guarding skills, meaning that the Beast will take damage before those skills can mitigate them. Since this skill is a passive, it cannot be turned off once learned.",
     "maxLevel": 10,
     "type": "Passive",
-    "location": {"x": 2, "y": 2},
+    "location": {"x": 4, "y": 3},
     "levelData": {
       "Activation Rate": ["30%","31%","33%","36%","40%","45%","51%","58%","66%","75%"],
       "Self-Damage Multiplier": ["105%","102%","99%","96%","93%","90%","87%","84%","81%","78%"]
@@ -4001,7 +4001,7 @@
     "description": "Deals melee STR-based Bash damage to one enemy. The damage increases when the Beast's HP falls under certain thresholds.",
     "maxLevel": 10,
     "type": "Active",
-    "location": {"x": 3, "y": 6},
+    "location": {"x": 1, "y": 5},
     "levelData": {
       "TP Cost": [1,2,3,4,5,6,7,8,9,10],
       "Base Damage": ["101%","102%","104%","107%","111%","116%","122%","129%","137%","146%"],
@@ -4019,7 +4019,7 @@
     "maxLevel": 5,
     "type": "Active",
     "upstream": {"Maul": 5},
-    "location": {"x": 4, "y": 6},
+    "location": {"x": 2, "y": 5},
     "levelData": {
       "TP Cost": [3,5,7,9,11],
       "Damage": ["130%","136%","150%","172%","202%"],
@@ -4033,7 +4033,7 @@
     "description": "Deals melee STR-based Bash damage to one enemy. Has a chance to inflict stun.",
     "maxLevel": 10,
     "type": "Active",
-    "location": {"x": 4, "y": 3},
+    "location": {"x": 4, "y": 4},
     "levelData": {
       "TP Cost": [8,9,10,11,12,13,14,15,16,17],
       "Damage": ["30%","35%","45%","60%","80%","105%","135%","170%","210%","255%"],
@@ -4048,7 +4048,7 @@
     "maxLevel": 10,
     "type": "Active",
     "upstream": {"Loyalty": 10, "Bodyslam": 5},
-    "location": {"x": 3, "y": 3},
+    "location": {"x": 3, "y": 4},
     "levelData": {
       "TP Cost": [8,10,12,14,16,18,20,22,24,26],
       "Damage": ["70%","72%","76%","82%","90%","100%","112%","126%","142%","160%"],
@@ -4066,7 +4066,7 @@
     "description": "Deals melee STR-based Cut damage to one enemy.",
     "maxLevel": 10,
     "type": "Active",
-    "location": {"x": 3, "y": 0},
+    "location": {"x": 1, "y": 4},
     "levelData": {
       "TP Cost": [2,3,4,5,6,7,8,9,10,11],
       "Base Damage": ["70%","72%","74%","77%","80%","84%","89%","94%","99%","104%"],
@@ -4080,7 +4080,7 @@
     "maxLevel": 5,
     "type": "Active",
     "upstream": {"Claw": 5},
-    "location": {"x": 4, "y": 0},
+    "location": {"x": 2, "y": 4},
     "levelData": {
       "TP Cost": [15,17,19,21,23],
       "Damage": ["150%","156%","170%","192%","222%"],
@@ -4108,7 +4108,7 @@
     "maxLevel": 10,
     "type": "Active",
     "upstream": {"Loyalty": 2},
-    "location": {"x": 2, "y": 1},
+    "location": {"x": 4, "y": 2},
     "levelData": {
       "TP Cost": [3,4,5,6,7,8,9,8,7,6],
       "Defense Increase": ["0%","2%","4%","6%","8%","10%","12%","14%","16%","18%"],
@@ -4121,7 +4121,7 @@
     "description": "At the start of the turn, the Beast prepares to any damage they take from melee attacks (physical or elemental) for the current turn. Remains active until the turn ends or the Beast dies.",
     "maxLevel": 5,
     "type": "Active",
-    "location": {"x": 3, "y": 1},
+    "location": {"x": 5, "y": 2},
     "levelData": {
       "TP Cost": [3,4,5,6,7],
       "Chance Reduction": ["40%","30%","20%","10%","5%"],
@@ -4133,7 +4133,7 @@
     "description": "Attempts to inflict fear on all enemies.",
     "maxLevel": 5,
     "type": "Active",
-    "location": {"x": 5, "y": 1},
+    "location": {"x": 5, "y": 6},
     "levelData": {
       "TP Cost": [10,11,12,13,14],
       "Infliction Rate": ["1%","2%","3%","4%","75%"],
@@ -4145,7 +4145,7 @@
     "description": "Restores one party member's HP.",
     "maxLevel": 10,
     "type": "Active",
-    "location": {"x": 5, "y": 3},
+    "location": {"x": 4, "y": 0},
     "levelData": {
       "TP Cost": [2,3,4,5,6,7,8,9,10,11],
       "Base Healing": [10,14,22,34,50,70,94,122,154,190],
@@ -4158,7 +4158,7 @@
     "maxLevel": 5,
     "type": "Active",
     "upstream": {"Loyalty": 1},
-    "location": {"x": 1, "y": 1},
+    "location": {"x": 3, "y": 2},
     "levelData": {
       "TP Cost": [1],
       "Base Healing": [100,120,160,220,300],
@@ -4195,7 +4195,7 @@
     "maxLevel": 5,
     "type": "Active",
     "upstream": {"LucUpB": 5, "TecUpB": 5},
-    "location": {"x": 1, "y": 3},
+    "location": {"x": 1, "y": 2},
     "levelData": {
       "Gathering Attempts": [1,2,3,4,5]
     }
