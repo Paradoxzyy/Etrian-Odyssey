@@ -2,6 +2,7 @@ import { reactive, html, svg, component, watch } from "https://esm.sh/@arrow-js/
 
 // Hacks
 HTMLCollection.prototype.forEach = Array.prototype.forEach
+const rem = parseFloat(getComputedStyle(document.documentElement).fontSize) || 16
 
 const state = reactive({})
 const global = {}
@@ -130,28 +131,59 @@ const Root = component(() => {
 
 //----------------------------------------
 const Controls = component(() => {
-  const handleChangeClass = e => {
-    state.currentClass = +e.target.value
-    changeClass()
+  const localState = reactive({
+    debounceId: 0,
+    debouncePendingData: {}
+  })
+
+  const handleDebounce = (key, data) => {
+    if (localState.debounceId)
+      localState.debouncePendingData[key] = data
+    else
+      runDebounce({ [key]: data })
+
+    startDebounceTimer()
+  }
+
+  const startDebounceTimer = () => {
+    clearTimeout(localState.debounceId)
+
+    localState.debounceId = setTimeout(() => {
+      runDebounce(localState.debouncePendingData)
+
+      localState.debouncePendingData = {}
+      localState.debounceId = 0
+    }, 250)
+  }
+
+  const runDebounce = data => {
+    if (!Object.keys(data).length)
+      return
+
+    Object.entries(data).forEach(([ k, v ]) => {
+      state[k] = v.value
+      v.cbs?.forEach(cb => cb())
+    })
+
     changeSp()
     saveURL()
   }
 
+  const handleChangeClass = e => {
+    handleDebounce("currentClass", { value: +e.target.value, cbs: [ changeClass ] })
+  }
+
   const handleChangeLevel = e => {
-    const value = Math.max(Math.min(+e.target.value, e.target.max), e.target.min)
+    const value = Math.max(Math.min(+e.target.value, +e.target.max), +e.target.min)
 
     if (+e.target.value != value)
       e.target.value = value
 
-    state.currentLevel = value
-    changeSp()
-    saveURL()
+    handleDebounce("currentLevel", { value })
   }
 
   const handleChangeRetirement = e => {
-    state.currentRetirement = +e.target.value
-    changeSp()
-    saveURL()
+    handleDebounce("currentRetirement", { value: +e.target.value })
   }
 
   return html`
@@ -239,10 +271,6 @@ const SkillContainer = component(props => {
 
 //----------------------------------------
 const Skill = component(props => {
-  const localState = reactive({
-    showSkillInfo: false
-  })
-
   const classes = () => createClasses({
     "skill-box": true,
     "disabled": Object.entries(global.skills[props.id].upstream ?? 0).some(([ k, v ]) => state.skillAllocation[k] < v)
@@ -253,7 +281,6 @@ const Skill = component(props => {
     "active": state.skillAllocation[props.id]
   })
 
-  const toggleSkillInfo = toggle => localState.showSkillInfo = toggle
   const level = () => props.maxLevel ? `${state.skillAllocation[props.id]}/${props.maxLevel}` : ""
 
   const buttons = () => {
@@ -277,14 +304,14 @@ const Skill = component(props => {
 
   return html`
     <div class="skill">
-      <div class="${classes}" @mouseenter="${() => toggleSkillInfo(true)}" @mouseleave="${() => toggleSkillInfo(false)}">
+      <div class="${classes}">
         <div class="skill-header">
           <div class="skill-name">${props.name}</div>
           <div class="${classesLevel}">${level}</div>
         </div>
         ${buttons}
       </div>
-      ${() => SkillInfo({ ...props, showSkillInfo: localState.showSkillInfo })}
+      ${SkillInfo(props)}
     </div>`
 })
 
@@ -293,8 +320,7 @@ const SkillInfo = component(props => {
   const classes = () => createClasses({
     "skill-info": true,
     "display-top": props.location.y > 3,
-    "display-left": props.location.x > 3,
-    "hidden": !props.showSkillInfo
+    "display-left": props.location.x > 3
   })
 
   const cols = Math.max(props.maxLevel, 5) + 2
@@ -446,10 +472,11 @@ const Line = component(props => {
     const downskill = global.skills[props.id].location
     const upskill = global.skills[upstream].location
 
-    // TODO use rem to calculate values
-    //const rem = parseFloat(getComputedStyle(document.documentElement).fontSize)
-    const getX = v => 61 + 178 * v
-    const getY = v => 26 + 100 * v
+    const skillBoxWidth = 122
+    const skillBoxHeight = 52
+
+    const getX = v => (skillBoxWidth / 2) + (skillBoxWidth + rem * 3.5) * v
+    const getY = v => (skillBoxHeight / 2) + (skillBoxHeight + rem * 3) * v
 
     const upX = getX(upskill.x)
     const upY = getY(upskill.y)
