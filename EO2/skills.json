@@ -3896,7 +3896,7 @@
     "description": "Increase Vitality.",
     "maxLevel": 10,
     "type": "Stat Increase",
-    "location": {"x": 0, "y": 3},
+    "location": {"x": 0, "y": 6},
     "levelData": {
       "VIT Increase": [1,2,3,4,5,6,7,8,9,10]
     }
@@ -3926,7 +3926,7 @@
     "description": "Increase Luck.",
     "maxLevel": 10,
     "type": "Stat Increase",
-    "location": {"x": 0, "y": 6},
+    "location": {"x": 0, "y": 3},
     "levelData": {
       "LUC Increase": [1,2,3,4,5,6,7,8,9,10]
     }
@@ -3946,7 +3946,7 @@
     "description": "Passively gives the Beast a chance to take damage in another party member's place. Can activate multiple times per turn. When Loyalty activates, the defensive stats and buffs on the party member being defended get applied to the Beast, not their own. Has priority over the Protector's guarding skills, meaning that the Beast will take damage before those skills can mitigate them. Since this skill is a passive, it cannot be turned off once learned.",
     "maxLevel": 10,
     "type": "Passive",
-    "location": {"x": 2, "y": 3},
+    "location": {"x": 2, "y": 2},
     "levelData": {
       "Activation Rate": ["30%","31%","33%","36%","40%","45%","51%","58%","66%","75%"],
       "Self-Damage Multiplier": ["105%","102%","99%","96%","93%","90%","87%","84%","81%","78%"]
@@ -3980,7 +3980,7 @@
     "maxLevel": 10,
     "type": "Passive",
     "upstream": {"VitUpB": 10},
-    "location": {"x": 1, "y": 4},
+    "location": {"x": 1, "y": 6},
     "levelData": {
       "Activation Rate": ["10%","11%","13%","16%","20%","25%","31%","38%","46%","55%"]
     }
@@ -3991,7 +3991,7 @@
     "maxLevel": 5,
     "type": "Passive",
     "upstream": {"En GardeB": 5},
-    "location": {"x": 2, "y": 4},
+    "location": {"x": 2, "y": 6},
     "levelData": {
       "Activation Rate": ["10%","13%","19%","28%","30%"]
     }
@@ -4001,7 +4001,7 @@
     "description": "Deals melee STR-based Bash damage to one enemy. The damage increases when the Beast's HP falls under certain thresholds.",
     "maxLevel": 10,
     "type": "Active",
-    "location": {"x": 2, "y": 6},
+    "location": {"x": 3, "y": 6},
     "levelData": {
       "TP Cost": [1,2,3,4,5,6,7,8,9,10],
       "Base Damage": ["101%","102%","104%","107%","111%","116%","122%","129%","137%","146%"],
@@ -4019,7 +4019,7 @@
     "maxLevel": 5,
     "type": "Active",
     "upstream": {"Maul": 5},
-    "location": {"x": 3, "y": 6},
+    "location": {"x": 4, "y": 6},
     "levelData": {
       "TP Cost": [3,5,7,9,11],
       "Damage": ["130%","136%","150%","172%","202%"],
@@ -4033,7 +4033,7 @@
     "description": "Deals melee STR-based Bash damage to one enemy. Has a chance to inflict stun.",
     "maxLevel": 10,
     "type": "Active",
-    "location": {"x": 4, "y": 4},
+    "location": {"x": 4, "y": 3},
     "levelData": {
       "TP Cost": [8,9,10,11,12,13,14,15,16,17],
       "Damage": ["30%","35%","45%","60%","80%","105%","135%","170%","210%","255%"],
@@ -4048,7 +4048,7 @@
     "maxLevel": 10,
     "type": "Active",
     "upstream": {"Loyalty": 10, "Bodyslam": 5},
-    "location": {"x": 3, "y": 4},
+    "location": {"x": 3, "y": 3},
     "levelData": {
       "TP Cost": [8,10,12,14,16,18,20,22,24,26],
       "Damage": ["70%","72%","76%","82%","90%","100%","112%","126%","142%","160%"],
@@ -4066,7 +4066,7 @@
     "description": "Deals melee STR-based Cut damage to one enemy.",
     "maxLevel": 10,
     "type": "Active",
-    "location": {"x": 4, "y": 0},
+    "location": {"x": 3, "y": 0},
     "levelData": {
       "TP Cost": [2,3,4,5,6,7,8,9,10,11],
       "Base Damage": ["70%","72%","74%","77%","80%","84%","89%","94%","99%","104%"],
@@ -4080,7 +4080,7 @@
     "maxLevel": 5,
     "type": "Active",
     "upstream": {"Claw": 5},
-    "location": {"x": 5, "y": 0},
+    "location": {"x": 4, "y": 0},
     "levelData": {
       "TP Cost": [15,17,19,21,23],
       "Damage": ["150%","156%","170%","192%","222%"],
@@ -4094,7 +4094,7 @@
     "maxLevel": 5,
     "type": "Active",
     "upstream": {"Loyalty": 3},
-    "location": {"x": 1, "y": 2},
+    "location": {"x": 3, "y": 1},
     "levelData": {
       "TP Cost": [2,3,4,5,6],
       "Defense Increase": ["30%","35%","41%","48%","66%"],
@@ -4108,7 +4108,7 @@
     "maxLevel": 10,
     "type": "Active",
     "upstream": {"Loyalty": 2},
-    "location": {"x": 2, "y": 2},
+    "location": {"x": 2, "y": 1},
     "levelData": {
       "TP Cost": [3,4,5,6,7,8,9,8,7,6],
       "Defense Increase": ["0%","2%","4%","6%","8%","10%","12%","14%","16%","18%"],
@@ -4158,7 +4158,7 @@
     "maxLevel": 5,
     "type": "Active",
     "upstream": {"Loyalty": 1},
-    "location": {"x": 3, "y": 3},
+    "location": {"x": 1, "y": 2},
     "levelData": {
       "TP Cost": [1],
       "Base Healing": [100,120,160,220,300],
@@ -4206,6 +4206,6 @@
     "maxLevel": 0,
     "type": "",
     "body": "Head",
-    "location": {"x": 3, "y": 0}
+    "location": {"x": 5, "y": 0}
   }
 }
