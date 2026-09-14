@@ -27,17 +27,6 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Wait for Workflow Action
-        uses: kamilchodola/wait-for-workflow-action@1.1.0
-        with:
-          GITHUB_TOKEN: ${{ secrets.REPOSITORY_DISPATCH_TOKEN }}
-          workflow_id: "minify-json.yml"
-          max_wait_minutes: "1"
-          timeout: "120"
-          org_name: "Paradoxzyy"
-          repo_name: "Etrian-Odyssey"
-          ref: "${{ github.ref }}"
-
       - name: Checkout
         uses: actions/checkout@v7
 
