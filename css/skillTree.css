@@ -256,6 +256,7 @@ th {
   position: absolute;
   width: fit-content;
   border-radius: 0.4rem;
+  user-select: none;
   z-index: 9;
 }
 
