@@ -1,12 +1,11 @@
-# Automatically creates a minified json file when a json file is edited
-
 name: Minify JSON
 on:
-  push:
-    branches:
-    - main
-    paths:
-    - '**.json'
+  workflow_call:
+  #push:
+  #  branches:
+  #  - main
+  #  paths:
+  #  - '**.json'
 
 jobs:
   build:
