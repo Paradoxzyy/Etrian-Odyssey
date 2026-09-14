@@ -3598,7 +3598,7 @@
     "description": "Needed to learn sword skills. Passively increases damage dealt with swords.",
     "maxLevel": 10,
     "type": "Passive",
-    "location": {"x": 4, "y": 4},
+    "location": {"x": 2, "y": 4},
     "levelData": {
       "Damage Increase": ["2%","3%","4%","5%","6%","7%","8%","9%","10%","11%"]
     }
@@ -3608,7 +3608,7 @@
     "description": "Needed to learn healing skills. Passively increases the amount of HP restored through non-fixed sources.",
     "maxLevel": 10,
     "type": "Passive",
-    "location": {"x": 3, "y": 1},
+    "location": {"x": 3, "y": 2},
     "levelData": {
       "Heal Increase": ["2%","3%","4%","5%","6%","7%","8%","9%","10%","11%"]
     }
@@ -3629,7 +3629,7 @@
     "maxLevel": 10,
     "type": "Active",
     "upstream": {"StrUpW": 1, "War Edge": 1},
-    "location": {"x": 2, "y": 2},
+    "location": {"x": 1, "y": 1},
     "levelData": {
       "TP Cost": [4,5,6,7,8,9,10,11,12,13],
       "Damage": ["125%","127%","131%","137%","145%","155%","167%","181%","197%","215%"],
@@ -3644,7 +3644,7 @@
     "maxLevel": 10,
     "type": "Active",
     "upstream": {"StrUpW": 2, "War Edge": 2},
-    "location": {"x": 2, "y": 1},
+    "location": {"x": 1, "y": 2},
     "levelData": {
       "TP Cost": [4,5,6,7,8,9,10,11,12,13],
       "Damage": ["125%","127%","131%","137%","145%","155%","167%","181%","197%","215%"],
@@ -3659,7 +3659,7 @@
     "maxLevel": 10,
     "type": "Active",
     "upstream": {"StrUpW": 5, "War Edge": 5},
-    "location": {"x": 2, "y": 5},
+    "location": {"x": 1, "y": 5},
     "levelData": {
       "TP Cost": [4,5,6,7,8,9,10,11,12,13],
       "Damage": ["125%","127%","131%","137%","145%","155%","167%","181%","197%","215%"],
@@ -3674,7 +3674,7 @@
     "maxLevel": 10,
     "type": "Active",
     "upstream": {"StrUpW": 3, "War Edge": 3},
-    "location": {"x": 2, "y": 3},
+    "location": {"x": 1, "y": 3},
     "levelData": {
       "TP Cost": [4,5,6,7,8,9,10,11,12,13],
       "Damage": ["125%","126%","128%","131%","135%","140%","146%","153%","161%","170%"],
@@ -3689,7 +3689,7 @@
     "maxLevel": 10,
     "type": "Active",
     "upstream": {"StrUpW": 4, "War Edge": 4},
-    "location": {"x": 2, "y": 4},
+    "location": {"x": 1, "y": 4},
     "levelData": {
       "TP Cost": [4,5,6,7,8,9,10,11,12,13],
       "Damage": ["125%","126%","128%","131%","135%","140%","146%","153%","161%","170%"],
@@ -3704,7 +3704,7 @@
     "maxLevel": 5,
     "type": "Active",
     "upstream": {"StrUpW": 6, "War Edge": 10},
-    "location": {"x": 2, "y": 6},
+    "location": {"x": 1, "y": 6},
     "levelData": {
       "TP Cost": [4,5,6,7,8],
       "Damage": ["125%","126%","128%","131%","135%"],
@@ -3719,7 +3719,7 @@
     "maxLevel": 10,
     "type": "Active",
     "upstream": {"War Lore": 1},
-    "location": {"x": 3, "y": 0},
+    "location": {"x": 3, "y": 3},
     "levelData": {
       "TP Cost": [3,4,5,6,7,8,9,10,11,12],
       "Base Healing": [35,37,41,47,55,65,77,91,107,125],
@@ -3732,7 +3732,7 @@
     "maxLevel": 10,
     "type": "Active",
     "upstream": {"War Lore": 3},
-    "location": {"x": 5, "y": 1},
+    "location": {"x": 4, "y": 2},
     "levelData": {
       "TP Cost": [9,10,11,12,13,14,15,16,17,18],
       "Base Healing": [130,133,139,148,160,175,193,214,238,265],
@@ -3745,7 +3745,7 @@
     "maxLevel": 5,
     "type": "Active",
     "upstream": {"War Lore": 5},
-    "location": {"x": 5, "y": 2},
+    "location": {"x": 2, "y": 2},
     "levelData": {
       "TP Cost": [38,34,30,26,22],
       "Speed": ["50%","54%","62%","74%","90%"]
@@ -3757,7 +3757,7 @@
     "maxLevel": 5,
     "type": "Active",
     "upstream": {"War Lore": 7, "CureW": 3},
-    "location": {"x": 4, "y": 0},
+    "location": {"x": 4, "y": 3},
     "levelData": {
       "TP Cost": [18,21,24,27,30],
       "Base Healing": [47,55,65,77,91],
@@ -3770,7 +3770,7 @@
     "maxLevel": 5,
     "type": "Active",
     "upstream": {"War Lore": 10, "Cure 2W": 4},
-    "location": {"x": 5, "y": 0},
+    "location": {"x": 5, "y": 3},
     "levelData": {
       "TP Cost": [36,39,42,45,48],
       "Base Healing": [148,160,175,193,214],
@@ -3783,7 +3783,7 @@
     "maxLevel": 5,
     "type": "Active",
     "upstream": {"War Lore": 2},
-    "location": {"x": 2, "y": 0},
+    "location": {"x": 2, "y": 1},
     "levelData": {
       "TP Cost": [2,3,4,5,6],
       "Damage Increase": ["10%","15%","25%","40%","60%"],
@@ -3796,7 +3796,7 @@
     "maxLevel": 5,
     "type": "Active",
     "upstream": {"War Lore": 2},
-    "location": {"x": 3, "y": 2},
+    "location": {"x": 3, "y": 1},
     "levelData": {
       "TP Cost": [2,3,4,5,6],
       "Defense Increase": ["5%","8%","13%","20%","30%"],
@@ -3809,7 +3809,7 @@
     "maxLevel": 5,
     "type": "Active",
     "upstream": {"War Lore": 2},
-    "location": {"x": 4, "y": 2},
+    "location": {"x": 4, "y": 1},
     "levelData": {
       "TP Cost": [2,3,4,5,6],
       "AGI Increase": ["10%","15%","25%","40%","60%"],
@@ -3822,7 +3822,7 @@
     "maxLevel": 5,
     "type": "Active",
     "upstream": {"War Lore": 3},
-    "location": {"x": 4, "y": 1},
+    "location": {"x": 5, "y": 1},
     "levelData": {
       "TP Cost": [1,2,3,2,1],
       "Buffs Dispelled": [1,2,3,3,3],
@@ -3858,7 +3858,7 @@
     "maxLevel": 0,
     "type": "",
     "body": "Legs",
-    "location": {"x": 1, "y": 0}
+    "location": {"x": 5, "y": 0}
   },
 
   "HpUpB": {
@@ -4133,7 +4133,7 @@
     "description": "Attempts to inflict fear on all enemies.",
     "maxLevel": 5,
     "type": "Active",
-    "location": {"x": 4, "y": 1},
+    "location": {"x": 5, "y": 1},
     "levelData": {
       "TP Cost": [10,11,12,13,14],
       "Infliction Rate": ["1%","2%","3%","4%","75%"],
@@ -4145,7 +4145,7 @@
     "description": "Restores one party member's HP.",
     "maxLevel": 10,
     "type": "Active",
-    "location": {"x": 5, "y": 1},
+    "location": {"x": 5, "y": 3},
     "levelData": {
       "TP Cost": [2,3,4,5,6,7,8,9,10,11],
       "Base Healing": [10,14,22,34,50,70,94,122,154,190],
@@ -4158,7 +4158,7 @@
     "maxLevel": 5,
     "type": "Active",
     "upstream": {"Loyalty": 1},
-    "location": {"x": 1, "y": 2},
+    "location": {"x": 1, "y": 1},
     "levelData": {
       "TP Cost": [1],
       "Base Healing": [100,120,160,220,300],
@@ -4170,7 +4170,7 @@
     "description": "Can only be used on the field. Any non-red FOEs within a certain range will be lured to the tile this skill gets used on. Once they reach that tile, they will be stunned for a set duration.",
     "maxLevel": 5,
     "type": "Active",
-    "location": {"x": 5, "y": 4},
+    "location": {"x": 1, "y": 7},
     "levelData": {
       "TP Cost": [15,13,11,9,7],
       "Lure Radius": [3,3,4,4,5],
@@ -4182,7 +4182,7 @@
     "description": "Can only be used on the field. Any non-red FOEs within a certain range will be stunned for a set duration.",
     "maxLevel": 5,
     "type": "Active",
-    "location": {"x": 5, "y": 7},
+    "location": {"x": 2, "y": 7},
     "levelData": {
       "TP Cost": [15,13,11,9,7],
       "Stun Radius": [3,3,4,4,5],
