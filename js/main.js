@@ -21,8 +21,8 @@ const init = async () => {
 
   html`${Root()}`(document.body)
 
-  handleDrawLines()
-  watch(() => state.skillAllocation, handleDrawLines)
+  handleDrawMidMarkers()
+  watch(() => state.skillAllocation, handleDrawMidMarkers)
 }
 
 //--------------------------------------------------------------------------------
@@ -30,8 +30,8 @@ const init = async () => {
 //--------------------------------------------------------------------------------
 const loadData = async () => {
   const files = [ "skills", "classes", "meta" ]
-  const folder = location.origin + location.pathname
-  const promises = await Promise.allSettled(files.map(file => fetch(`${folder}minified/${file}.json`).then(res => res.json())))
+  const folder = location.pathname + "minified/"
+  const promises = await Promise.allSettled(files.map(file => fetch(`${folder}${file}.json`).then(res => res.json())))
 
   promises.forEach((promise, i) => {
     const file = files[i]
@@ -39,14 +39,11 @@ const loadData = async () => {
     if (promise.status == "fulfilled")
       global[file] = Object.freeze(promise.value)
     else
-      console.warn(`Failed loading: ${file}.json`)
+      throw new Error(`Failed loading: ${folder}${file}.json`)
   })
 
   Object.entries(global.skills).forEach(([ id, skill ]) => {
-    if (!skill.upstream)
-      return
-
-    Object.entries(skill.upstream).forEach(([ k, v ]) => {
+    Object.entries(skill.upstream ?? 0).forEach(([ k, v ]) => {
       global.skills[k].downstream ??= {}
       global.skills[k].downstream[id] = v
     })
@@ -68,12 +65,10 @@ const changeSp = () => {
 
 //----------------------------------------
 const increaseSkill = (skill, points = 1) => {
-  if (global.skills[skill].upstream) {
-    Object.entries(global.skills[skill].upstream).forEach(([ k, v ]) => {
-      if (state.skillAllocation[k] < v)
-        increaseSkill(k, v - state.skillAllocation[k])
-    })
-  }
+  Object.entries(global.skills[skill].upstream ?? 0).forEach(([ k, v ]) => {
+    if (state.skillAllocation[k] < v)
+      increaseSkill(k, v - state.skillAllocation[k])
+  })
 
   if (state.skillAllocation[skill] < global.skills[skill].maxLevel) {
     state.skillAllocation[skill] += points
@@ -90,12 +85,10 @@ const decreaseSkill = (skill, points = 1) => {
     state.freeSp += points
   }
 
-  if (global.skills[skill].downstream) {
-    Object.entries(global.skills[skill].downstream).forEach(([ k, v ]) => {
-      if (state.skillAllocation[k] > 0 && state.skillAllocation[skill] < global.skills[k].upstream[skill])
-        decreaseSkill(k, state.skillAllocation[k])
-    })
-  }
+  Object.entries(global.skills[skill].downstream ?? 0).forEach(([ k, v ]) => {
+    if (state.skillAllocation[k] > 0 && state.skillAllocation[skill] < global.skills[k].upstream[skill])
+      decreaseSkill(k, state.skillAllocation[k])
+  })
 
   saveURL()
 }
@@ -252,7 +245,7 @@ const Skill = component(props => {
 
   const classes = () => createClasses({
     "skill-box": true,
-    "disabled": global.skills[props.id].upstream && Object.entries(global.skills[props.id].upstream).some(([ k, v ]) => state.skillAllocation[k] < v)
+    "disabled": Object.entries(global.skills[props.id].upstream ?? 0).some(([ k, v ]) => state.skillAllocation[k] < v)
   })
 
   const classesLevel = () => createClasses({
@@ -524,7 +517,7 @@ const loadURL = () => {
   const data = JSON.parse(LZString.decompressFromEncodedURIComponent(location.hash.slice(1)))
 
   keys.forEach(key => state[key] = data[key])
-  state.skillAllocation = global.classes[state.currentClass].skills.reduce((acc, curr, i) => (acc[curr] = data.skillAllocation[i] || 0, acc), {})
+  state.skillAllocation = global.classes[state.currentClass].skills.reduce((acc, curr, i) => (acc[curr] = data.skillAllocation[i] ?? 0, acc), {})
 }
 
 //----------------------------------------
@@ -542,7 +535,7 @@ const saveURL = () => {
 }
 
 //----------------------------------------
-const handleDrawLines = () => document.getElementsByClassName("svg-grid")[0]?.children?.forEach(child => midMarkers(child.querySelector("polyline")))
+const handleDrawMidMarkers = () => document.getElementsByClassName("svg-grid")[0]?.children?.forEach(child => midMarkers(child.querySelector("polyline")))
 
 //----------------------------------------
 // https://stackoverflow.com/questions/11808860/how-to-place-arrow-head-triangles-on-svg-lines
