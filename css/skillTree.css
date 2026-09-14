@@ -255,7 +255,6 @@ th {
   display: none;
   position: absolute;
   width: fit-content;
-  min-width: 25rem;
   border-radius: 0.4rem;
   z-index: 9;
 }
@@ -266,6 +265,7 @@ th {
 
 .skill-info table {
   background: var(--color);
+  min-width: 25rem;
 }
 
 .skill-info .selected {
