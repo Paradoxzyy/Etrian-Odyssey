@@ -252,11 +252,16 @@ th {
 }
 
 .skill-info {
+  display: none;
   position: absolute;
   width: fit-content;
   min-width: 25rem;
   border-radius: 0.4rem;
   z-index: 9;
+}
+
+.skill-box:hover + .skill-info {
+  display: block;
 }
 
 .skill-info table {
