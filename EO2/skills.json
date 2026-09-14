@@ -3608,7 +3608,7 @@
     "description": "Needed to learn healing skills. Passively increases the amount of HP restored through non-fixed sources.",
     "maxLevel": 10,
     "type": "Passive",
-    "location": {"x": 3, "y": 2},
+    "location": {"x": 4, "y": 2},
     "levelData": {
       "Heal Increase": ["2%","3%","4%","5%","6%","7%","8%","9%","10%","11%"]
     }
@@ -3719,7 +3719,7 @@
     "maxLevel": 10,
     "type": "Active",
     "upstream": {"War Lore": 1},
-    "location": {"x": 3, "y": 3},
+    "location": {"x": 3, "y": 2},
     "levelData": {
       "TP Cost": [3,4,5,6,7,8,9,10,11,12],
       "Base Healing": [35,37,41,47,55,65,77,91,107,125],
@@ -3732,7 +3732,7 @@
     "maxLevel": 10,
     "type": "Active",
     "upstream": {"War Lore": 3},
-    "location": {"x": 4, "y": 2},
+    "location": {"x": 5, "y": 2},
     "levelData": {
       "TP Cost": [9,10,11,12,13,14,15,16,17,18],
       "Base Healing": [130,133,139,148,160,175,193,214,238,265],
@@ -3745,7 +3745,7 @@
     "maxLevel": 5,
     "type": "Active",
     "upstream": {"War Lore": 5},
-    "location": {"x": 2, "y": 2},
+    "location": {"x": 5, "y": 5},
     "levelData": {
       "TP Cost": [38,34,30,26,22],
       "Speed": ["50%","54%","62%","74%","90%"]
@@ -3757,7 +3757,7 @@
     "maxLevel": 5,
     "type": "Active",
     "upstream": {"War Lore": 7, "CureW": 3},
-    "location": {"x": 4, "y": 3},
+    "location": {"x": 3, "y": 3},
     "levelData": {
       "TP Cost": [18,21,24,27,30],
       "Base Healing": [47,55,65,77,91],
@@ -3783,7 +3783,7 @@
     "maxLevel": 5,
     "type": "Active",
     "upstream": {"War Lore": 2},
-    "location": {"x": 2, "y": 1},
+    "location": {"x": 3, "y": 1},
     "levelData": {
       "TP Cost": [2,3,4,5,6],
       "Damage Increase": ["10%","15%","25%","40%","60%"],
@@ -3796,7 +3796,7 @@
     "maxLevel": 5,
     "type": "Active",
     "upstream": {"War Lore": 2},
-    "location": {"x": 3, "y": 1},
+    "location": {"x": 4, "y": 1},
     "levelData": {
       "TP Cost": [2,3,4,5,6],
       "Defense Increase": ["5%","8%","13%","20%","30%"],
@@ -3809,7 +3809,7 @@
     "maxLevel": 5,
     "type": "Active",
     "upstream": {"War Lore": 2},
-    "location": {"x": 4, "y": 1},
+    "location": {"x": 5, "y": 1},
     "levelData": {
       "TP Cost": [2,3,4,5,6],
       "AGI Increase": ["10%","15%","25%","40%","60%"],
@@ -3822,7 +3822,7 @@
     "maxLevel": 5,
     "type": "Active",
     "upstream": {"War Lore": 3},
-    "location": {"x": 5, "y": 1},
+    "location": {"x": 3, "y": 5},
     "levelData": {
       "TP Cost": [1,2,3,2,1],
       "Buffs Dispelled": [1,2,3,3,3],
@@ -3835,7 +3835,7 @@
     "maxLevel": 5,
     "type": "Active",
     "upstream": {"TpUpW": 1},
-    "location": {"x": 1, "y": 1},
+    "location": {"x": 1, "y": 0},
     "levelData": {
       "TP Cost": [10,12,17,25,36],
       "TP Restored": [10,13,19,28,40],
