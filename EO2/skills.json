@@ -4033,7 +4033,7 @@
     "description": "Deals melee STR-based Bash damage to one enemy. Has a chance to inflict stun.",
     "maxLevel": 10,
     "type": "Active",
-    "location": {"x": 4, "y": 4},
+    "location": {"x": 3, "y": 4},
     "levelData": {
       "TP Cost": [8,9,10,11,12,13,14,15,16,17],
       "Damage": ["30%","35%","45%","60%","80%","105%","135%","170%","210%","255%"],
@@ -4048,7 +4048,7 @@
     "maxLevel": 10,
     "type": "Active",
     "upstream": {"Loyalty": 10, "Bodyslam": 5},
-    "location": {"x": 3, "y": 4},
+    "location": {"x": 4, "y": 4},
     "levelData": {
       "TP Cost": [8,10,12,14,16,18,20,22,24,26],
       "Damage": ["70%","72%","76%","82%","90%","100%","112%","126%","142%","160%"],
@@ -4094,7 +4094,7 @@
     "maxLevel": 5,
     "type": "Active",
     "upstream": {"Loyalty": 3},
-    "location": {"x": 3, "y": 1},
+    "location": {"x": 5, "y": 2},
     "levelData": {
       "TP Cost": [2,3,4,5,6],
       "Defense Increase": ["30%","35%","41%","48%","66%"],
@@ -4121,7 +4121,7 @@
     "description": "At the start of the turn, the Beast prepares to any damage they take from melee attacks (physical or elemental) for the current turn. Remains active until the turn ends or the Beast dies.",
     "maxLevel": 5,
     "type": "Active",
-    "location": {"x": 5, "y": 2},
+    "location": {"x": 4, "y": 6},
     "levelData": {
       "TP Cost": [3,4,5,6,7],
       "Chance Reduction": ["40%","30%","20%","10%","5%"],
