@@ -22,32 +22,25 @@ jobs:
       - name: Get changed files
         id: changed-files
         uses: tj-actions/changed-files@9426d40962ed5378910ee2e21d5f8c6fcbf2dd96
-
-      - name: Create list of all changed json files
-        id: json-list
-        env:
-          ALL_CHANGED_FILES: ${{ steps.changed-files.outputs.all_changed_files }}
-        run: |
-          files=""
-
-          for file in "${ALL_CHANGED_FILES[@]}"; do
-            case "$file" in *.json)
-              files+="\"$file\","
-              ;;
-            esac
-          done
-
-          echo files="${files%,}" >> $GITHUB_OUTPUT
+        with:
+          files: "**.json"
+          matrix: "true"
+          output_renamed_files_as_deleted_and_added: "true"
 
       - name: Minify JSON
+        if: ${{ (steps.changed-files.outputs.any_changed == 'true') || (steps.changed-files.outputs.any_deleted == 'true') }}
         env:
-          JSON_FILES: ${{ steps.json-list.outputs.files }}
+          ALL_CHANGED_FILES: ${{ steps.changed-files.outputs.all_changed_files }}
+          DELETED_FILES: ${{ steps.changed-files.outputs.deleted_files }}
         uses: Paradoxzyy/Minify-JSON-Action@1.3.0
         with:
-          files: $JSON_FILES
-          prefix: minified/
+          changed_files: $ALL_CHANGED_FILES
+          deleted_files: $DELETED_FILES
+          prefix: "minified/"
+          #suffix: "-min"
 
       - name: Commit
+        if: ${{ (steps.changed-files.outputs.any_changed == 'true') || (steps.changed-files.outputs.any_deleted == 'true') }}
         uses: stefanzweifel/git-auto-commit-action@v7
         with:
           commit_message: "[bot] auto-minify"
