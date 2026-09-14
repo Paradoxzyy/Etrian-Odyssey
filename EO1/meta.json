@@ -9,5 +9,6 @@
     { "value": 4, "text": "50-59" },
     { "value": 5, "text": "60-69" },
     { "value": 6, "text": "70" }
-  ]
+  ],
+  "hasBoost": true
 }
