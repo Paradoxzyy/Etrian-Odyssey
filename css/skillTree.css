@@ -1,6 +1,7 @@
 :root {
   --background: #7373B9;
   --color: navy;
+  --primary: #A4B4F9;
 }
 
 *,
@@ -19,57 +20,38 @@ a {
   outline: none;
 }
 
-.boost-selection {
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
-/* Hide the browser's default checkbox */
-.boost-selection input {
-  position: absolute;
-  opacity: 0;
-  cursor: pointer;
-  height: 0;
-  width: 0;
-}
-
+/* ---------- */
 .custom-checkbox {
-  cursor: pointer;
-  position: absolute;
-  top: 1em;
-  left: 3.2em;
-  height: 25px;
+  display: inline-block;
+  position: relative;
   width: 25px;
-  background: #a4b4f9;
+  height: 25px;
+  background: var(--primary);
   border-radius: 1rem;
-}
-/* On mouse-over, add a grey background color */
-.custom-checkbox:hover input {
-  background: #ccc;
+  user-select: none;
+  cursor: pointer;
 }
 
-.custom-checkbox:after {
-  content: "";
-  position: absolute;
+.custom-checkbox input {
   display: none;
 }
 
-input:checked ~ .custom-checkbox:after {
-  display: block;
-}
-
-.custom-checkbox:after {
-  left: 9px;
-  top: 5px;
+.custom-checkbox span:after {
+  content: "";
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
   width: 5px;
   height: 10px;
   border: solid white;
   border-width: 0 3px 3px 0;
-  -webkit-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
-  transform: rotate(45deg);
+  -webkit-transform: translateX(-50%) translateY(-50%) rotate(45deg);
+  transform: translateX(-50%) translateY(-50%) rotate(45deg);
+}
+
+.custom-checkbox input:checked + span:after {
+  display: block;
 }
 
 /* ---------- */
