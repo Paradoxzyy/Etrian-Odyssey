@@ -16,6 +16,7 @@ const init = async () => {
   state.currentClass = 0
   state.currentLevel = 1
   state.currentRetirement = 0
+  state.currentBoost = false
   changeClass()
   loadURL()
   changeSp()
@@ -186,6 +187,10 @@ const Controls = component(() => {
     handleDebounce("currentRetirement", { value: +e.target.value })
   }
 
+  const handleChangeBoost = e => {
+    handleDebounce("currentBoost", { value: e.target.checked })
+  }
+
   return html`
     <div class="controls-container">
       <div class="controls">
@@ -211,8 +216,17 @@ const Controls = component(() => {
         </div>
       </div>
 
-      <div>
-        <span>SP: <span class="${() => state.freeSp < 0 ? "overspend" : ""}">${() => state.freeSp}</span> / ${() => state.totalSp}</span>
+      <div class="controls">
+        <div>
+          <span>SP: <span class="${() => state.freeSp < 0 ? "overspend" : ""}">${() => state.freeSp}</span> / ${() => state.totalSp}</span>
+        </div>
+
+        <div>
+          <label>
+            <span>Boost</span>
+            ${CustomCheckbox({ handleClick: handleChangeBoost })}
+          </label>
+        </div>
       </div>
     </div>`
 })
@@ -232,10 +246,6 @@ const SkillGrid = component(() => {
   const data = () => Object.keys(state.skillAllocation)
     .reduce((acc, curr) => {
       const item = global.skills[curr]
-
-      // TODO verify all skills exist in skills.json
-      if (!item)
-        return acc
 
       const index = item.location.x + gridSize.x * item.location.y
       item.id = curr
@@ -327,7 +337,6 @@ const SkillInfo = component(props => {
   const col2 = Math.floor(cols / (props.body ? 3 : 2))
   const col1 = cols - col2 * (props.body ? 2 : 1)
   const totalLevels = props.maxLevel + (props.boostAllowed ? 5 : 0)
-  // TODO update EO1/skills.json TP cost level data for boost
 
   return html`
     <div class="${classes}">
@@ -367,7 +376,7 @@ const SkillInfoRows = component(props => {
     return html``
 
   return html`
-    ${() => Object.entries(global.skills[props.id].levelData).map(([ name, data ]) => SkillInfoRow({ name, data, id: props.id, maxLevel: props.maxLevel }))}`
+    ${() => Object.entries(global.skills[props.id].levelData).map(([ name, data ]) => SkillInfoRow({ name, data, id: props.id, maxLevel: props.maxLevel, boostAllowed: props.boostAllowed }))}`
 })
 
 //----------------------------------------
@@ -402,11 +411,14 @@ const SkillInfoRow = component(props => {
       if (level == -1)
         return false
 
+      if (state.currentBoost && props.boostAllowed && props.name != "TP Cost")
+        level += 5
+
       if (level == i)
         return true
 
       return props.data.slice(Math.min(level, i), Math.max(level, i) + 1).every(v => v == props.data[level])
-    })(state.skillAllocation[props.id] -1)
+    })(state.skillAllocation[props.id] - 1)
 
     const classes = () => createClasses({
       "selected": isLevelWithinSelected
@@ -424,33 +436,6 @@ const SkillInfoRow = component(props => {
     </tr>`
 })
 
-//--------------------------------------------------------------------------------
-//---------------------------------------- Template Components -------------------
-//--------------------------------------------------------------------------------
-const Select = component(props => {
-  return html`
-    <select name="${props.name}" @change="${props.handleChange}">
-      ${() => props.options.map(item => (item.default = item.value == props.default,  Option(item).key(item.value)))}
-    </select>`
-})
-
-//----------------------------------------
-const Option = component(props => {
-  return html`
-    <option value="${props.value}" .selected="${props.default}">${props.text}</option>`
-})
-
-//----------------------------------------
-const Button = component(props => {
-  const classes = () => createClasses({
-    "button": true,
-    "disabled": props.disabled
-  })
-
-  return html`
-    <button class="${classes}" @click="${props.handleClick}">${props.text}</button>`
-})
-
 //----------------------------------------
 const LineContainer = component(props => {
   if (props.id)
@@ -461,8 +446,7 @@ const LineContainer = component(props => {
 
 //----------------------------------------
 const Line = component(props => {
-  // TODO why optional chaining?
-  if (!global.skills[props.id]?.upstream)
+  if (!global.skills[props.id].upstream)
     return html``
 
   const lines = Object.keys(global.skills[props.id].upstream).map(upstream => {
@@ -521,6 +505,42 @@ const Line = component(props => {
   })
 
   return html`${lines}`
+})
+
+//--------------------------------------------------------------------------------
+//---------------------------------------- Template Components -------------------
+//--------------------------------------------------------------------------------
+const Select = component(props => {
+  return html`
+    <select name="${props.name}" @change="${props.handleChange}">
+      ${() => props.options.map(item => (item.default = item.value == props.default,  Option(item).key(item.value)))}
+    </select>`
+})
+
+//----------------------------------------
+const Option = component(props => {
+  return html`
+    <option value="${props.value}" .selected="${props.default}">${props.text}</option>`
+})
+
+//----------------------------------------
+const Button = component(props => {
+  const classes = () => createClasses({
+    "button": true,
+    "disabled": props.disabled
+  })
+
+  return html`
+    <button class="${classes}" @click="${props.handleClick}">${props.text}</button>`
+})
+
+//----------------------------------------
+const CustomCheckbox = component(props => {
+  return html`
+    <div class="custom-checkbox" @click="${props.handleClick}">
+      <input type="checkbox">
+      <span></span>
+    </div>`
 })
 
 //--------------------------------------------------------------------------------
