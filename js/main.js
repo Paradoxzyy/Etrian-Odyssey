@@ -221,13 +221,22 @@ const Controls = component(() => {
           <span>SP: <span class="${() => state.freeSp < 0 ? "overspend" : ""}">${() => state.freeSp}</span> / ${() => state.totalSp}</span>
         </div>
 
-        <div>
-          <label>
-            <span>Boost</span>
-            ${CustomCheckbox({ handleClick: handleChangeBoost })}
-          </label>
-        </div>
+        ${Boost({ handleClick: handleChangeBoost })}
       </div>
+    </div>`
+})
+
+//----------------------------------------
+const Boost = component(props => {
+  if (!global.meta.hasBoost)
+    return html``
+
+  return html`
+    <div>
+      <label>
+        <span>Boost</span>
+        ${CustomCheckbox(props)}
+      </label>
     </div>`
 })
 
