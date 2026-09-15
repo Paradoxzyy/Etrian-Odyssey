@@ -5,8 +5,8 @@
 }
 
 *,
-*::before,
-*::after {
+*:before,
+*:after {
   box-sizing: content-box;
 }
 
@@ -18,6 +18,10 @@ body {
 
 a {
   outline: none;
+}
+
+label:has(input[type="checkbox"]) {
+  cursor: pointer;
 }
 
 /* ---------- */
