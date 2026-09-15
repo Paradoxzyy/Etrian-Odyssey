@@ -10,17 +10,10 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  # pre-deploy
-  call-workflow-minify-json:
-    permissions:
-      contents: write
-    uses: ./.github/workflows/minify-json.yml
-
-  # deploy
   deploy:
     runs-on: ubuntu-latest
     permissions:
-      contents: read
+      contents: write
       pages: write
       id-token: write
     environment:
@@ -29,6 +22,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v7
+
+      - name: Minify JSON
+        uses: ./.github/actions/minify-json
 
       - name: Setup Pages
         uses: actions/configure-pages@v6
