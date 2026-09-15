@@ -24,6 +24,7 @@ a {
 .custom-checkbox {
   display: inline-block;
   position: relative;
+  vertical-align: top;
   width: 25px;
   height: 25px;
   background: var(--primary);
@@ -135,6 +136,7 @@ th {
 .controls {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 2rem;
 }
 
