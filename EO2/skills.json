@@ -80,7 +80,7 @@
     }
   },
   "SwordsL": {
-    "name": "Swords",
+    "name": "Sword Mastery",
     "description": "Needed to learn sword skills. Passively increases damage dealt with swords.",
     "maxLevel": 10,
     "type": "Stat Increase",
@@ -252,7 +252,7 @@
     }
   },
   "Lifeaxe": {
-    "name": "Lifeaxe",
+    "name": "Life Axe",
     "description": "Deals melee STR-based Cut damage to one enemy. The damage decreases when the Landsknecht's HP falls under certain thresholds.",
     "maxLevel": 5,
     "type": "Axe Skill",
@@ -352,16 +352,16 @@
     }
   },
   "Unbound": {
-    "name": "Unbound",
+    "name": "Unbind",
     "description": "Removes binds from one party member.",
-    "maxLevel": 5,
+    "maxLevel": 3,
     "type": "Healing Skill",
     "body": "Head",
     "location": {"x": 1, "y": 6},
     "levelData": {
-      "TP Cost": [3,3,2,2,1],
-      "Binds Removed": [1,1,2,2,3],
-      "Speed Modifier": ["100%","105%","115%","130%","150%"]
+      "TP Cost": [3,2,1],
+      "Binds Removed": [1,2,3],
+      "Speed Modifier": ["100%","125%","150%"]
     }
   },
   "MineL": {
@@ -527,7 +527,7 @@
     }
   },
   "2Bolt": {
-    "name": "2-Bolt",
+    "name": "Multihit",
     "description": "Deals 2 instances of ranged STR-based Stab damage to random enemies. Can hit the same enemy multiple times.",
     "note": "The targets are predetermined when the Survivalist attacks. If an enemy was targeted to take multiple hits, but dies before the rest of those hits come out, they will simply disappear and will not get redirected to other enemies.",
     "maxLevel": 10,
@@ -820,7 +820,7 @@
     }
   },
   "Shields": {
-    "name": "Shields",
+    "name": "Shield Mastery",
     "description": "Needed to learn shield skills. Passively decreases the damage the Protector takes from all damage types.",
     "maxLevel": 10,
     "type": "Stat Increase",
@@ -907,7 +907,7 @@
     }
   },
   "Back Guard": {
-    "name": "Back Guard",
+    "name": "Rear Guard",
     "description": "At the start of the turn, the Protector prepares to reduce the amount of damage the Back row takes from physical attacks for the current turn. Remains active until the turn ends or the Protector dies. Every time the skill activates, the chance of it activating again is reduced. The base activation rate is 100% at all levels.",
     "maxLevel": 10,
     "type": "",
@@ -921,7 +921,7 @@
     }
   },
   "All Guard": {
-    "name": "All Guard",
+    "name": "Full Guard",
     "description": "At the start of the turn, the Protector prepares to reduce the amount of damage the entire party takes from physical attacks for the current turn. Remains active until the turn ends or the Protector dies. Every time the skill activates, the chance of it activating again is reduced. The base activation rate is 100% at all levels.",
     "maxLevel": 5,
     "type": "",
@@ -949,7 +949,7 @@
     }
   },
   "Antifire": {
-    "name": "Antifire",
+    "name": "Fire Wall",
     "description": "At the start of the turn, the Protector prepares to reduce the amount of damage the entire party takes from fire attacks for the current turn. Remains active until the turn ends or the Protector dies. From levels 1 through 9, every time the skill activates, the chance of it activating again is reduced. The base activation rate is 100% at all levels. At level 10, the skill will always activate. At levels 1 through 7, the damage is simply reduced. At levels 8 through 10, the effects of the attack are completely nullified, meaning that any status effects attached to those attacks will not take effect. At levels 9 and 10, the damage is not nullified, but ends up being absorbed and heals the party instead.",
     "maxLevel": 10,
     "type": "",
@@ -964,7 +964,7 @@
     }
   },
   "Anticold": {
-    "name": "Anticold",
+    "name": "Ice Wall",
     "description": "At the start of the turn, the Protector prepares to reduce the amount of damage the entire party takes from ice attacks for the current turn. Remains active until the turn ends or the Protector dies. From levels 1 through 9, every time the skill activates, the chance of it activating again is reduced. The base activation rate is 100% at all levels. At level 10, the skill will always activate. At levels 1 through 7, the damage is simply reduced. At levels 8 through 10, the effects of the attack are completely nullified, meaning that any status effects attached to those attacks will not take effect. At levels 9 and 10, the damage is not nullified, but ends up being absorbed and heals the party instead.",
     "maxLevel": 10,
     "type": "",
@@ -979,7 +979,7 @@
     }
   },
   "Antivolt": {
-    "name": "Antivolt",
+    "name": "Volt Wall",
     "description": "At the start of the turn, the Protector prepares to reduce the amount of damage the entire party takes from volt attacks for the current turn. Remains active until the turn ends or the Protector dies. From levels 1 through 9, every time the skill activates, the chance of it activating again is reduced. The base activation rate is 100% at all levels. At level 10, the skill will always activate. At levels 1 through 7, the damage is simply reduced. At levels 8 through 10, the effects of the attack are completely nullified, meaning that any status effects attached to those attacks will not take effect. At levels 9 and 10, the damage is not nullified, but ends up being absorbed and heals the party instead.",
     "maxLevel": 10,
     "type": "",
@@ -994,7 +994,7 @@
     }
   },
   "Antiall": {
-    "name": "Antiall",
+    "name": "Mana Wall",
     "description": "At the start of the turn, the Protector prepares to reduce the amount of damage the entire party takes from elemental attacks for the current turn. Remains active until the turn ends or the Protector dies. Every time the skill activates, the chance of it activating again is reduced. The base activation rate is 100% at all levels. At levels 1 through 4, the damage is simply reduced. At level 5, the effects of the attack are completely nullified, meaning that any status effects attached to those attacks will not take effect. The damage taken is also absorbed and heals the party instead.",
     "maxLevel": 5,
     "type": "",
@@ -1181,7 +1181,7 @@
     }
   },
   "SwordsD": {
-    "name": "Swords",
+    "name": "Sword Mastery",
     "description": "Needed to learn sword skills. Passively increases damage dealt with swords.",
     "maxLevel": 10,
     "type": "Stat Increase",
@@ -1213,7 +1213,7 @@
     }
   },
   "Viper": {
-    "name": "Viper",
+    "name": "Anaconda",
     "description": "Deals melee STR-based Cut damage to one enemy. Has a chance to inflict poison.",
     "maxLevel": 5,
     "type": "",
@@ -1584,7 +1584,7 @@
     }
   },
   "Cure 2M": {
-    "name": "Cure 2",
+    "name": "Healing",
     "description": "Restores one party member's HP.",
     "maxLevel": 10,
     "type": "",
@@ -1597,7 +1597,7 @@
     }
   },
   "Cure 3M": {
-    "name": "Cure 3",
+    "name": "Full Heal",
     "description": "Fully restores one party member's HP.",
     "maxLevel": 5,
     "type": "",
@@ -1775,7 +1775,7 @@
     }
   },
   "H. Touch": {
-    "name": "Force: H. Touch",
+    "name": "Force: Healing Touch",
     "description": "Fully heals and revives the entire party, along with dispelling any status ailments they have. Has no effect on binds or stuns. Has a speed modifier of 1%.",
     "maxLevel": 0,
     "type": "Enhancement Skill",
@@ -2687,7 +2687,7 @@
     }
   },
   "Nukechi": {
-    "name": "Nukechi",
+    "name": "Nukeuchi",
     "description": "Deals melee STR-based Cut damage to one enemy.",
     "maxLevel": 10,
     "type": "Active",
@@ -3091,7 +3091,7 @@
     "maxLevel": 5,
     "type": "Debuff",
     "upstream": {"Evil Eye": 1},
-    "location": {"x": 2, "y": 7},
+    "location": {"x": 4, "y": 7},
     "levelData": {
       "TP Cost": [10,8,6,4,2],
       "Attacks": [1,1,2,2,3]
@@ -3115,7 +3115,7 @@
     "maxLevel": 5,
     "type": "Debuff",
     "upstream": {"Evil Eye": 1},
-    "location": {"x": 4, "y": 7},
+    "location": {"x": 2, "y": 7},
     "levelData": {
       "TP Cost": [10,8,6,4,2]
     }
@@ -3234,7 +3234,7 @@
     }
   },
   "Guns": {
-    "name": "Guns",
+    "name": "Gun Mastery",
     "description": "Needed to learn gun skills. Passively increases damage dealt with guns.",
     "maxLevel": 10,
     "type": "Passive",
@@ -3249,7 +3249,7 @@
     "maxLevel": 10,
     "type": "Passive",
     "upstream": {"Guns": 10},
-    "location": {"x": 1, "y": 4},
+    "location": {"x": 1, "y": 3},
     "levelData": {
       "Activation Rate": ["5%","6%","8%","10%","13%","16%","20%","24%","29%","35%"]
     }
@@ -3270,7 +3270,7 @@
     "maxLevel": 5,
     "type": "Active",
     "upstream": {"Guns": 2, "AgiUpG": 1},
-    "location": {"x": 2, "y": 4},
+    "location": {"x": 1, "y": 4},
     "levelData": {
       "TP Cost": [5,7,9,11,13],
       "Damage": ["120%","123%","129%","138%","150%"],
@@ -3618,7 +3618,7 @@
     "description": "Passively restores the entire party's HP at the end of each turn.",
     "maxLevel": 5,
     "type": "Passive",
-    "location": {"x": 1, "y": 6},
+    "location": {"x": 2, "y": 6},
     "levelData": {
       "HP Restored": [1,2,3,4,5]
     }
@@ -3727,7 +3727,7 @@
     }
   },
   "Cure 2W": {
-    "name": "Cure 2",
+    "name": "Healing",
     "description": "Restores one party member's HP.",
     "maxLevel": 10,
     "type": "Active",
@@ -3740,7 +3740,7 @@
     }
   },
   "Cure 3W": {
-    "name": "Cure 3",
+    "name": "Full Heal",
     "description": "Fully restores one party member's HP.",
     "maxLevel": 5,
     "type": "Active",
@@ -3990,8 +3990,8 @@
     "description": "If the Beast dies, this passive has a chance to revive them with 1 HP. Won't activate if the Beast is killed by instant death. Works with Loyalty activations.",
     "maxLevel": 5,
     "type": "Passive",
-    "upstream": {"En GardeB": 5},
-    "location": {"x": 2, "y": 6},
+    "upstream": {"Autoheal": 5},
+    "location": {"x": 3, "y": 0},
     "levelData": {
       "Activation Rate": ["10%","13%","19%","28%","30%"]
     }
@@ -4001,7 +4001,7 @@
     "description": "Deals melee STR-based Bash damage to one enemy. The damage increases when the Beast's HP falls under certain thresholds.",
     "maxLevel": 10,
     "type": "Active",
-    "location": {"x": 1, "y": 5},
+    "location": {"x": 1, "y": 4},
     "levelData": {
       "TP Cost": [1,2,3,4,5,6,7,8,9,10],
       "Base Damage": ["101%","102%","104%","107%","111%","116%","122%","129%","137%","146%"],
@@ -4019,7 +4019,7 @@
     "maxLevel": 5,
     "type": "Active",
     "upstream": {"Maul": 5},
-    "location": {"x": 2, "y": 5},
+    "location": {"x": 2, "y": 4},
     "levelData": {
       "TP Cost": [3,5,7,9,11],
       "Damage": ["130%","136%","150%","172%","202%"],
@@ -4029,7 +4029,7 @@
     }
   },
   "Bodyslam": {
-    "name": "Bodyslam",
+    "name": "Tackle",
     "description": "Deals melee STR-based Bash damage to one enemy. Has a chance to inflict stun.",
     "maxLevel": 10,
     "type": "Active",
@@ -4066,7 +4066,7 @@
     "description": "Deals melee STR-based Cut damage to one enemy.",
     "maxLevel": 10,
     "type": "Active",
-    "location": {"x": 1, "y": 4},
+    "location": {"x": 1, "y": 5},
     "levelData": {
       "TP Cost": [2,3,4,5,6,7,8,9,10,11],
       "Base Damage": ["70%","72%","74%","77%","80%","84%","89%","94%","99%","104%"],
@@ -4080,7 +4080,7 @@
     "maxLevel": 5,
     "type": "Active",
     "upstream": {"Claw": 5},
-    "location": {"x": 2, "y": 4},
+    "location": {"x": 2, "y": 5},
     "levelData": {
       "TP Cost": [15,17,19,21,23],
       "Damage": ["150%","156%","170%","192%","222%"],
@@ -4129,7 +4129,7 @@
     }
   },
   "Roar": {
-    "name": "Roar",
+    "name": "Beast Roar",
     "description": "Attempts to inflict fear on all enemies.",
     "maxLevel": 5,
     "type": "Active",
