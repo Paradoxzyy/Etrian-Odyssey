@@ -204,7 +204,7 @@ const Controls = component(() => {
         <div>
           <label>
             <span>Level</span>
-            <input type="number" min="1" max="${global.meta.maxLevel}" value="${state.currentLevel}" name="level" @change="${handleChangeLevel}">
+            <input type="number" name="level" min="1" max="${global.meta.maxLevel}" value="${state.currentLevel}" @change="${handleChangeLevel}">
           </label>
         </div>
 
@@ -522,7 +522,7 @@ const Line = component(props => {
 const Select = component(props => {
   return html`
     <select name="${props.name}" @change="${props.handleChange}">
-      ${() => props.options.map(item => (item.default = item.value == props.default,  Option(item).key(item.value)))}
+      ${() => props.options.map(item => (item.default = item.value == props.default, Option(item).key(item.value)))}
     </select>`
 })
 
