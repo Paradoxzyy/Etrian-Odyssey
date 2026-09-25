@@ -808,7 +808,7 @@
   },
   "Foesense": {
     "name": "Foesense",
-    "description": "Can only be used on the field. Reveals all FOEs on the map for a set number of steps.    .",
+    "description": "Can only be used on the field. Reveals all FOEs on the map for a set number of steps.",
     "descriptionInGame": "Draw the location of FoEs by sensing enemy presences.",
     "maxLevel": 10,
     "type": "FOE Skill",
@@ -3894,7 +3894,7 @@
   },
   "Armshot": {
     "name": "Armshot",
-    "description": "Deals ranged STR-based Stab damage to one enemy. Has a chance to inflict arm  bind.",
+    "description": "Deals ranged STR-based Stab damage to one enemy. Has a chance to inflict arm bind.",
     "descriptionInGame": "Gunshot with a chance of binding the enemy's arms.",
     "maxLevel": 5,
     "type": "Gun Skill",
