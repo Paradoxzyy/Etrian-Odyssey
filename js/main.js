@@ -569,17 +569,30 @@ const loadURL = () => {
   if (!location.hash)
     return
 
-  const keys = [ "currentClass", "currentLevel", "currentRetirement" ]
-  const data = JSON.parse(LZString.decompressFromEncodedURIComponent(location.hash.slice(1)))
+  const hash = location.hash.slice(1).split("/")
 
-  keys.forEach(key => state[key] = data[key])
-  state.skillAllocation = global.classes[state.currentClass].skills.reduce((acc, curr, i) => (acc[curr] = data.skillAllocation[i] ?? 0, acc), {})
+  if (hash[1]) {
+    const keys = [ "currentClass", "currentLevel", "currentRetirement" ]
+    const data = JSON.parse(LZString.decompressFromEncodedURIComponent(hash[1]))
+
+    keys.forEach(key => state[key] = data[key])
+    state.skillAllocation = global.classes[state.currentClass].skills.reduce((acc, curr, i) => (acc[curr] = data.skillAllocation[i] ?? 0, acc), {})
+  }
+  else {
+    const currentClass = global.classes.findIndex(item => item.name.replaceAll(" ", "_") == hash[0])
+
+    if (currentClass != -1)
+      state.currentClass = currentClass
+
+    changeClass()
+  }
 }
 
 //----------------------------------------
 const saveURL = () => {
   const keys = [ "currentClass", "currentLevel", "currentRetirement" ]
   const data = {}
+  const className = global.classes[state.currentClass].name.replaceAll(" ", "_")
 
   keys.forEach(key => data[key] = state[key])
   data.skillAllocation = global.classes[state.currentClass].skills.map(item => state.skillAllocation[item])
@@ -587,10 +600,10 @@ const saveURL = () => {
   if (data.skillAllocation.some(Boolean)) {
     const dataURI = LZString.compressToEncodedURIComponent(JSON.stringify(data))
 
-    history.replaceState(null, "", `#${dataURI}`)
+    history.replaceState(null, "", `#${className}/${dataURI}`)
   }
   else
-    history.replaceState(null, "", location.pathname)
+    history.replaceState(null, "", `#${className}`)
 }
 
 //----------------------------------------
