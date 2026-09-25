@@ -8,7 +8,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 10rem;
+  gap: 4rem;
   height: 100vh;
   width: 100vw;
 }
@@ -38,5 +38,5 @@ body {
 }
 
 .item img {
-  height: 9rem;
+  height: 10rem;
 }
