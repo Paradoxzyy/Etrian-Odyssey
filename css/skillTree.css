@@ -1,7 +1,28 @@
 :root {
   --background: #7373B9;
-  --color: navy;
+  --text: navy;
   --primary: #A4B4F9;
+  --secondary: #D4DAFC;
+
+  --spend: #64FF64;
+  --overspend: #DD3F3F;
+
+  --skill-name: #000000;
+  --skill-border: var(--text);
+  --skill-background: var(--primary);
+
+  --skill-background-hover: #869AF1;
+  --skill-border-disabled: #B3B7E4;
+  --skill-background-disabled: #C0C6E9;
+  --skill-background-disabled-hover: #C6CEFF;
+
+  --button: var(--primary);
+  --button-disabled: #9BA8DD;
+
+  --skill-info-selected: #5E6FDF;
+  --skill-info-selected-text: yellow;
+
+  --check: white;
 }
 
 *,
@@ -11,7 +32,7 @@
 }
 
 body {
-  color: var(--color);
+  color: var(--text);
   background: var(--background);
   font-family: sans-serif;
 }
@@ -49,7 +70,7 @@ label:has(input[type="checkbox"]) {
   left: 50%;
   width: 5px;
   height: 10px;
-  border: solid white;
+  border: solid var(--check);
   border-width: 0 3px 3px 0;
   -webkit-transform: translateX(-50%) translateY(-50%) rotate(45deg);
   transform: translateX(-50%) translateY(-50%) rotate(45deg);
@@ -64,7 +85,7 @@ select,
 input {
   width: 100%;
   font-size: 16px;
-  color: var(--color);
+  color: var(--text);
   border-radius: 1rem;
   height: 29px;
   padding-left: 5%;
@@ -87,7 +108,7 @@ input {
 td, th {
   padding: 5px;
   text-align: center;
-  background: #d4dafc;
+  background: var(--secondary);
 }
 
 th {
@@ -145,7 +166,7 @@ th {
 }
 
 .overspend {
-  background: #DD3F3F;
+  background: var(--overspend);
   border-radius: 4px;
 }
 
@@ -189,28 +210,28 @@ th {
   flex-direction: column;
   gap: 0.1rem;
   padding: 4px;
-  border: 2px solid var(--color);
+  border: 2px solid var(--skill-border);
   border-radius: .4rem;
   line-height: .9rem;
   width: 110px;
   height: 40px;
-  background: var(--primary);
-  color: var(--color);
+  background: var(--skill-background);
+  color: var(--text);
   transition: background 0.3s;
 }
 
 .skill-box.disabled {
-  border: 2px solid #B3B7E4;
-  background: #C0C6E9
+  border: 2px solid var(--skill-border-disabled);
+  background: var(--skill-background-disabled);
 }
 
 .skill-box:hover {
-  background: #869AF1;
+  background: var(--skill-background-hover);
   z-index: 10;
 }
 
 .skill-box.disabled:hover {
-  background: #C6CEFF;
+  background: var(--skill-background-disabled-hover);
 }
 
 .skill-box .skill-header {
@@ -219,7 +240,7 @@ th {
 }
 
 .skill-box .skill-name {
-  color: #000000;
+  color: var(--skill-name);
   font-weight: bold;
 }
 
@@ -231,7 +252,7 @@ th {
 }
 
 .skill-box .skill-points.active {
-  background: #64FF64;
+  background: var(--spend);
 }
 
 .skill-box .skill-buttons {
@@ -253,13 +274,13 @@ th {
 }
 
 .skill-info table {
-  background: var(--color);
+  background: var(--text);
   min-width: 25rem;
 }
 
 .skill-info .selected {
-  background: #5E6FDF;
-  color: yellow;
+  background: var(--skill-info-selected);
+  color: var(--skill-info-selected-text);
 }
 
 .skill-info.display-top {
@@ -274,10 +295,10 @@ th {
 
 /* ---------- */
 .button {
-  background: var(--primary);
+  background: var(--button);
   width: 2rem;
   height: 1.3rem;
-  color: var(--color);
+  color: var(--text);
   text-align: center;
   text-decoration: none;
   font-size: 16px;
@@ -289,7 +310,7 @@ th {
 }
 
 .button.disabled {
-  background: #9BA8DD;
+  background: var(--button-disabled);
   pointer-events: none;
 }
 
