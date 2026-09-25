@@ -1,6 +1,8 @@
 # Link
 https://paradoxzyy.github.io/Etrian-Odyssey/
 
+Skill Builders for Etrian Odyssey HD versions
+
 ---
 
 Credits to original authors:
