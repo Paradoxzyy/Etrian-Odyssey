@@ -1396,7 +1396,7 @@
     "maxLevel": 5,
     "type": "Passive Skill",
     "upstream": {
-      "Unbind-W": 3
+      "Unbind-D": 3
     },
     "location": { "x": 1, "y": 1 },
     "levelData": {
@@ -1410,7 +1410,7 @@
     "maxLevel": 5,
     "type": "Passive Skill",
     "upstream": {
-      "Unbind-W": 3
+      "Unbind-D": 3
     },
     "location": { "x": 1, "y": 3 },
     "levelData": {
