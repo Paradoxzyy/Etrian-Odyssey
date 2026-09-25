@@ -309,10 +309,10 @@
     "levelData": {
       "TP Cost": [ 4, 6, 8, 10, 12 ],
       "Power (100%-76% HP)": [ "152%", "165%", "179%", "194%", "210%" ],
-      "Power (75%-51% HP)": [ 140, "152%", "165%", "179%", "194%" ],
-      "Power (50%-26% HP)": [ "129%", 140, "152%", "165%", "179%" ],
-      "Power (25%-2% HP)": [ "119%", "129%", 140, "152%", "165%" ],
-      "Power (1% HP)": [ "110%", "119%", "129%", 140, "152%" ],
+      "Power (75%-51% HP)": [ "140%", "152%", "165%", "179%", "194%" ],
+      "Power (50%-26% HP)": [ "129%", "140%", "152%", "165%", "179%" ],
+      "Power (25%-2% HP)": [ "119%", "129%", "140%", "152%", "165%" ],
+      "Power (1% HP)": [ "110%", "119%", "129%", "140%", "152%" ],
       "Accuracy Modifier": [ "100%", "103%", "109%", "118%", "130%" ],
       "Speed Modifier": [ "93%", "96%", "103%", "114%", "129%" ]
     }
@@ -721,7 +721,7 @@
     "maxLevel": 1,
     "type": "Special Skill",
     "upstream": {
-      "Slowstep": 5
+      "Slowstep": 1
     },
     "location": { "x": 3, "y": 4 },
     "levelData": {
@@ -1655,7 +1655,7 @@
     "name": "Unbind",
     "description": "Removes binds from one party member.",
     "descriptionInGame": "Removes bindings from one party member.",
-    "maxLevel": 5,
+    "maxLevel": 3,
     "type": "Healing Skill",
     "upstream": {
       "TECUp-D": 1
@@ -1959,7 +1959,7 @@
     "name": "Unbind",
     "description": "Removes bindings from one party member.",
     "descriptionInGame": "Removes bindings from one party member.",
-    "maxLevel": 10,
+    "maxLevel": 5,
     "type": "Healing Skill",
     "upstream": {
       "Healer": 3
