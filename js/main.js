@@ -584,10 +584,13 @@ const saveURL = () => {
   keys.forEach(key => data[key] = state[key])
   data.skillAllocation = global.classes[state.currentClass].skills.map(item => state.skillAllocation[item])
 
-  const dataURI = LZString.compressToEncodedURIComponent(JSON.stringify(data))
+  if (data.skillAllocation.some(Boolean)) {
+    const dataURI = LZString.compressToEncodedURIComponent(JSON.stringify(data))
 
-  history.replaceState(null, "", `#${dataURI}`)
-  //location.hash = dataURI
+    history.replaceState(null, "", `#${dataURI}`)
+  }
+  else
+    history.replaceState(null, "", location.pathname)
 }
 
 //----------------------------------------
