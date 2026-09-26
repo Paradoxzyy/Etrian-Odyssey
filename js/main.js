@@ -375,17 +375,13 @@ const SkillInfo = component(props => {
         ${SkillInfoRows(props)}
 
         <tr class="${props.note ? "" : "hidden"}">
-          <th colspan="${cols}">Note</td>
-        </tr>
-        <tr class="${props.note ? "" : "hidden"}">
-          <td colspan="${cols}">${props.note}</td>
+          <th colspan="2">Note</td>
+          <td colspan="${totalLevels}" class="text-left">${props.note}</td>
         </tr>
 
         <tr class="${props.bugfix ? "" : "hidden"}">
-          <th colspan="${cols}">Bug fix</td>
-        </tr>
-        <tr class="${props.bugfix ? "" : "hidden"}">
-          <td colspan="${cols}">${props.bugfix}</td>
+          <th colspan="2">Bug Fix</td>
+          <td colspan="${totalLevels}" class="text-left">${props.bugfix}</td>
         </tr>
       </table>
     </div>`

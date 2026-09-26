@@ -315,6 +315,10 @@ th {
 }
 
 /* ---------- */
+.text-left {
+  text-align: left;
+}
+
 .hidden {
   display: none;
 }
