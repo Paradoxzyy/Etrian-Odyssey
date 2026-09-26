@@ -354,7 +354,7 @@ const SkillInfo = component(props => {
           <th colspan="${col1}">Name</th>
           <th colspan="${col2}" class="${props.body ? "" : "hidden"}">Body Part</th>
           <th colspan="${col2}">Skill Type</th>
-          <th colspan="5" rowspan="${props.body ? 3 : 2}" class="${props.boostAllowed ? "" : "hidden"}">Boost</th>
+          <th colspan="5" rowspan="${props.note ? 5 : 3}" class="${props.boostAllowed ? "" : "hidden"}">Boost</th>
         </tr>
         <tr>
           <td colspan="${col1}">${props.name}</td>
@@ -364,13 +364,13 @@ const SkillInfo = component(props => {
         <tr>
           <td colspan="${cols}">${props.description}</td>
         </tr>
-        <tr class="${!props.note ? "hidden" : ""}">
+        <tr class="${props.note ? "" : "hidden"}">
           <th colspan="${cols}">Note</td>
         </tr>
-        <tr class="${!props.note ? "hidden" : ""}">
+        <tr class="${props.note ? "" : "hidden"}">
           <td colspan="${cols}">${props.note}</td>
         </tr>
-        <tr class="${!props.maxLevel ? "hidden" : ""}">
+        <tr class="${props.maxLevel ? "" : "hidden"}">
           <th colspan="2">Level</th>
           ${() => Array.from(Array(totalLevels).keys()).map(i => html`<th colspan="${props.maxLevel == 1 ? 5 : 1}" class="${state.skillAllocation[props.id] == i + 1 ? "selected" : ""}">${i + 1}</th>`)}
         </tr>
