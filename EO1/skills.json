@@ -203,8 +203,7 @@
     "type": "Sword Skill",
     "body": "Leg",
     "upstream": {
-      "2-Hit": 3,
-      "SwordMastery-L": 5
+      "2-Hit": 3
     },
     "location": { "x": 4, "y": 2 },
     "levelData": {
