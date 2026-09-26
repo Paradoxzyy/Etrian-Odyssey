@@ -1232,6 +1232,7 @@
     "name": "Refresh",
     "description": "Dispels certain status ailments from one party member. Which ailments are dispelled depends on the skill's level. Cannot dispel petrification, no matter how high its level is. Dispels certain status ailments from the entire party. Which ailments are dispelled depends on the skill's level. The higher the skill's level, the more ailments that can be dispelled. Cannot dispel petrification, no matter how high its level is.",
     "descriptionInGame": "Removes status ailments from one party member.",
+    "bugfix": "Now it cannot be used outside of battle.",
     "maxLevel": 5,
     "type": "Healing Skill",
     "upstream": {
@@ -2007,6 +2008,7 @@
     "name": "Purify",
     "description": "Dispels certain status ailments from the entire party. Which ailments are dispelled depends on the skill's level. The higher the skill's level, the more ailments that can be dispelled. Cannot dispel petrification, no matter how high its level is.",
     "descriptionInGame": "Removes status ailments from the entire party.",
+    "bugfix": "Now it cannot be used outside of battle.",
     "maxLevel": 5,
     "type": "Healing Skill",
     "upstream": {
@@ -2909,6 +2911,7 @@
     "name": "Force: Crusade",
     "description": "Applies three separate buffs to the entire party, buffing attack, defense, and max HP. For the purposes of overriding buffs, the ATK Up buff is placed first, the DEF Up buff is placed second, and the HP MAX Up buff is placed last. Meaning that any new buff will immediately override the ATK Up buff first.",
     "descriptionInGame": "Secret song that increases the party's attack, defense, and max HP.",
+    "bugfix": "The defense buff now works correctly.",
     "maxLevel": 0,
     "type": "Force Skill",
     "body": "Arms",
@@ -4134,6 +4137,7 @@
     "name": "Medishot",
     "description": "Dispels certain status ailments from the entire party. Cannot dispel petrification.",
     "descriptionInGame": "Removes status ailments from the entire party.",
+    "bugfix": "Now it cannot be used outside of battle.",
     "maxLevel": 5,
     "type": "Gun Skill",
     "upstream": {

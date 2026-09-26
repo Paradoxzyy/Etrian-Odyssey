@@ -206,7 +206,7 @@
   "Blazer": {
     "name": "Blazer",
     "description": "Sword skill that follows fire magic with a flaming slash.",
-    "note": "This is a chaser skill, meaning if the target is attacked with fire magic, this character will follow up with a fire slash. This skill only deals elemental damage, though the initial strike is physical,",
+    "note": "This is a chaser skill, meaning if the target is attacked with fire magic, this character will follow up with a fire slash. This skill only deals elemental damage, though the initial strike is physical.",
     "maxLevel": 10,
     "boostAllowed": true,
     "type": "Sword Skill",
@@ -225,7 +225,7 @@
   "Freezer": {
     "name": "Freezer",
     "description": "Sword skill that follows ice magic with a freezing slash.",
-    "note": "This is a chaser skill, meaning if the target is attacked with ice magic, this character will follow up with an ice slash. This skill only deals elemental damage, though the initial strike is physical,",
+    "note": "This is a chaser skill, meaning if the target is attacked with ice magic, this character will follow up with an ice slash. This skill only deals elemental damage, though the initial strike is physical.",
     "maxLevel": 10,
     "boostAllowed": true,
     "type": "Sword Skill",
@@ -244,7 +244,7 @@
   "Shocker": {
     "name": "Shocker",
     "description": "Sword skill that follows volt magic with a shocking slash.",
-    "note": "This is a chaser skill, meaning if the target is attacked with volt magic, this character will follow up with a volt slash. This skill only deals elemental damage, though the initial strike is physical,",
+    "note": "This is a chaser skill, meaning if the target is attacked with volt magic, this character will follow up with a volt slash. This skill only deals elemental damage, though the initial strike is physical.",
     "maxLevel": 10,
     "boostAllowed": true,
     "type": "Sword Skill",
@@ -444,7 +444,6 @@
   "Cloak-S": {
     "name": "Cloak",
     "description": "Hide in the shadows so the enemy won't target you.",
-    "note": "Applies a buff that lasts for 5 turns.",
     "maxLevel": 10,
     "boostAllowed": true,
     "type": "Special Skill",
@@ -826,6 +825,7 @@
     "name": "Fire Wall",
     "description": "Protects the party from the first fire attack this turn.",
     "note": "Starting from level 6, negates additional effects from fire attacks, and a percentage of the incoming fire damage will heal you.",
+    "bugfix": "Level 6 and higher now negates additional effects.",
     "maxLevel": 10,
     "boostAllowed": true,
     "type": "Shield Skill",
@@ -845,6 +845,7 @@
     "name": "Ice Wall",
     "description": "Protects the party from the first ice attack this turn.",
     "note": "Starting from level 6, negates additional effects from ice attacks, and a percentage of the incoming ice damage will heal you.",
+    "bugfix": "Level 6 and higher now negates additional effects.",
     "maxLevel": 10,
     "boostAllowed": true,
     "type": "Shield Skill",
@@ -863,6 +864,7 @@
   "VoltWall": {
     "name": "Volt Wall",
     "description": "Protects the party from the first volt attack this turn.",
+    "bugfix": "Level 6 and higher now negates additional effects.",
     "note": "Starting from level 6, negates additional effects from volt attacks, and a percentage of the incoming volt damage will heal you.",
     "maxLevel": 10,
     "boostAllowed": true,
@@ -1030,14 +1032,13 @@
     },
     "location": { "x": 1, "y": 2 },
     "levelData": {
-      "HP Amount": [ "30%", "30%", "30%", "30%", "30%", "34%", "38%", "42%", "46%", "50%" ],
+      "HP Threshold": [ "30%", "30%", "30%", "30%", "30%", "34%", "38%", "42%", "46%", "50%" ],
       "Damage Increase": [ "10%", "15%", "20%", "25%", "30%", "30%", "30%", "30%", "30%", "30%" ]
     }
   },
   "Cloak-D": {
     "name": "Cloak",
     "description": "Hide in the shadows so the enemy won't target you.",
-    "note": "Applies a buff that lasts for 5 turns.",
     "maxLevel": 10,
     "boostAllowed": true,
     "type": "Special Skill",
@@ -1094,7 +1095,6 @@
   "Shackles": {
     "name": "Shackles",
     "description": "Whip attack with a chance of binding the enemy's legs.",
-    "note": "Level 3 indeed have higher bind chance than Level 4!",
     "maxLevel": 10,
     "boostAllowed": true,
     "type": "Whip Skill",
@@ -1106,7 +1106,7 @@
     "levelData": {
       "TP Cost": [ 3, 3, 4, 4, 5, 5, 5, 5, 5, 5 ],
       "Power": [ "130%", "135%", "140%", "145%", "150%", "155%", "160%", "165%", "170%", "180%", "185%", "190%", "195%", "200%", "210%" ],
-      "Aliement Chance": [ "35%", "36%", "41%", "38%", "44%", "45%", "46%", "47%", "48%", "55%", "56%", "57%", "58%", "59%", "67%" ],
+      "Aliement Chance": [ "35%", "36%", "38%", "41%", "44%", "45%", "46%", "47%", "48%", "55%", "56%", "57%", "58%", "59%", "67%" ],
       "Accuracy Modifier": [ "120%", "120%", "120%", "120%", "120%", "120%", "120%", "120%", "120%", "120%", "120%", "120%", "120%", "120%", "120%" ],
       "Speed Modifier": [ "80%", "80%", "80%", "80%", "80%", "80%", "80%", "80%", "80%", "80%", "100%", "100%", "100%", "100%", "100%" ]
     }
@@ -1552,6 +1552,7 @@
   "Regen": {
     "name": "Regen",
     "description": "Restores a small amount of HP to one party member each turn.",
+    "bugfix": "Now works correctly with Troubadour's Healing skill.",
     "maxLevel": 10,
     "boostAllowed": true,
     "type": "Healing Skill",
@@ -1654,12 +1655,12 @@
   "Toxins": {
     "name": "Toxins",
     "description": "Needed to learn poison skills.",
-    "note": "This skill is bugged and does not do anything",
+    "note": "This skill is bugged and does not increase damage.",
     "maxLevel": 5,
     "type": "Mastery Skill",
     "location": { "x": 0, "y": 4 },
     "levelData": {
-      "Damage Increase": [ "110%", "111%", "112%", "113%", "119%" ]
+      "Damage Increase (Bugged)": [ "110%", "111%", "112%", "113%", "119%" ]
     }
   },
   "Scavenge-A": {
@@ -2193,6 +2194,7 @@
   "Healing": {
     "name": "Healing",
     "description": "A healing song recovers party HP by a small amount each turn.",
+    "bugfix": "Now works correctly with Medic's Regen skill.",
     "maxLevel": 10,
     "boostAllowed": true,
     "type": "Song Skill",
@@ -2369,6 +2371,7 @@
   "Overhead": {
     "name": "Overhead",
     "description": "Temporary overhead stance that increases attack and defense.",
+    "bugfix": "Now requires a katana to be equipped. Boost now works correctly with this skill.",
     "maxLevel": 10,
     "boostAllowed": true,
     "type": "Overhead Skill",
@@ -2445,6 +2448,7 @@
   "Seigan": {
     "name": "Seigan",
     "description": "Temporary Seigan stance that increases attack and defense.",
+    "bugfix": "Now requires a katana to be equipped. Boost now works correctly with this skill.",
     "maxLevel": 10,
     "boostAllowed": true,
     "type": "Seigan Skill",
@@ -2463,6 +2467,7 @@
     "name": "Mikiri",
     "description": "Deflect an enemy attack with a katana from the Seigan stance.",
     "note": "This skill can be boosted, but boost will have no additional effects.",
+    "bugfix": "Now requires a katana to be equipped.",
     "maxLevel": 10,
     "boostAllowed": true,
     "type": "Seigan Skill",
@@ -2519,6 +2524,7 @@
   "Iai": {
     "name": "Iai",
     "description": "Temporary Iai katana stance that increases speed.",
+    "bugfix": "Now requires a katana to be equipped. Boost now works correctly with this skill.",
     "maxLevel": 10,
     "boostAllowed": true,
     "type": "Iai Skill",
