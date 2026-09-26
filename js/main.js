@@ -372,7 +372,7 @@ const SkillInfo = component(props => {
         </tr>
         <tr class="${props.maxLevel ? "" : "hidden"}">
           <th colspan="2">Level</th>
-          ${() => Array.from(Array(totalLevels).keys()).map(i => html`<th colspan="${props.maxLevel == 1 ? 5 : 1}" class="${state.skillAllocation[props.id] == i + 1 ? "selected" : ""}">${i + 1}</th>`)}
+          ${() => Array.from(Array(totalLevels).keys()).map(i => html`<th colspan="${props.maxLevel <= 3 ? 6 - props.maxLevel : 1}" class="${state.skillAllocation[props.id] == i + 1 ? "selected" : ""}">${i + 1}</th>`)}
         </tr>
         ${SkillInfoRows(props)}
       </table>
