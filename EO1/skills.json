@@ -1504,7 +1504,7 @@
     "upstream": {
       "Healer": 3
     },
-    "location": { "x": 4, "y": 4 },
+    "location": { "x": 3, "y": 4 },
     "levelData": {
       "TP Cost": [ 10, 11, 12, 13, 14, 14, 14, 14, 14, 14 ],
       "Heal Amount (3)": [ 80, 87, 93, 100, 120, 127, 134, 140, 147, 174, 180, 187, 194, 201, 234 ],
@@ -1563,7 +1563,7 @@
       "CureII-M": 3,
       "Healer": 5
     },
-    "location": { "x": 3, "y": 4 },
+    "location": { "x": 2, "y": 4 },
     "levelData": {
       "TP Cost": [ 16, 17, 18, 19, 20, 20, 20, 20, 20, 20 ],
       "Heal Amount (5)": [ 120, 131, 142, 153, 192, 203, 214, 225, 236, 288, 299, 310, 321, 332, 1600 ],
@@ -1637,10 +1637,9 @@
     "type": "Defense Skill",
     "body": "Head",
     "upstream": {
-      "Healer": 3,
       "Salve": 3
     },
-    "location": { "x": 2, "y": 4 },
+    "location": { "x": 1, "y": 5 },
     "levelData": {
       "TP Cost": [ 10, 11, 12, 13, 14, 14, 14, 14, 14, 14 ],
       "Damage Received Modifier": [ "85%", "80%", "75%", "70%", "65%", "60%", "55%", "50%", "45%", "40%", "35%", "30%", "25%", "20%", "15%" ],
@@ -1846,7 +1845,7 @@
     "type": "Fire Skill",
     "body": "Head",
     "upstream": {
-      "FireUp": 3,
+      "FireUp": 5,
       "Fire": 3
     },
     "location": { "x": 3, "y": 0 },
@@ -1907,7 +1906,7 @@
     "type": "Ice Skill",
     "body": "Head",
     "upstream": {
-      "IceUp": 3,
+      "IceUp": 5,
       "Ice": 3
     },
     "location": { "x": 3, "y": 2 },
@@ -1968,7 +1967,7 @@
     "type": "Volt Skill",
     "body": "Head",
     "upstream": {
-      "VoltUp": 3,
+      "VoltUp": 5,
       "Volt": 3
     },
     "location": { "x": 3, "y": 4 },
@@ -2533,7 +2532,7 @@
     "upstream": {
       "KatanaMastery": 1
     },
-    "location": { "x": 1, "y": 2 },
+    "location": { "x": 0, "y": 2 },
     "levelData": {
       "TP Cost": [ 4, 4, 5, 5, 6, 6, 6, 6, 6, 6 ],
       "Power": [ "130%", "135%", "140%", "145%", "150%", "155%", "160%", "165%", "170%", "180%", "185%", "190%", "195%", "200%", "210%" ],
@@ -2811,7 +2810,7 @@
     "descriptionInGame": "Increase maximum TP.",
     "maxLevel": 10,
     "type": "Stat Increase",
-    "location": { "x": 0, "y": 1 },
+    "location": { "x": 0, "y": 5 },
     "levelData": {
       "TP Increase": [ "110%", "111%", "112%", "113%", "119%", "120%", "121%", "122%", "123%", "130%" ]
     }
@@ -2925,9 +2924,10 @@
     "type": "Curse Skill",
     "body": "Head",
     "upstream": {
+      "TPUp-H": 3,
       "Curses": 3
     },
-    "location": { "x": 3, "y": 4 },
+    "location": { "x": 1, "y": 4 },
     "levelData": {
       "TP Cost": [ 4, 4, 5, 5, 6, 6, 6, 6, 6, 6 ],
       "Ailment Recovery": [ "90%", "87%", "84%", "81%", "72%", "68%", "65%", "62%", "59%", "50%", "47%", "44%", "41%", "38%", "35%" ],
@@ -3135,7 +3135,7 @@
     "note": "There is a chance to get nothing from a gathering point. Leveling the skill reduces the chance to get nothing. For example if an gathering spot has 80% to get an item, then at level 2, it will have 80 * 1.02 = 81.6% chance to get an item.",
     "maxLevel": 10,
     "type": "Search Skill",
-    "location": { "x": 0, "y": 5 },
+    "location": { "x": 0, "y": 1 },
     "levelData": {
       "Item Chance": [ "100%", "102%", "104%", "106%", "110%", "111%", "112%", "113%", "114%", "120%" ],
       "Daily Limit": [ 2, 4, 6, 8, 10, 12, 14, 16, 18, 20 ]
