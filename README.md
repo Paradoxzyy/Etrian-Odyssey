@@ -5,7 +5,7 @@ https://paradoxzyy.github.io/Etrian-Odyssey/
 
 Resources
 ---
-https://www.etrianodyssey.wiki/
+https://www.etrianodyssey.wiki/  
 In-game skill data
 
 ---
