@@ -354,7 +354,7 @@ const SkillInfo = component(props => {
           <th colspan="${col1}">Name</th>
           <th colspan="${col2}" class="${props.body ? "" : "hidden"}">Body Part</th>
           <th colspan="${col2}">Skill Type</th>
-          <th colspan="5" rowspan="${props.note ? 5 : 3}" class="${props.boostAllowed ? "" : "hidden"}">Boost</th>
+          <th colspan="5" rowspan="3" class="${props.boostAllowed ? "" : "hidden"}">Boost</th>
         </tr>
 
         <tr>
