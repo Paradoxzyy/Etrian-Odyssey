@@ -4746,7 +4746,7 @@
   "Tenacity": {
     "name": "Tenacity",
     "description": "If the Beast dies, this passive has a chance to revive them with 1 HP. Won't activate if the Beast is killed by instant death. Works with Loyalty activations.",
-    "descriptionInGame": "May survive mortal blows with 1 HP remaining",
+    "descriptionInGame": "May survive mortal blows with 1 HP remaining.",
     "maxLevel": 5,
     "type": "Passive Skill",
     "upstream": {
