@@ -2642,7 +2642,6 @@
     "name": "Stagger",
     "description": "Chance of stunning the enemies at the beginning of battle.",
     "maxLevel": 10,
-    "boostAllowed": true,
     "type": "Passive Skill",
     "upstream": {
       "Torpor": 5,

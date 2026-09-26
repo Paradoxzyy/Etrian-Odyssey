@@ -49,6 +49,9 @@ const loadData = async () => {
       global.skills[k].downstream ??= {}
       global.skills[k].downstream[id] = v
     })
+
+    if (skill.boostAllowed)
+      skill.levelData["TP Cost"].push(...Array(5).fill(skill.levelData["TP Cost"].at(-1)))
   })
 }
 
