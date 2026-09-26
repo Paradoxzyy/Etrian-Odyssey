@@ -1,7 +1,12 @@
-# Link
+# Skill Builders for Etrian Odyssey HD versions
 https://paradoxzyy.github.io/Etrian-Odyssey/
 
-Skill Builders for Etrian Odyssey HD versions
+---
+
+Resources
+---
+https://www.etrianodyssey.wiki/
+In-game skill data
 
 ---
 
