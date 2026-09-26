@@ -2,7 +2,6 @@
   "HPUp-L": {
     "name": "HP Up",
     "description": "Increase maximum HP.",
-    "descriptionInGame": "Increase maximum HP.",
     "maxLevel": 10,
     "type": "Stat Increase",
     "location": { "x": 0, "y": 0 },
@@ -13,7 +12,6 @@
   "TPUp-L": {
     "name": "TP Up",
     "description": "Increase maximum TP.",
-    "descriptionInGame": "Increase maximum TP.",
     "maxLevel": 10,
     "type": "Stat Increase",
     "location": { "x": 0, "y": 1 },
@@ -24,7 +22,6 @@
   "ATKUp-L": {
     "name": "ATK Up",
     "description": "Increase physical damage.",
-    "descriptionInGame": "Increase physical damage.",
     "maxLevel": 10,
     "type": "Stat Increase",
     "location": { "x": 0, "y": 2 },
@@ -35,7 +32,6 @@
   "DEFUp-L": {
     "name": "DEF Up",
     "description": "Increase physical defense.",
-    "descriptionInGame": "Increase physical defense.",
     "maxLevel": 10,
     "type": "Stat Increase",
     "location": { "x": 0, "y": 4 },
@@ -46,7 +42,6 @@
   "Axes": {
     "name": "Axes",
     "description": "Increase damage dealt with axes.",
-    "descriptionInGame": "Increase damage dealt with axes.",
     "maxLevel": 10,
     "type": "Mastery Skill",
     "location": { "x": 3, "y": 3 },
@@ -56,8 +51,7 @@
   },
   "SwordMastery-L": {
     "name": "Sword Mastery",
-    "description": "Increase damage dealt with swords.",
-    "descriptionInGame": "Increase sword damage. Needed to learn sword skills.",
+    "description": "Increase sword damage. Needed to learn sword skills.",
     "maxLevel": 10,
     "type": "Mastery Skill",
     "location": { "x": 3, "y": 1 },
@@ -68,7 +62,6 @@
   "2-Hit": {
     "name": "2-Hit",
     "description": "Normal weapon attacks have a chance of hitting twice.",
-    "descriptionInGame": "Normal weapon attacks have a chance of hitting twice.",
     "maxLevel": 10,
     "type": "Passive Skill",
     "upstream": {
@@ -82,8 +75,7 @@
   },
   "WarCry": {
     "name": "War Cry",
-    "description": "Increase attack Power at the expense of defense.",
-    "descriptionInGame": "Increase attack power at the expense of defense.",
+    "description": "Increase attack power at the expense of defense.",
     "maxLevel": 10,
     "boostAllowed": true,
     "type": "Enhancement Skill",
@@ -101,8 +93,7 @@
   },
   "HellCry": {
     "name": "Hell Cry",
-    "description": "Abandon defense and stamina for greatly strengthened attacks.",
-    "descriptionInGame": "Lower defense and max HP in return for greatly strengthened attacks.",
+    "description": "Lower defense and max HP in return for greatly strengthened attacks.",
     "maxLevel": 10,
     "boostAllowed": true,
     "type": "Enhancement Skill",
@@ -122,7 +113,6 @@
   "ArmHeal": {
     "name": "Arm Heal",
     "description": "Regain the use of bound arms.",
-    "descriptionInGame": "Regain the use of bound arms.",
     "maxLevel": 10,
     "boostAllowed": true,
     "type": "Healing Skill",
@@ -139,7 +129,6 @@
   "Flee-L": {
     "name": "Flee",
     "description": "Sacrifice HP to escape from battle to the previous floor.",
-    "descriptionInGame": "Sacrifice HP to escape from battle to the previous floor.",
     "note": "This skill cannot be used in unescapable battles.",
     "maxLevel": 10,
     "boostAllowed": true,
@@ -158,7 +147,6 @@
   "Cleaver": {
     "name": "Cleaver",
     "description": "A rushing sword slash.",
-    "descriptionInGame": "A rushing sword slash.",
     "maxLevel": 10,
     "boostAllowed": true,
     "type": "Sword Skill",
@@ -177,7 +165,6 @@
   "Tornado": {
     "name": "Tornado",
     "description": "A whirling sword skill that strikes adjacent enemies.",
-    "descriptionInGame": "A whirling sword skill that strikes adjacent enemies.",
     "maxLevel": 10,
     "boostAllowed": true,
     "type": "Sword Skill",
@@ -197,7 +184,6 @@
   "Allslash": {
     "name": "Allslash",
     "description": "A sword skill that hits a group of enemies 2-4 times.",
-    "descriptionInGame": "A sword skill that hits a group of enemies 2-4 times.",
     "maxLevel": 10,
     "boostAllowed": true,
     "type": "Sword Skill",
@@ -220,7 +206,6 @@
   "Blazer": {
     "name": "Blazer",
     "description": "Sword skill that follows fire magic with a flaming slash.",
-    "descriptionInGame": "Sword skill that follows fire magic with a flaming slash.",
     "note": "This is a chaser skill, meaning if the target is attacked with fire magic, character will follow up with a fire slash. This skill only deal elemental damage, though the initial strike is physical,",
     "maxLevel": 10,
     "boostAllowed": true,
@@ -240,7 +225,6 @@
   "Freezer": {
     "name": "Freezer",
     "description": "Sword skill that follows ice magic with a freezing slash.",
-    "descriptionInGame": "Sword skill that follows ice magic with a freezing slash.",
     "note": "This is a chaser skill, meaning if the target is attacked with ice magic, character will follow up with a ice slash. This skill only deal elemental damage, though the initial strike is physical,",
     "maxLevel": 10,
     "boostAllowed": true,
@@ -260,7 +244,6 @@
   "Shocker": {
     "name": "Shocker",
     "description": "Sword skill that follows volt magic with a shocking slash.",
-    "descriptionInGame": "Sword skill that follows volt magic with a shocking slash.",
     "note": "This is a chaser skill, meaning if the target is attacked with volt magic, character will follow up with a volt slash. This skill only deal elemental damage, though the initial strike is physical,",
     "maxLevel": 10,
     "boostAllowed": true,
@@ -280,7 +263,6 @@
   "Crush": {
     "name": "Crush",
     "description": "A charging axe strike.",
-    "descriptionInGame": "A charging axe strike.",
     "maxLevel": 10,
     "boostAllowed": true,
     "type": "Axe Skill",
@@ -299,7 +281,6 @@
   "Stunner": {
     "name": "Stunner",
     "description": "An axe attack that puts the enemy off-balance.",
-    "descriptionInGame": "An axe attack that puts the enemy off-balance.",
     "maxLevel": 10,
     "boostAllowed": true,
     "type": "Axe Skill",
@@ -318,7 +299,6 @@
   "Silencer": {
     "name": "Silencer",
     "description": "An axe skill with a chance of binding the enemy's head.",
-    "descriptionInGame": "An axe skill with a chance of binding the enemy's head.",
     "maxLevel": 10,
     "boostAllowed": true,
     "type": "Axe Skill",
@@ -337,8 +317,7 @@
   },
   "Mine-L": {
     "name": "Mine",
-    "description": "Mine for materials at item points.",
-    "descriptionInGame": "Mine for materials at mining points.",
+    "description": "Mine for materials at mining points.",
     "note": "There is a chance to get nothing from a gathering point. Leveling the skill reduces the chance to get nothing. For example if an gathering spot has 80% to get an item, then at level 2, it will have 80 * 1.02 = 81.6% chance to get an item.",
     "maxLevel": 10,
     "type": "Search Skill",
@@ -351,7 +330,6 @@
   "HPUp-S": {
     "name": "HP Up",
     "description": "Increase maximum HP.",
-    "descriptionInGame": "Increase maximum HP.",
     "maxLevel": 10,
     "type": "Stat Increase",
     "location": { "x": 0, "y": 0 },
@@ -362,7 +340,6 @@
   "TPUp-S": {
     "name": "TP Up",
     "description": "Increase maximum TP.",
-    "descriptionInGame": "Increase maximum TP.",
     "maxLevel": 10,
     "type": "Stat Increase",
     "location": { "x": 0, "y": 1 },
@@ -373,7 +350,6 @@
   "AGIUp": {
     "name": "AGI Up",
     "description": "Act faster in battle.",
-    "descriptionInGame": "Act faster in battle.",
     "maxLevel": 10,
     "type": "Stat Increase",
     "location": { "x": 2, "y": 2 },
@@ -384,7 +360,6 @@
   "Bows": {
     "name": "Bows",
     "description": "Increase bow damage. Needed to learn bow skills.",
-    "descriptionInGame": "Increase bow damage. Needed to learn bow skills.",
     "maxLevel": 10,
     "type": "Mastery Skill",
     "location": { "x": 4, "y": 2 },
@@ -394,8 +369,7 @@
   },
   "Ambush": {
     "name": "Ambush",
-    "description": "Increase the chance of getting a preemptive attack.",
-    "descriptionInGame": "Increase the chances of getting a preemptive attack.",
+    "description": "Increase the chances of getting a preemptive attack.",
     "maxLevel": 10,
     "type": "Passive Skill",
     "upstream": {
@@ -409,7 +383,6 @@
   "Aware": {
     "name": "Aware",
     "description": "Lessens the chances of enemy preemptive attacks.",
-    "descriptionInGame": "Lessens the chances of enemy preemptive attacks.",
     "note": "Works on scripted event too! Also I'm not sure why it's classified as search skill but ambush is passive.",
     "maxLevel": 10,
     "type": "Passive Skill",
@@ -423,8 +396,7 @@
   },
   "1stHit": {
     "name": "1st Hit",
-    "description": "Chance of acting first in the next turn, regarless of speed.",
-    "descriptionInGame": "Chance of acting first in the turn order, regardless of speed.",
+    "description": "Chance of acting first in the turn order, regardless of speed.",
     "maxLevel": 10,
     "type": "Passive Skill",
     "upstream": {
@@ -439,7 +411,6 @@
   "Trickery": {
     "name": "Trickery",
     "description": "Lower the enemy's accuracy with evasive footwork.",
-    "descriptionInGame": "Lower the enemy's accuracy with evasive footwork.",
     "maxLevel": 10,
     "boostAllowed": true,
     "type": "Weakening Skill",
@@ -457,7 +428,6 @@
   "Quicken": {
     "name": "Quicken",
     "description": "Motivates the entire party to sprint, increasing their speed.",
-    "descriptionInGame": "Motivates the entire party to sprint, increasing their speed.",
     "maxLevel": 10,
     "boostAllowed": true,
     "type": "Enhancement Skill",
@@ -475,7 +445,6 @@
   "Cloak-S": {
     "name": "Cloak",
     "description": "Hide in the shadows so the enemy won't target you.",
-    "descriptionInGame": "Hide in the shadows so the enemy won't target you.",
     "maxLevel": 10,
     "boostAllowed": true,
     "type": "Special Skill",
@@ -492,8 +461,7 @@
   },
   "Escape": {
     "name": "Escape",
-    "description": "Incrase chances of escape. At high levels, it raises defense.",
-    "descriptionInGame": "Increase chances of escape. At high levels, it raises defense.",
+    "description": "Increase chances of escape. At high levels, it raises defense.",
     "maxLevel": 10,
     "boostAllowed": true,
     "type": "Escape Skill",
@@ -512,7 +480,6 @@
   "1stTurn": {
     "name": "1st Turn",
     "description": "The targeted party member may act first in battle.",
-    "descriptionInGame": "The targeted party member may act first in battle.",
     "maxLevel": 10,
     "boostAllowed": true,
     "type": "Special Skill",
@@ -529,8 +496,7 @@
   },
   "Trueshot": {
     "name": "Trueshot",
-    "description": "A Powerful, piercing bow skill.",
-    "descriptionInGame": "A powerful, piercing bow skill.",
+    "description": "A powerful, piercing bow skill.",
     "maxLevel": 10,
     "boostAllowed": true,
     "type": "Bow Skill",
@@ -549,7 +515,6 @@
   "Multihit": {
     "name": "Multihit",
     "description": "Fire two arrows at once, or three at high levels.",
-    "descriptionInGame": "Fire two arrows at once, or three at high levels.",
     "maxLevel": 10,
     "boostAllowed": true,
     "type": "Bow Skill",
@@ -568,8 +533,7 @@
   },
   "Disable": {
     "name": "Disable",
-    "description": "Aim for the opponent's feet for a chance of binding it legs.",
-    "descriptionInGame": "Aim for the opponent's feet for a chance of binding its legs.",
+    "description": "Aim for the opponent's feet for a chance of binding its legs.",
     "maxLevel": 10,
     "boostAllowed": true,
     "type": "Bow Skill",
@@ -589,7 +553,6 @@
   "Apollon": {
     "name": "Apollon",
     "description": "This ultimate shot takes 3 turns for its full effect to be felt.",
-    "descriptionInGame": "This ultimate shot takes 3 turns for its full effect to be felt.",
     "note": "Starting from level 5, there is a chance that this skill with stun the enemy",
     "maxLevel": 10,
     "boostAllowed": true,
@@ -609,8 +572,7 @@
   },
   "Owl-Eye": {
     "name": "Owl-Eye",
-    "description": "Track faraway FOEs with the Survivalist's keen senses.",
-    "descriptionInGame": "Track far away FoEs with the Survivalist's keen senses.",
+    "description": "Track faraway FoEs with the Survivalist's keen senses.",
     "maxLevel": 10,
     "type": "Search Skill",
     "upstream": {
@@ -626,7 +588,6 @@
   "Stalker-S": {
     "name": "Stalker",
     "description": "Cautious steps reduce the chances of enemy encounters.",
-    "descriptionInGame": "Cautious steps reduce the chances of enemy encounters.",
     "maxLevel": 10,
     "type": "Search Skill",
     "upstream": {
@@ -642,7 +603,6 @@
   "Chop-S": {
     "name": "Chop",
     "description": "Cut down flora at chopping points.",
-    "descriptionInGame": "Cut down flora at chopping points.",
     "note": "There is a chance to get nothing from a gathering point. Leveling the skill reduces the chance to get nothing. For example if an gathering spot has 80% to get an item, then at level 2, it will have 80 * 1.02 = 81.6% chance to get an item.",
     "maxLevel": 10,
     "type": "Search Skill",
@@ -654,8 +614,7 @@
   },
   "Mine-S": {
     "name": "Mine",
-    "description": "Mine for materials at item points.",
-    "descriptionInGame": "Mine for materials at mining points.",
+    "description": "Mine for materials at mining points.",
     "note": "There is a chance to get nothing from a gathering point. Leveling the skill reduces the chance to get nothing. For example if an gathering spot has 80% to get an item, then at level 2, it will have 80 * 1.02 = 81.6% chance to get an item.",
     "maxLevel": 10,
     "type": "Search Skill",
@@ -667,8 +626,7 @@
   },
   "Take-S": {
     "name": "Take",
-    "description": "Gather plants for materials at item points.",
-    "descriptionInGame": "Gather plants for materials at gathering points.",
+    "description": "Gather plants for materials at gathering points.",
     "note": "There is a chance to get nothing from a gathering point. Leveling the skill reduces the chance to get nothing. For example if an gathering spot has 80% to get an item, then at level 2, it will have 80 * 1.02 = 81.6% chance to get an item.",
     "maxLevel": 10,
     "type": "Search Skill",
@@ -681,7 +639,6 @@
   "HPUp-P": {
     "name": "HP Up",
     "description": "Increase maximum HP.",
-    "descriptionInGame": "Increase maximum HP.",
     "maxLevel": 10,
     "type": "Stat Increase",
     "location": { "x": 0, "y": 0 },
@@ -692,7 +649,6 @@
   "TPUp-P": {
     "name": "TP Up",
     "description": "Increase maximum TP.",
-    "descriptionInGame": "Increase maximum TP.",
     "maxLevel": 10,
     "type": "Stat Increase",
     "location": { "x": 0, "y": 3 },
@@ -703,7 +659,6 @@
   "DEFUp-P": {
     "name": "DEF Up",
     "description": "Increase physical defense.",
-    "descriptionInGame": "Increase physical defense.",
     "maxLevel": 10,
     "type": "Stat Increase",
     "location": { "x": 3, "y": 1 },
@@ -714,7 +669,6 @@
   "ShieldMastery": {
     "name": "Shield Mastery",
     "description": "Increase elemental defense. Needed to learn Shield skills.",
-    "descriptionInGame": "Increase elemental defense. Needed to learn Shield skills.",
     "maxLevel": 10,
     "type": "Mastery Skill",
     "location": { "x": 2, "y": 3 },
@@ -725,7 +679,6 @@
   "Aegis": {
     "name": "Aegis",
     "description": "Preparedness for death makes it possible to survive with 1 HP.",
-    "descriptionInGame": "Preparedness for death makes it possible to survive with 1 HP.",
     "maxLevel": 10,
     "type": "Passive Skill",
     "upstream": {
@@ -739,7 +692,6 @@
   "EnGarde": {
     "name": "En Garde",
     "description": "Chance of automatically blocking enemy attacks.",
-    "descriptionInGame": "Chance of automatically blocking enemy attacks.",
     "maxLevel": 10,
     "type": "Passive Skill",
     "upstream": {
@@ -753,8 +705,7 @@
   },
   "Provoke": {
     "name": "Provoke",
-    "description": "Increase defense and divert the enemy's attention to you.",
-    "descriptionInGame": "Divert the enemy's attention to you. At high levels, also increases defense.",
+    "description": "Divert the enemy's attention to you. At high levels, also increases defense.",
     "maxLevel": 10,
     "boostAllowed": true,
     "type": "Special Skill",
@@ -773,7 +724,6 @@
   "Flee-P": {
     "name": "Flee",
     "description": "Sacrifice HP to escape from battle to the previous floor.",
-    "descriptionInGame": "Sacrifice HP to escape from battle to the previous floor.",
     "note": "This skill cannot be used in unescapable battles.",
     "maxLevel": 10,
     "boostAllowed": true,
@@ -792,7 +742,6 @@
   "Parry": {
     "name": "Parry",
     "description": "Await the enemy's attack to parry it and negate the damage.",
-    "descriptionInGame": "Await the enemy's attack to parry it and negate the damage.",
     "maxLevel": 10,
     "boostAllowed": true,
     "type": "Defense Skill",
@@ -810,7 +759,6 @@
   "Fortify": {
     "name": "Fortify",
     "description": "Digs in for ironclad defense against physical damage.",
-    "descriptionInGame": "Digs in for ironclad defense against physical damage.",
     "maxLevel": 10,
     "boostAllowed": true,
     "type": "Defense Skill",
@@ -828,8 +776,7 @@
   },
   "Defender": {
     "name": "Defender",
-    "description": "Organizes the party into a formation of increased defense.",
-    "descriptionInGame": "The party assumes a protective formation that increases physical defense.",
+    "description": "The party assumes a protective formation that increases physical defense.",
     "maxLevel": 10,
     "boostAllowed": true,
     "type": "Defense Skill",
@@ -847,8 +794,7 @@
   },
   "FrontGuard": {
     "name": "Front Guard",
-    "description": "Shield skill that may take damage in the front line's place.",
-    "descriptionInGame": "Skill that may take damage in the front line's place.",
+    "description": "Skill that may take damage in the front line's place.",
     "note": "Only last until end of the current turn.",
     "maxLevel": 10,
     "boostAllowed": true,
@@ -865,8 +811,7 @@
   },
   "RearGuard": {
     "name": "Rear Guard",
-    "description": "Shield skill that may take damage in the backline line's place.",
-    "descriptionInGame": "Skill that may take damage in the back line's place.",
+    "description": "Skill that may take damage in the back line's place.",
     "note": "Only last until end of the current turn.",
     "maxLevel": 10,
     "boostAllowed": true,
@@ -883,8 +828,7 @@
   },
   "FireWall": {
     "name": "Fire Wall",
-    "description": "Shield skill that briefly raises the party's fire resistance.",
-    "descriptionInGame": "Protects the party from the first fire attack this turn.",
+    "description": "Protects the party from the first fire attack this turn.",
     "note": "Only last until end of the current turn. Starting from Level 6, percentage of the incoming fire damage will heal you. Also, this skill is bugged: at level 5, it also prevent abnormal conditions, but starting from level 6, this effect is gone.",
     "maxLevel": 10,
     "boostAllowed": true,
@@ -903,8 +847,7 @@
   },
   "IceWall": {
     "name": "Ice Wall",
-    "description": "Shield skill that briefly raises the party's ice resistance.",
-    "descriptionInGame": "Protects the party from the first ice attack this turn.",
+    "description": "Protects the party from the first ice attack this turn.",
     "note": "Only last until end of the current turn. Starting from Level 6, percentage of the incoming fire damage will heal you. Also, this skill is bugged: at level 5, it also prevent abnormal conditions, but starting from level 6, this effect is gone.",
     "maxLevel": 10,
     "boostAllowed": true,
@@ -923,8 +866,7 @@
   },
   "VoltWall": {
     "name": "Volt Wall",
-    "description": "Shield skill that briefly raises the party's volt resistance.",
-    "descriptionInGame": "Protects the party from the first volt attack this turn.",
+    "description": "Protects the party from the first volt attack this turn.",
     "note": "Only last until end of the current turn. Starting from Level 6, percentage of the incoming fire damage will heal you. Also, this skill is bugged: at level 5, it also prevent abnormal conditions, but starting from level 6, this effect is gone.",
     "maxLevel": 10,
     "boostAllowed": true,
@@ -943,8 +885,7 @@
   },
   "Smite": {
     "name": "Smite",
-    "description": "Shield skill that deals a powerful bash to the enemy.",
-    "descriptionInGame": "Powerful shield strike. At high levels, may bind an enemy's arms.",
+    "description": "Powerful shield strike. At high levels, may bind an enemy's arms.",
     "note": "Has a chance to arm bind enemies starting from level 5",
     "maxLevel": 10,
     "boostAllowed": true,
@@ -963,8 +904,7 @@
   },
   "Cure-P": {
     "name": "Cure",
-    "description": "Protector skill that heals a small amount of Hp.",
-    "descriptionInGame": "Protector skill that heals a small amount of HP.",
+    "description": "Protector skill that heals a small amount of HP.",
     "maxLevel": 10,
     "boostAllowed": true,
     "type": "Healing Skill",
@@ -981,8 +921,7 @@
   },
   "CureII-P": {
     "name": "Cure II",
-    "description": "Protector skill that heals a medium amount of Hp.",
-    "descriptionInGame": "Protector skill that heals a medium amount of HP.",
+    "description": "Protector skill that heals a medium amount of HP.",
     "maxLevel": 10,
     "boostAllowed": true,
     "type": "Healing Skill",
@@ -1000,7 +939,6 @@
   "Stalker-P": {
     "name": "Stalker",
     "description": "Cautious steps reduce the chances of enemy encounters.",
-    "descriptionInGame": "Cautious steps reduce the chances of enemy encounters.",
     "maxLevel": 10,
     "type": "Search Skill",
     "upstream": {
@@ -1015,8 +953,7 @@
   },
   "Mine-P": {
     "name": "Mine",
-    "description": "Mine for materials at item points.",
-    "descriptionInGame": "Mine for materials at mining points.",
+    "description": "Mine for materials at mining points.",
     "note": "There is a chance to get nothing from a gathering point. Leveling the skill reduces the chance to get nothing. For example if an gathering spot has 80% to get an item, then at level 2, it will have 80 * 1.02 = 81.6% chance to get an item.",
     "maxLevel": 10,
     "type": "Search Skill",
@@ -1029,7 +966,6 @@
   "HPUp-D": {
     "name": "HP Up",
     "description": "Increase maximum HP.",
-    "descriptionInGame": "Increase maximum HP.",
     "maxLevel": 10,
     "type": "Stat Increase",
     "location": { "x": 0, "y": 0 },
@@ -1040,7 +976,6 @@
   "TPUp-D": {
     "name": "TP Up",
     "description": "Increase maximum TP.",
-    "descriptionInGame": "Increase maximum TP.",
     "maxLevel": 10,
     "type": "Stat Increase",
     "location": { "x": 0, "y": 1 },
@@ -1051,7 +986,6 @@
   "ATKUp-D": {
     "name": "ATK Up",
     "description": "Increase physical damage.",
-    "descriptionInGame": "Increase physical damage.",
     "maxLevel": 10,
     "type": "Stat Increase",
     "location": { "x": 2, "y": 3 },
@@ -1062,7 +996,6 @@
   "Whips": {
     "name": "Whips",
     "description": "Increase whip damage. Needed to learn whip skills.",
-    "descriptionInGame": "Increase whip damage. Needed to learn whip skills.",
     "maxLevel": 10,
     "type": "Mastery Skill",
     "location": { "x": 2, "y": 1 },
@@ -1072,8 +1005,7 @@
   },
   "SwordMastery-D": {
     "name": "Sword Mastery",
-    "description": "Increase damage dealt with swords.",
-    "descriptionInGame": "Increase sword damage. Needed to learn sword skills.",
+    "description": "Increase sword damage. Needed to learn sword skills.",
     "maxLevel": 10,
     "type": "Mastery Skill",
     "location": { "x": 3, "y": 4 },
@@ -1083,8 +1015,7 @@
   },
   "BoostUp": {
     "name": "Boost Up",
-    "description": "Increase the improvement gained when boosted.",
-    "descriptionInGame": "Increases the improvement gained when boosted.",
+    "description": "Increases the improvement gained when boosted.",
     "maxLevel": 10,
     "type": "Passive Skill",
     "upstream": {
@@ -1097,8 +1028,7 @@
   },
   "Fury": {
     "name": "Fury",
-    "description": "Increase damage dealth when HP is low.",
-    "descriptionInGame": "Increase damage dealt when HP is low.",
+    "description": "Increase damage dealt when HP is low.",
     "maxLevel": 10,
     "type": "Passive Skill",
     "upstream": {
@@ -1113,7 +1043,6 @@
   "Cloak-D": {
     "name": "Cloak",
     "description": "Hide in the shadows so the enemy won't target you.",
-    "descriptionInGame": "Hide in the shadows so the enemy won't target you.",
     "maxLevel": 10,
     "boostAllowed": true,
     "type": "Special Skill",
@@ -1131,7 +1060,6 @@
   "Anaconda": {
     "name": "Anaconda",
     "description": "Whip attack with a chance of poisoning the enemy.",
-    "descriptionInGame": "Whip attack with a chance of poisoning the enemy.",
     "maxLevel": 10,
     "boostAllowed": true,
     "type": "Whip Skill",
@@ -1152,7 +1080,6 @@
   "Gag": {
     "name": "Gag",
     "description": "Whip attack with a chance of binding the enemy's head.",
-    "descriptionInGame": "Whip attack with a chance of binding the enemy's head.",
     "note": "Level 3 indeed have higher bind chance than Level 4!",
     "maxLevel": 10,
     "boostAllowed": true,
@@ -1173,7 +1100,6 @@
   "Shackles": {
     "name": "Shackles",
     "description": "Whip attack with a chance of binding the enemy's legs.",
-    "descriptionInGame": "Whip attack with a chance of binding the enemy's legs.",
     "note": "Level 3 indeed have higher bind chance than Level 4!",
     "maxLevel": 10,
     "boostAllowed": true,
@@ -1194,7 +1120,6 @@
   "Cuffs": {
     "name": "Cuffs",
     "description": "Whip attack with a chance of binding the enemy's arms.",
-    "descriptionInGame": "Whip attack with a chance of binding the enemy's arms.",
     "note": "Level 3 indeed have higher bind chance than Level 4!",
     "maxLevel": 10,
     "boostAllowed": true,
@@ -1214,8 +1139,7 @@
   },
   "Ecstasy": {
     "name": "Ecstasy",
-    "description": "Whip attack that does incredible damage to totally bound enemies.",
-    "descriptionInGame": "Whip skill that does incredible damage to totally bound enemies.",
+    "description": "Whip skill that does incredible damage to totally bound enemies.",
     "maxLevel": 10,
     "boostAllowed": true,
     "type": "Whip Skill",
@@ -1236,7 +1160,6 @@
   "Climax": {
     "name": "Climax",
     "description": "Whip skill that may kill and drain enemies with low HP.",
-    "descriptionInGame": "Whip skill that may kill and drain enemies with low HP.",
     "maxLevel": 10,
     "boostAllowed": true,
     "type": "Whip Skill",
@@ -1256,7 +1179,6 @@
   "Hypnos": {
     "name": "Hypnos",
     "description": "Sword stab with a chance of putting the enemy to sleep.",
-    "descriptionInGame": "Sword stab with a chance of putting the enemy to sleep.",
     "maxLevel": 10,
     "boostAllowed": true,
     "type": "Sword Skill",
@@ -1276,7 +1198,6 @@
   "Nerve": {
     "name": "Nerve",
     "description": "Sword stab at the enemy's nerves with a chance of paralyzing it.",
-    "descriptionInGame": "Sword stab at the enemy's nerves with a chance of paralyzing it.",
     "maxLevel": 10,
     "boostAllowed": true,
     "type": "Sword Skill",
@@ -1296,7 +1217,6 @@
   "Mirage": {
     "name": "Mirage",
     "description": "Sword stab at the enemy's skull with a chance of confusing it.",
-    "descriptionInGame": "Sword stab at the enemy's skull with a chance of confusing it.",
     "maxLevel": 10,
     "boostAllowed": true,
     "type": "Sword Skill",
@@ -1316,7 +1236,6 @@
   "Drain": {
     "name": "Drain",
     "description": "Sword stab that drains the enemy's HP through the blade.",
-    "descriptionInGame": "Sword stab that drains the enemy's HP through the blade.",
     "note": "Regen own hp with a percentage of the damage dealt",
     "maxLevel": 10,
     "boostAllowed": true,
@@ -1337,7 +1256,6 @@
   "Bait": {
     "name": "Bait",
     "description": "Sword skill that uses comrades on either side to bait a trap.",
-    "descriptionInGame": "Sword skill that uses comrades on either side to bait a trap.",
     "note": "Counter attack when you or adjacent allies are attacked by a physical attack.",
     "maxLevel": 10,
     "boostAllowed": true,
@@ -1357,8 +1275,7 @@
   },
   "Petrify": {
     "name": "Petrify",
-    "description": "Sword stab at the enemy's muscles wihth a chance of stoning.",
-    "descriptionInGame": "Sword stab at the enemy's muscles, with a chance to petrify.",
+    "description": "Sword stab at the enemy's muscles, with a chance to petrify.",
     "maxLevel": 10,
     "boostAllowed": true,
     "type": "Sword Skill",
@@ -1377,8 +1294,7 @@
   },
   "Take-D": {
     "name": "Take",
-    "description": "Gather plants for materials at item points.",
-    "descriptionInGame": "Gather plants for materials at gathering points.",
+    "description": "Gather plants for materials at gathering points.",
     "note": "There is a chance to get nothing from a gathering point. Leveling the skill reduces the chance to get nothing. For example if an gathering spot has 80% to get an item, then at level 2, it will have 80 * 1.02 = 81.6% chance to get an item.",
     "maxLevel": 10,
     "type": "Search Skill",
@@ -1391,7 +1307,6 @@
   "HPUp-M": {
     "name": "HP Up",
     "description": "Increase maximum HP.",
-    "descriptionInGame": "Increase maximum HP.",
     "maxLevel": 10,
     "type": "Stat Increase",
     "location": { "x": 0, "y": 0 },
@@ -1402,7 +1317,6 @@
   "TPUp-M": {
     "name": "TP Up",
     "description": "Increase maximum TP.",
-    "descriptionInGame": "Increase maximum TP.",
     "maxLevel": 10,
     "type": "Stat Increase",
     "location": { "x": 0, "y": 1 },
@@ -1413,7 +1327,6 @@
   "ATKUp-M": {
     "name": "ATK Up",
     "description": "Increase physical damage.",
-    "descriptionInGame": "Increase physical damage.",
     "maxLevel": 10,
     "type": "Stat Increase",
     "location": { "x": 3, "y": 0 },
@@ -1424,7 +1337,6 @@
   "Healer": {
     "name": "Healer",
     "description": "Increase healing effectiveness. Needed to learn healing magic.",
-    "descriptionInGame": "Increase healing effectiveness. Needed to learn healing magic.",
     "maxLevel": 10,
     "type": "Mastery Skill",
     "location": { "x": 2, "y": 3 },
@@ -1434,8 +1346,7 @@
   },
   "PatchUp": {
     "name": "Patch Up",
-    "description": "Small healing after battles with no TP cost.",
-    "descriptionInGame": "Slightly heals the party after battle. Does not consume TP.",
+    "description": "Slightly heals the party after battle. Does not consume TP.",
     "maxLevel": 10,
     "type": "Passive Skill",
     "upstream": {
@@ -1449,7 +1360,6 @@
   "Scavenge-M": {
     "name": "Scavenge",
     "description": "Increase chances of the enemy dropping an item.",
-    "descriptionInGame": "Increase chances of the enemy dropping an item.",
     "maxLevel": 10,
     "type": "Passive Skill",
     "upstream": {
@@ -1463,7 +1373,6 @@
   "TPRegen-M": {
     "name": "TP Regen",
     "description": "Restores a small amount of TP after every turn in battle.",
-    "descriptionInGame": "Restores a small amount of TP after every turn in battle.",
     "maxLevel": 10,
     "type": "Passive Skill",
     "upstream": {
@@ -1476,8 +1385,7 @@
   },
   "Cure-M": {
     "name": "Cure",
-    "description": "Restores a small amount of Hp.",
-    "descriptionInGame": "Restores a small amount of HP.",
+    "description": "Restores a small amount of HP.",
     "maxLevel": 10,
     "boostAllowed": true,
     "type": "Healing Skill",
@@ -1495,8 +1403,7 @@
   },
   "CureII-M": {
     "name": "Cure II",
-    "description": "Restores a medium amount of Hp.",
-    "descriptionInGame": "Restores a medium amount of HP.",
+    "description": "Restores a medium amount of HP.",
     "maxLevel": 10,
     "boostAllowed": true,
     "type": "Healing Skill",
@@ -1514,8 +1421,7 @@
   },
   "CureIII": {
     "name": "Cure III",
-    "description": "Restores fullf Hp.",
-    "descriptionInGame": "Restores a large amount of HP.",
+    "description": "Restores a large amount of HP.",
     "maxLevel": 10,
     "boostAllowed": true,
     "type": "Healing Skill",
@@ -1533,8 +1439,7 @@
   },
   "Salve": {
     "name": "Salve",
-    "description": "Restores a small amount of Hp to the entire party.",
-    "descriptionInGame": "Restores a small amount of HP to the entire party.",
+    "description": "Restores a small amount of HP to the entire party.",
     "maxLevel": 10,
     "boostAllowed": true,
     "type": "Healing Skill",
@@ -1553,8 +1458,7 @@
   },
   "SalveII": {
     "name": "Salve II",
-    "description": "Restores a medium amount of Hp to the entire party.",
-    "descriptionInGame": "Restores a medium amount of HP to the entire party.",
+    "description": "Restores a medium amount of HP to the entire party.",
     "maxLevel": 10,
     "boostAllowed": true,
     "type": "Healing Skill",
@@ -1574,7 +1478,6 @@
   "Revive": {
     "name": "Revive",
     "description": "Bring the dead back to life.",
-    "descriptionInGame": "Bring the dead back to life.",
     "maxLevel": 10,
     "boostAllowed": true,
     "type": "Healing Skill",
@@ -1594,7 +1497,6 @@
   "Unbind": {
     "name": "Unbind",
     "description": "Removes bindings from one party member.",
-    "descriptionInGame": "Removes bindings from one party member.",
     "maxLevel": 10,
     "boostAllowed": true,
     "type": "Healing Skill",
@@ -1612,7 +1514,6 @@
   "Refresh": {
     "name": "Refresh",
     "description": "Removes status ailments from the entire party.",
-    "descriptionInGame": "Removes status ailments from the entire party.",
     "maxLevel": 10,
     "boostAllowed": true,
     "type": "Healing Skill",
@@ -1630,7 +1531,6 @@
   "Immunize": {
     "name": "Immunize",
     "description": "Confers resistance to all elements on the party.",
-    "descriptionInGame": "Confers resistance to all elements on the party.",
     "note": "This skill reduces damage for all types of damage. Not just elemental damage like the description says.",
     "maxLevel": 10,
     "boostAllowed": true,
@@ -1649,7 +1549,6 @@
   "CPR": {
     "name": "CPR",
     "description": "Chance that party members will survive mortal blows with 1 HP.",
-    "descriptionInGame": "Chance that party members will survive mortal blows with 1 HP.",
     "maxLevel": 10,
     "boostAllowed": true,
     "type": "Defense Skill",
@@ -1667,8 +1566,7 @@
   },
   "Regen": {
     "name": "Regen",
-    "description": "Restores a small amount of Hp to one party member each turn.",
-    "descriptionInGame": "Restores a small amount of HP to one party member each turn.",
+    "description": "Restores a small amount of HP to one party member each turn.",
     "maxLevel": 10,
     "boostAllowed": true,
     "type": "Healing Skill",
@@ -1687,7 +1585,6 @@
   "Caduceus": {
     "name": "Caduceus",
     "description": "A heavy staff attack with a chance of stunning the enemy.",
-    "descriptionInGame": "A heavy staff attack with a chance of stunning the enemy.",
     "maxLevel": 10,
     "boostAllowed": true,
     "type": "Staff Skill",
@@ -1707,7 +1604,6 @@
   "HealingTouch": {
     "name": "Healing Touch",
     "description": "Heals up to a set amount outside battle for a small amount of TP.",
-    "descriptionInGame": "Heals up to a set amount outside battle for a small amount of TP.",
     "maxLevel": 10,
     "type": "Healing Skill",
     "upstream": {
@@ -1722,7 +1618,6 @@
   "Chop-M": {
     "name": "Chop",
     "description": "Cut down flora at chopping points.",
-    "descriptionInGame": "Cut down flora at chopping points.",
     "note": "There is a chance to get nothing from a gathering point. Leveling the skill reduces the chance to get nothing. For example if an gathering spot has 80% to get an item, then at level 2, it will have 80 * 1.02 = 81.6% chance to get an item.",
     "maxLevel": 10,
     "type": "Search Skill",
@@ -1735,7 +1630,6 @@
   "TPUp-A": {
     "name": "TP Up",
     "description": "Increase maximum TP.",
-    "descriptionInGame": "Increase maximum TP.",
     "maxLevel": 10,
     "type": "Stat Increase",
     "location": { "x": 1, "y": 1 },
@@ -1746,7 +1640,6 @@
   "FireUp": {
     "name": "Fire Up",
     "description": "Increase fire damage. Needed to learn fire skills.",
-    "descriptionInGame": "Increase fire damage. Needed to learn fire skills.",
     "maxLevel": 10,
     "type": "Mastery Skill",
     "location": { "x": 3, "y": 1 },
@@ -1757,7 +1650,6 @@
   "IceUp": {
     "name": "Ice Up",
     "description": "Increase ice damage. Needed to learn ice skills.",
-    "descriptionInGame": "Increase ice damage. Needed to learn ice skills.",
     "maxLevel": 10,
     "type": "Mastery Skill",
     "location": { "x": 3, "y": 3 },
@@ -1768,7 +1660,6 @@
   "VoltUp": {
     "name": "Volt Up",
     "description": "Increase volt damage. Needed to learn volt skills.",
-    "descriptionInGame": "Increase volt damage. Needed to learn volt skills.",
     "maxLevel": 10,
     "type": "Mastery Skill",
     "location": { "x": 3, "y": 5 },
@@ -1778,8 +1669,7 @@
   },
   "Toxins": {
     "name": "Toxins",
-    "description": "Increase poison damage. Needed to learn poison skills.",
-    "descriptionInGame": "Needed to learn poison skills.",
+    "description": "Needed to learn poison skills.",
     "note": "This skill is bugged and does not do anything",
     "maxLevel": 5,
     "type": "Mastery Skill",
@@ -1791,7 +1681,6 @@
   "Scavenge-A": {
     "name": "Scavenge",
     "description": "Increase chances of the enemy dropping an item.",
-    "descriptionInGame": "Increase chances of the enemy dropping an item.",
     "maxLevel": 10,
     "type": "Passive Skill",
     "upstream": {
@@ -1805,7 +1694,6 @@
   "TPRegen-A": {
     "name": "TP Regen",
     "description": "Restores a small amount of TP after every turn in battle.",
-    "descriptionInGame": "Restores a small amount of TP after every turn in battle.",
     "maxLevel": 10,
     "type": "Passive Skill",
     "upstream": {
@@ -1819,7 +1707,6 @@
   "Fire": {
     "name": "Fire",
     "description": "Conjure forth fire to attack the enemy.",
-    "descriptionInGame": "Conjure forth fire to attack the enemy.",
     "maxLevel": 10,
     "boostAllowed": true,
     "type": "Fire Skill",
@@ -1839,7 +1726,6 @@
   "Flame": {
     "name": "Flame",
     "description": "Conjure forth flame to attack the enemy.",
-    "descriptionInGame": "Conjure forth flame to attack the enemy.",
     "maxLevel": 10,
     "boostAllowed": true,
     "type": "Fire Skill",
@@ -1860,7 +1746,6 @@
   "Inferno": {
     "name": "Inferno",
     "description": "Conjure forth an inferno to attack the enemy.",
-    "descriptionInGame": "Conjure forth an inferno to attack the enemy.",
     "maxLevel": 10,
     "boostAllowed": true,
     "type": "Fire Skill",
@@ -1880,7 +1765,6 @@
   "Ice": {
     "name": "Ice",
     "description": "Conjure forth ice to attack the enemy.",
-    "descriptionInGame": "Conjure forth ice to attack the enemy.",
     "maxLevel": 10,
     "boostAllowed": true,
     "type": "Ice Skill",
@@ -1900,7 +1784,6 @@
   "Freeze": {
     "name": "Freeze",
     "description": "Conjure forth icicles to attack the enemy.",
-    "descriptionInGame": "Conjure forth icicles to attack the enemy.",
     "maxLevel": 10,
     "boostAllowed": true,
     "type": "Ice Skill",
@@ -1921,7 +1804,6 @@
   "Cocytus": {
     "name": "Cocytus",
     "description": "Conjure forth a blizzard to attack the enemy.",
-    "descriptionInGame": "Conjure forth a blizzard to attack the enemy.",
     "maxLevel": 10,
     "boostAllowed": true,
     "type": "Ice Skill",
@@ -1941,7 +1823,6 @@
   "Volt": {
     "name": "Volt",
     "description": "Conjure forth voltage to attack the enemy.",
-    "descriptionInGame": "Conjure forth voltage to attack the enemy.",
     "maxLevel": 10,
     "boostAllowed": true,
     "type": "Volt Skill",
@@ -1961,7 +1842,6 @@
   "Thunder": {
     "name": "Thunder",
     "description": "Conjure forth lightning to attack the enemy.",
-    "descriptionInGame": "Conjure forth lightning to attack the enemy.",
     "maxLevel": 10,
     "boostAllowed": true,
     "type": "Volt Skill",
@@ -1982,7 +1862,6 @@
   "Thor": {
     "name": "Thor",
     "description": "Conjure forth divine thunder to attack the enemy.",
-    "descriptionInGame": "Conjure forth divine thunder to attack the enemy.",
     "maxLevel": 10,
     "boostAllowed": true,
     "type": "Volt Skill",
@@ -2002,7 +1881,6 @@
   "Poison": {
     "name": "Poison",
     "description": "Chance of transmuting an enemy's blood to poison.",
-    "descriptionInGame": "Chance of transmuting an enemy's blood to poison.",
     "note": "A bug in poison damage makes it cap at 255.",
     "maxLevel": 10,
     "boostAllowed": true,
@@ -2021,8 +1899,7 @@
   },
   "Venom": {
     "name": "Venom",
-    "description": "Chance of transmuting all enemy's blood to poison.",
-    "descriptionInGame": "Chance of transmuting all enemies' blood to poison.",
+    "description": "Chance of transmuting all enemies' blood to poison.",
     "note": "A bug in poison damage makes it cap at 255.",
     "maxLevel": 10,
     "boostAllowed": true,
@@ -2041,8 +1918,7 @@
   },
   "Sight-A": {
     "name": "Sight",
-    "description": "Conjure sight to see all FOEs on the map.",
-    "descriptionInGame": "Conjure sight to see all FoEs on the map.",
+    "description": "Conjure sight to see all FoEs on the map.",
     "note": "Covers almost entire floor. But have to be stationary. Once you move, the effect ends.",
     "maxLevel": 10,
     "type": "Search Skill",
@@ -2057,7 +1933,6 @@
   "Warp": {
     "name": "Warp",
     "description": "Conjure a warp to the last visited Geomagnetic Field.",
-    "descriptionInGame": "Conjure a warp to the last visited Geomagnetic Field.",
     "maxLevel": 10,
     "type": "Search Skill",
     "upstream": {
@@ -2071,7 +1946,6 @@
   "Chop-A": {
     "name": "Chop",
     "description": "Cut down flora at chopping points.",
-    "descriptionInGame": "Cut down flora at chopping points.",
     "note": "There is a chance to get nothing from a gathering point. Leveling the skill reduces the chance to get nothing. For example if an gathering spot has 80% to get an item, then at level 2, it will have 80 * 1.02 = 81.6% chance to get an item.",
     "maxLevel": 10,
     "type": "Search Skill",
@@ -2084,7 +1958,6 @@
   "HPUp-T": {
     "name": "HP Up",
     "description": "Increase maximum HP.",
-    "descriptionInGame": "Increase maximum HP.",
     "maxLevel": 10,
     "type": "Stat Increase",
     "location": { "x": 4, "y": 5 },
@@ -2095,7 +1968,6 @@
   "TPUp-T": {
     "name": "TP Up",
     "description": "Increase maximum TP.",
-    "descriptionInGame": "Increase maximum TP.",
     "maxLevel": 10,
     "type": "Stat Increase",
     "location": { "x": 3, "y": 5 },
@@ -2105,8 +1977,7 @@
   },
   "Songs": {
     "name": "Songs",
-    "description": "Needed to learn songs.",
-    "descriptionInGame": "Increase song skill speed. Needed to learn songs.",
+    "description": "Increase song skill speed. Needed to learn songs.",
     "note": "Also increases song speed",
     "maxLevel": 10,
     "type": "Mastery Skill",
@@ -2118,7 +1989,6 @@
   "Divinity": {
     "name": "Divinity",
     "description": "Increase experience for the entire party.",
-    "descriptionInGame": "Increase experience for the entire party.",
     "maxLevel": 10,
     "type": "Passive Skill",
     "upstream": {
@@ -2133,7 +2003,6 @@
   "Bravery": {
     "name": "Bravery",
     "description": "Pulsing beat that increases the party's strength.",
-    "descriptionInGame": "Pulsing beat that increases the party's strength.",
     "maxLevel": 10,
     "boostAllowed": true,
     "type": "Song Skill",
@@ -2151,7 +2020,6 @@
   "Shelter": {
     "name": "Shelter",
     "description": "Triumphant anthem that increases the party's defense.",
-    "descriptionInGame": "Triumphant anthem that increases the party's defense.",
     "maxLevel": 10,
     "boostAllowed": true,
     "type": "Song Skill",
@@ -2169,7 +2037,6 @@
   "Mercury": {
     "name": "Mercury",
     "description": "High-tempo piece that increases the party's speed.",
-    "descriptionInGame": "High-tempo piece that increases the party's speed.",
     "maxLevel": 10,
     "boostAllowed": true,
     "type": "Song Skill",
@@ -2187,7 +2054,6 @@
   "Erasure": {
     "name": "Erasure",
     "description": "A startling song that erases the enemy's status benefits.",
-    "descriptionInGame": "A startling song that erases the enemy's status benefits.",
     "maxLevel": 10,
     "boostAllowed": true,
     "type": "Song Skill",
@@ -2205,7 +2071,6 @@
   "Recovery": {
     "name": "Recovery",
     "description": "Blessed aria that recovers party status ailments more quickly.",
-    "descriptionInGame": "Blessed aria that recovers party status ailments more quickly.",
     "maxLevel": 10,
     "boostAllowed": true,
     "type": "Song Skill",
@@ -2223,7 +2088,6 @@
   "Stamina": {
     "name": "Stamina",
     "description": "Tribal rhythm that increases the party's maximum HP.",
-    "descriptionInGame": "Tribal rhythm that increases the party's maximum HP.",
     "maxLevel": 10,
     "boostAllowed": true,
     "type": "Song Skill",
@@ -2242,7 +2106,6 @@
   "Blaze": {
     "name": "Blaze",
     "description": "Song that imbues a party member's weapon with fire.",
-    "descriptionInGame": "Song that imbues a party member's weapon with fire.",
     "maxLevel": 10,
     "boostAllowed": true,
     "type": "Song Skill",
@@ -2260,7 +2123,6 @@
   "Frost": {
     "name": "Frost",
     "description": "Song that imbues a party member's weapon with ice.",
-    "descriptionInGame": "Song that imbues a party member's weapon with ice.",
     "maxLevel": 10,
     "boostAllowed": true,
     "type": "Song Skill",
@@ -2278,7 +2140,6 @@
   "Shock": {
     "name": "Shock",
     "description": "Song that imbues a party member's weapon with voltage.",
-    "descriptionInGame": "Song that imbues a party member's weapon with voltage.",
     "maxLevel": 10,
     "boostAllowed": true,
     "type": "Song Skill",
@@ -2296,7 +2157,6 @@
   "Ifrit": {
     "name": "Ifrit",
     "description": "Party's fire resistance raised while the enemy's decreases.",
-    "descriptionInGame": "Party's fire resistance raised while the enemy's decreases.",
     "maxLevel": 10,
     "boostAllowed": true,
     "type": "Song Skill",
@@ -2315,7 +2175,6 @@
   "Ymir": {
     "name": "Ymir",
     "description": "Party's ice resistance raised while the enemy's decreases.",
-    "descriptionInGame": "Party's ice resistance raised while the enemy's decreases.",
     "maxLevel": 10,
     "boostAllowed": true,
     "type": "Song Skill",
@@ -2334,7 +2193,6 @@
   "Taranis": {
     "name": "Taranis",
     "description": "Party's volt resistance raised while the enemy's decreases.",
-    "descriptionInGame": "Party's volt resistance raised while the enemy's decreases.",
     "maxLevel": 10,
     "boostAllowed": true,
     "type": "Song Skill",
@@ -2353,7 +2211,6 @@
   "Healing": {
     "name": "Healing",
     "description": "A healing song recovers party HP by a small amount each turn.",
-    "descriptionInGame": "A healing song recovers party HP by a small amount each turn.",
     "maxLevel": 10,
     "boostAllowed": true,
     "type": "Song Skill",
@@ -2372,7 +2229,6 @@
   "PeaceBallad": {
     "name": "Peace Ballad",
     "description": "A relaxing song recovers party TP by a small amount each turn.",
-    "descriptionInGame": "A relaxing song recovers party TP by a small amount each turn.",
     "maxLevel": 10,
     "boostAllowed": true,
     "type": "Song Skill",
@@ -2391,7 +2247,6 @@
   "Stalker-T": {
     "name": "Stalker",
     "description": "Cautious steps reduce the chances of enemy encounters.",
-    "descriptionInGame": "Cautious steps reduce the chances of enemy encounters.",
     "maxLevel": 10,
     "type": "Search Skill",
     "upstream": {
@@ -2407,7 +2262,6 @@
   "Return": {
     "name": "Return",
     "description": "Nostalgic tune that takes you back to the previous floor.",
-    "descriptionInGame": "Nostalgic tune that takes you back to the previous floor.",
     "maxLevel": 10,
     "type": "Search Skill",
     "upstream": {
@@ -2420,8 +2274,7 @@
   },
   "Take-T": {
     "name": "Take",
-    "description": "Gather plants for materials at item points.",
-    "descriptionInGame": "Gather plants for materials at gathering points.",
+    "description": "Gather plants for materials at gathering points.",
     "note": "There is a chance to get nothing from a gathering point. Leveling the skill reduces the chance to get nothing. For example if an gathering spot has 80% to get an item, then at level 2, it will have 80 * 1.02 = 81.6% chance to get an item.",
     "maxLevel": 10,
     "type": "Search Skill",
@@ -2434,7 +2287,6 @@
   "HPUp-R": {
     "name": "HP Up",
     "description": "Increase maximum HP.",
-    "descriptionInGame": "Increase maximum HP.",
     "maxLevel": 10,
     "type": "Stat Increase",
     "location": { "x": 2, "y": 5 },
@@ -2445,7 +2297,6 @@
   "TPUp-R": {
     "name": "TP Up",
     "description": "Increase maximum TP.",
-    "descriptionInGame": "Increase maximum TP.",
     "maxLevel": 10,
     "type": "Stat Increase",
     "location": { "x": 0, "y": 0 },
@@ -2456,7 +2307,6 @@
   "ATKUp-R": {
     "name": "ATK Up",
     "description": "Increase physical damage.",
-    "descriptionInGame": "Increase physical damage.",
     "maxLevel": 10,
     "type": "Stat Increase",
     "location": { "x": 4, "y": 5 },
@@ -2467,7 +2317,6 @@
   "KatanaMastery": {
     "name": "Katana Mastery",
     "description": "Increase katana damage. Needed to learn katana skills.",
-    "descriptionInGame": "Increase katana damage. Needed to learn katana skills.",
     "maxLevel": 10,
     "type": "Mastery Skill",
     "location": { "x": 2, "y": 2 },
@@ -2477,8 +2326,7 @@
   },
   "Sight-R": {
     "name": "Sight",
-    "description": "Increase attack damage at night or when blinded.",
-    "descriptionInGame": "Increase attack damage at night, when blinded, or when bound.",
+    "description": "Increase attack damage at night, when blinded, or when bound.",
     "maxLevel": 10,
     "type": "Passive Skill",
     "upstream": {
@@ -2492,7 +2340,6 @@
   "CritUp": {
     "name": "Crit Up",
     "description": "Increase chances of critical attacks.",
-    "descriptionInGame": "Increase chances of critical attacks.",
     "maxLevel": 10,
     "type": "Passive Skill",
     "upstream": {
@@ -2505,8 +2352,7 @@
   },
   "Ibuki": {
     "name": "Ibuki",
-    "description": "Heal Hp by taking a deep breath.",
-    "descriptionInGame": "Heal HP by taking a deep breath.",
+    "description": "Heal HP by taking a deep breath.",
     "maxLevel": 10,
     "boostAllowed": true,
     "type": "Healing Skill",
@@ -2524,7 +2370,6 @@
   "Kesagiri": {
     "name": "Kesagiri",
     "description": "Katana skill of stepping forward while slicing.",
-    "descriptionInGame": "Katana skill of stepping forward while slicing.",
     "maxLevel": 10,
     "boostAllowed": true,
     "type": "Katana Skill",
@@ -2542,8 +2387,7 @@
   },
   "Overhead": {
     "name": "Overhead",
-    "description": "Temporary Overhead stance that increases attack and defense.",
-    "descriptionInGame": "Temporary overhead stance that increases attack and defense.",
+    "description": "Temporary overhead stance that increases attack and defense.",
     "note": "Even though you can boost this skill, but it doesn't actually provide boosted stats.",
     "maxLevel": 10,
     "boostAllowed": true,
@@ -2562,7 +2406,6 @@
   "Zamba": {
     "name": "Zamba",
     "description": "Strong katana slice from the Overhead stance.",
-    "descriptionInGame": "Strong katana slice from the Overhead stance.",
     "maxLevel": 10,
     "boostAllowed": true,
     "type": "Overhead Skill",
@@ -2582,7 +2425,6 @@
   "Midareba": {
     "name": "Midareba",
     "description": "Repeated katana slashes from the Overhead stance.",
-    "descriptionInGame": "Repeated katana slashes from the Overhead stance.",
     "maxLevel": 10,
     "boostAllowed": true,
     "type": "Overhead Skill",
@@ -2602,8 +2444,7 @@
   },
   "Orochi": {
     "name": "Orochi",
-    "description": "Execute an fire katana strike from the Overhead stance.",
-    "descriptionInGame": "Execute a fire katana strike from the Overhead stance.",
+    "description": "Execute a fire katana strike from the Overhead stance.",
     "maxLevel": 10,
     "boostAllowed": true,
     "type": "Overhead Skill",
@@ -2624,7 +2465,6 @@
   "Seigan": {
     "name": "Seigan",
     "description": "Temporary Seigan stance that increases attack and defense.",
-    "descriptionInGame": "Temporary Seigan stance that increases attack and defense.",
     "note": "Even though you can boost this skill, but it doesn't actually provide boosted stats.",
     "maxLevel": 10,
     "boostAllowed": true,
@@ -2643,7 +2483,6 @@
   "Mikiri": {
     "name": "Mikiri",
     "description": "Deflect an enemy attack with a katana from the Seigan stance.",
-    "descriptionInGame": "Deflect an enemy attack with a katana from the Seigan stance.",
     "note": "This skill can be boosted, but no point boosting really",
     "maxLevel": 10,
     "boostAllowed": true,
@@ -2660,8 +2499,7 @@
   },
   "Koteuchi": {
     "name": "Koteuchi",
-    "description": "Immobilize an enemy's arm with a katana from the Seigan stance.",
-    "descriptionInGame": "Immobilize an enemy's arms with a katana from the Seigan stance.",
+    "description": "Immobilize an enemy's arms with a katana from the Seigan stance.",
     "maxLevel": 10,
     "boostAllowed": true,
     "type": "Seigan Skill",
@@ -2682,7 +2520,6 @@
   "Raizuki": {
     "name": "Raizuki",
     "description": "Execute an volt katana strike from the Seigan stance.",
-    "descriptionInGame": "Execute an volt katana strike from the Seigan stance.",
     "maxLevel": 10,
     "boostAllowed": true,
     "type": "Seigan Skill",
@@ -2702,8 +2539,7 @@
   },
   "Iai": {
     "name": "Iai",
-    "description": "Temporary Iai stance that increases speed.",
-    "descriptionInGame": "Temporary Iai katana stance that increases speed.",
+    "description": "Temporary Iai katana stance that increases speed.",
     "note": "Even though you can boost this skill, but it doesn't actually provide boosted stats.",
     "maxLevel": 10,
     "boostAllowed": true,
@@ -2721,7 +2557,6 @@
   "Kubiuchi": {
     "name": "Kubiuchi",
     "description": "Chance of an instant katana kill from the Iai stance.",
-    "descriptionInGame": "Chance of an instant katana kill from the Iai stance.",
     "maxLevel": 10,
     "boostAllowed": true,
     "type": "Iai Skill",
@@ -2742,7 +2577,6 @@
   "Gatotsu": {
     "name": "Gatotsu",
     "description": "Extremely powerful, lightning-quick katana stab.",
-    "descriptionInGame": "Extremely powerful, lightning-quick katana stab.",
     "maxLevel": 10,
     "boostAllowed": true,
     "type": "Iai Skill",
@@ -2762,7 +2596,6 @@
   "Hyosetsu": {
     "name": "Hyosetsu",
     "description": "Execute an ice katana strike from the Iai stance.",
-    "descriptionInGame": "Execute a nice katana strike from the Iai stance.",
     "maxLevel": 10,
     "boostAllowed": true,
     "type": "Iai Skill",
@@ -2782,8 +2615,7 @@
   },
   "Mine-R": {
     "name": "Mine",
-    "description": "Mine for materials at item points.",
-    "descriptionInGame": "Mine for materials at mining points.",
+    "description": "Mine for materials at mining points.",
     "note": "There is a chance to get nothing from a gathering point. Leveling the skill reduces the chance to get nothing. For example if an gathering spot has 80% to get an item, then at level 2, it will have 80 * 1.02 = 81.6% chance to get an item.",
     "maxLevel": 10,
     "type": "Search Skill",
@@ -2796,7 +2628,6 @@
   "HPUp-H": {
     "name": "HP Up",
     "description": "Increase maximum HP.",
-    "descriptionInGame": "Increase maximum HP.",
     "maxLevel": 10,
     "type": "Stat Increase",
     "location": { "x": 0, "y": 0 },
@@ -2807,7 +2638,6 @@
   "TPUp-H": {
     "name": "TP Up",
     "description": "Increase maximum TP.",
-    "descriptionInGame": "Increase maximum TP.",
     "maxLevel": 10,
     "type": "Stat Increase",
     "location": { "x": 0, "y": 5 },
@@ -2817,8 +2647,7 @@
   },
   "Curses": {
     "name": "Curses",
-    "description": "Needed to learn curses.",
-    "descriptionInGame": "Increases the success rate of curse skills. Needed to learn curses.",
+    "description": "Increases the success rate of curse skills. Needed to learn curses.",
     "note": "Alsoincreases curse effectiveness",
     "maxLevel": 10,
     "type": "Mastery Skill",
@@ -2829,8 +2658,7 @@
   },
   "Stagger": {
     "name": "Stagger",
-    "description": "Chance of stunning the enemies at the beginning of battle..",
-    "descriptionInGame": "Chance of stunning the enemies at the beginning of battle.",
+    "description": "Chance of stunning the enemies at the beginning of battle.",
     "maxLevel": 10,
     "boostAllowed": true,
     "type": "Passive Skill",
@@ -2846,7 +2674,6 @@
   "Sapping": {
     "name": "Sapping",
     "description": "Curse that decreases all enemies' strength.",
-    "descriptionInGame": "Curse that decreases all enemies' strength.",
     "maxLevel": 10,
     "boostAllowed": true,
     "type": "Curse Skill",
@@ -2864,7 +2691,6 @@
   "Frailty": {
     "name": "Frailty",
     "description": "Curse that decreases all enemies' defense.",
-    "descriptionInGame": "Curse that decreases all enemies' defense.",
     "maxLevel": 10,
     "boostAllowed": true,
     "type": "Curse Skill",
@@ -2882,7 +2708,6 @@
   "Leaden": {
     "name": "Leaden",
     "description": "Curse that decreases all enemies' speed.",
-    "descriptionInGame": "Curse that decreases all enemies' speed.",
     "maxLevel": 10,
     "boostAllowed": true,
     "type": "Curse Skill",
@@ -2900,7 +2725,6 @@
   "Blinding": {
     "name": "Blinding",
     "description": "Curse with a chance of blinding all enemies.",
-    "descriptionInGame": "Curse with a chance of blinding all enemies.",
     "maxLevel": 10,
     "boostAllowed": true,
     "type": "Curse Skill",
@@ -2918,7 +2742,6 @@
   "Relapse": {
     "name": "Relapse",
     "description": "Curse that decreases enemies' recovery from status ailments.",
-    "descriptionInGame": "Curse that decreases enemies' recovery from status ailments.",
     "maxLevel": 10,
     "boostAllowed": true,
     "type": "Curse Skill",
@@ -2937,7 +2760,6 @@
   "Cranial": {
     "name": "Cranial",
     "description": "Curse with a chance of binding an enemy's head.",
-    "descriptionInGame": "Curse with a chance of binding an enemy's head.",
     "maxLevel": 10,
     "boostAllowed": true,
     "type": "Curse Skill",
@@ -2955,7 +2777,6 @@
   "Abdomen": {
     "name": "Abdomen",
     "description": "Curse with a chance of binding an enemy's arms.",
-    "descriptionInGame": "Curse with a chance of binding an enemy's arms.",
     "maxLevel": 10,
     "boostAllowed": true,
     "type": "Curse Skill",
@@ -2973,7 +2794,6 @@
   "Immobile": {
     "name": "Immobile",
     "description": "Curse with a chance of binding an enemy's legs.",
-    "descriptionInGame": "Curse with a chance of binding an enemy's legs.",
     "maxLevel": 10,
     "boostAllowed": true,
     "type": "Curse Skill",
@@ -2991,7 +2811,6 @@
   "Torpor": {
     "name": "Torpor",
     "description": "Curse with a chance of putting all enemies to sleep.",
-    "descriptionInGame": "Curse with a chance of putting all enemies to sleep.",
     "maxLevel": 10,
     "boostAllowed": true,
     "type": "Curse Skill",
@@ -3009,7 +2828,6 @@
   "Corrupt": {
     "name": "Corrupt",
     "description": "Curse with a chance of giving all enemies cursed status.",
-    "descriptionInGame": "Curse with a chance of giving all enemies cursed status.",
     "maxLevel": 10,
     "boostAllowed": true,
     "type": "Curse Skill",
@@ -3026,8 +2844,7 @@
   },
   "Revenge": {
     "name": "Revenge",
-    "description": "Curse that deals damage to an enemy when struck.",
-    "descriptionInGame": "Curse that damages all enemies whenever the user is hit.",
+    "description": "Curse that damages all enemies whenever the user is hit.",
     "maxLevel": 10,
     "boostAllowed": true,
     "type": "Special Skill",
@@ -3046,7 +2863,6 @@
   "EvilEye": {
     "name": "Evil Eye",
     "description": "Evil gaze that has a chance of terrifying the enemy.",
-    "descriptionInGame": "Evil gaze that has a chance of terrifying the enemy.",
     "maxLevel": 10,
     "boostAllowed": true,
     "type": "Curse Skill",
@@ -3064,7 +2880,6 @@
   "Paralyze": {
     "name": "Paralyze",
     "description": "Commands a terrified enemy to remain motionless.",
-    "descriptionInGame": "Commands a terrified enemy to remain motionless.",
     "note": "This skill can be boosted, but no point boosting really",
     "maxLevel": 10,
     "boostAllowed": true,
@@ -3081,7 +2896,6 @@
   "Betrayal": {
     "name": "Betrayal",
     "description": "Commands a terrified enemy to attack its own comrades.",
-    "descriptionInGame": "Commands a terrified enemy to attack its own comrades.",
     "note": "This skill can be boosted, but no point boosting really",
     "maxLevel": 10,
     "boostAllowed": true,
@@ -3098,7 +2912,6 @@
   "Suicide": {
     "name": "Suicide",
     "description": "Commands a terrified enemy to take its own life.",
-    "descriptionInGame": "Commands a terrified enemy to take its own life.",
     "maxLevel": 10,
     "boostAllowed": true,
     "type": "Curse Skill",
@@ -3114,8 +2927,7 @@
   },
   "Lure": {
     "name": "Lure",
-    "description": "Cureses the party to encounter more enemies.",
-    "descriptionInGame": "Curses the party to encounter more enemies.",
+    "description": "Curses the party to encounter more enemies.",
     "maxLevel": 10,
     "type": "Search Skill",
     "upstream": {
@@ -3130,8 +2942,7 @@
   },
   "Mine-H": {
     "name": "Mine",
-    "description": "Mine for materials at item points.",
-    "descriptionInGame": "Mine for materials at mining points.",
+    "description": "Mine for materials at mining points.",
     "note": "There is a chance to get nothing from a gathering point. Leveling the skill reduces the chance to get nothing. For example if an gathering spot has 80% to get an item, then at level 2, it will have 80 * 1.02 = 81.6% chance to get an item.",
     "maxLevel": 10,
     "type": "Search Skill",
