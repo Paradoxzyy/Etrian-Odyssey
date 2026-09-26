@@ -203,7 +203,7 @@
     "type": "Sword Skill",
     "body": "Leg",
     "upstream": {
-      "2Hit": 3,
+      "2-Hit": 3,
       "SwordMastery-L": 5
     },
     "location": { "x": 4, "y": 2 },
@@ -400,7 +400,7 @@
     "maxLevel": 10,
     "type": "Passive Skill",
     "upstream": {
-      "AgiUp": 3
+      "AGIUp": 3
     },
     "location": { "x": 2, "y": 1 },
     "levelData": {
@@ -429,7 +429,7 @@
     "maxLevel": 10,
     "type": "Passive Skill",
     "upstream": {
-      "AgiUp": 5,
+      "AGIUp": 5,
       "1stTurn": 3
     },
     "location": { "x": 2, "y": 3 },
@@ -446,7 +446,7 @@
     "type": "Weakening Skill",
     "body": "Leg",
     "upstream": {
-      "AgiUp": 1
+      "AGIUp": 1
     },
     "location": { "x": 1, "y": 3 },
     "levelData": {
@@ -464,7 +464,7 @@
     "type": "Enhancement Skill",
     "body": "Leg",
     "upstream": {
-      "AgiUp": 1
+      "AGIUp": 1
     },
     "location": { "x": 3, "y": 3 },
     "levelData": {
@@ -1561,7 +1561,7 @@
     "type": "Healing Skill",
     "body": "Head",
     "upstream": {
-      "CureII": 3,
+      "CureII-M": 3,
       "Healer": 5
     },
     "location": { "x": 3, "y": 4 },
