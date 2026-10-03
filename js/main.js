@@ -17,6 +17,7 @@ const init = async () => {
   state.currentLevel = 1
   state.currentRetirement = 0
   state.currentBoost = false
+  state.currentSkill = ""
   changeClass()
   loadURL()
   changeSp()
@@ -32,7 +33,8 @@ const init = async () => {
 //--------------------------------------------------------------------------------
 const loadData = async () => {
   const files = [ "skills", "classes", "meta" ]
-  const folder = location.pathname + "minified/"
+  //const folder = `${location.pathname}minified/`
+  const folder = `${location.pathname}`
   const promises = await Promise.allSettled(files.map(file => fetch(`${folder}${file}.json`).then(res => res.json())))
 
   promises.forEach((promise, i) => {
@@ -119,9 +121,15 @@ const Root = component(() => {
       ${Controls()}
     </div>
 
-    <div class="main">
-      ${SkillGrid()}
-      ${SvgGrid()}
+    <div class="content">
+      <div class="grids">
+        ${SkillGrid()}
+        ${SvgGrid()}
+      </div>
+
+      <div class="info">
+        ${SkillInfoContainer()}
+      </div>
     </div>
 
     <div class="footer">
@@ -294,7 +302,8 @@ const SkillContainer = component(props => {
 //----------------------------------------
 const Skill = component(props => {
   const classes = () => createClasses({
-    "skill-box": true,
+    "skill": true,
+    "selected": props.id == state.currentSkill,
     "disabled": Object.entries(global.skills[props.id].upstream ?? 0).some(([ k, v ]) => state.skillAllocation[k] < v)
   })
 
@@ -302,6 +311,8 @@ const Skill = component(props => {
     "skill-points": true,
     "active": state.skillAllocation[props.id]
   })
+
+  const handleMouseEnter = () => state.currentSkill = props.id
 
   const level = () => props.maxLevel ? `${state.skillAllocation[props.id]}/${props.maxLevel}` : ""
 
@@ -316,6 +327,7 @@ const Skill = component(props => {
           disabled: state.skillAllocation[props.id] == 0,
           handleClick: () => decreaseSkill(props.id)
         })}
+
         ${() => Button({
           text: "+",
           disabled: state.skillAllocation[props.id] == props.maxLevel,
@@ -325,66 +337,63 @@ const Skill = component(props => {
   }
 
   return html`
-    <div class="skill">
-      <div class="${classes}">
-        <div class="skill-header">
-          <div class="skill-name">${props.name}</div>
-          <div class="${classesLevel}">${level}</div>
-        </div>
-        ${buttons}
+    <div class="${classes}" @mouseenter="${handleMouseEnter}">
+      <div class="skill-header">
+        <div class="skill-name">${props.name}</div>
+        <div class="${classesLevel}">${level}</div>
       </div>
-      ${SkillInfo(props)}
+      ${buttons}
     </div>`
 })
 
 //----------------------------------------
-const SkillInfo = component(props => {
-  const classes = () => createClasses({
-    "skill-info": true,
-    "display-top": props.location.y > 3,
-    "display-left": props.location.x > 3
-  })
+const SkillInfoContainer = component(() => {
+  return html`
+    ${() => state.currentSkill ? SkillInfo(global.skills[state.currentSkill]) : ""}`
+})
 
-  const cols = Math.max(props.maxLevel, 5) + 2
-  const col2 = Math.floor(cols / (props.body ? 3 : 2))
-  const col1 = cols - col2 * (props.body ? 2 : 1)
-  const totalLevels = props.maxLevel + (props.boostAllowed ? 5 : 0)
+//----------------------------------------
+const SkillInfo = component(props => {
+  const cols = () => Math.max(props.maxLevel, 5) + 2
+  const col2 = () => Math.floor(cols() / (props.body ? 3 : 2))
+  const col1 = () => cols() - col2() * (props.body ? 2 : 1)
+  const totalLevels = () => props.maxLevel + (props.boostAllowed ? 5 : 0)
 
   return html`
-    <div class="${classes}">
+    <div class="skill-info">
       <table>
         <tr>
           <th colspan="${col1}">Name</th>
-          <th colspan="${col2}" class="${props.body ? "" : "hidden"}">Body Part</th>
+          <th colspan="${col2}" class="${() => props.body ? "" : "hidden"}">Body Part</th>
           <th colspan="${col2}">Skill Type</th>
-          <th colspan="5" rowspan="3" class="${props.boostAllowed ? "" : "hidden"}">Boost</th>
+          <th colspan="5" rowspan="${() => props.body ? 3 : 2}" class="${() => props.boostAllowed ? "" : "hidden"}">Boost</th>
         </tr>
 
         <tr>
-          <td colspan="${col1}">${props.name}</td>
-          <td colspan="${col2}" class="${props.body ? "" : "hidden"}">${props.body}</td>
-          <td colspan="${col2}">${props.type}</td>
+          <td colspan="${col1}">${() => props.name}</td>
+          <td colspan="${col2}" class="${() => props.body ? "" : "hidden"}">${() => props.body}</td>
+          <td colspan="${col2}">${() => props.type}</td>
         </tr>
 
         <tr>
-          <td colspan="${cols}">${props.description}</td>
+          <td colspan="${cols}">${() => props.description}</td>
         </tr>
 
-        <tr class="${props.maxLevel ? "" : "hidden"}">
+        <tr class="${() => props.maxLevel ? "" : "hidden"}">
           <th colspan="2">Level</th>
-          ${() => Array.from(Array(totalLevels).keys()).map(i => html`<th colspan="${props.maxLevel == 1 ? 5 : 1}" class="${state.skillAllocation[props.id] == i + 1 ? "selected" : ""}">${i + 1}</th>`)}
+          ${() => Array.from(Array(totalLevels()).keys()).map(i => html`<th colspan="${props.maxLevel == 1 ? 5 : 1}" class="${state.skillAllocation[props.id] == i + 1 ? "selected" : ""}">${i + 1}</th>`)}
         </tr>
 
         ${SkillInfoRows(props)}
 
-        <tr class="${props.note ? "" : "hidden"}">
+        <tr class="${() => props.note ? "" : "hidden"}">
           <th colspan="2">Note</td>
-          <td colspan="${totalLevels}" class="text-left">${props.note}</td>
+          <td colspan="${totalLevels}" class="text-left">${() => props.note}</td>
         </tr>
 
-        <tr class="${props.bugfix ? "" : "hidden"}">
-          <th colspan="2">Bug Fix</td>
-          <td colspan="${totalLevels}" class="text-left">${props.bugfix}</td>
+        <tr class="${() => props.bugfix ? "" : "hidden"}">
+          <th colspan="2">Bug Fix<br>(From DS)</td>
+          <td colspan="${totalLevels}" class="text-left">${() => props.bugfix}</td>
         </tr>
       </table>
     </div>`
@@ -395,8 +404,20 @@ const SkillInfoRows = component(props => {
   if (!global.skills[props.id].levelData)
     return html``
 
+  const data = () => {
+    return Object.entries(global.skills[props.id].levelData).map(([ name, data ]) => {
+      return SkillInfoRow({
+        name,
+        data,
+        id: props.id,
+        maxLevel: props.maxLevel,
+        boostAllowed: props.boostAllowed
+      }).key(`${props.id}-${name}`)
+    })
+  }
+
   return html`
-    ${() => Object.entries(global.skills[props.id].levelData).map(([ name, data ]) => SkillInfoRow({ name, data, id: props.id, maxLevel: props.maxLevel, boostAllowed: props.boostAllowed }))}`
+    ${data}`
 })
 
 //----------------------------------------
@@ -417,7 +438,7 @@ const SkillInfoRow = component(props => {
     if (props.data[i + 1] == curr)
       return acc
 
-    const colspan = (() => {
+    const colspan = () => {
       if (props.data[i - 1] != curr)
         return 1
 
@@ -425,7 +446,7 @@ const SkillInfoRow = component(props => {
       const prevIndex = prevValues.findIndex(n => n != curr)
 
       return prevIndex == -1 ? prevValues.length : prevIndex
-    })()
+    }
 
     const isLevelWithinSelected = (level => {
       if (level == -1)
@@ -444,14 +465,14 @@ const SkillInfoRow = component(props => {
       "selected": isLevelWithinSelected
     })
 
-    acc.push(html`<td colspan="${colspan}" class="${classes}">${curr}</td>`)
+    acc.push(html`<td colspan="${colspan()}" class="${classes}">${curr}</td>`)
 
     return acc
   }, [])
 
   return html`
     <tr>
-      <th colspan="2">${props.name}</th>
+      <th colspan="2">${() => props.name}</th>
       ${cells}
     </tr>`
 })

@@ -1,6 +1,6 @@
 :root {
   --background: #7373B9;
-  --text: navy;
+  --text: #000080;
   --primary: #A4B4F9;
   --secondary: #D4DAFC;
 
@@ -15,14 +15,17 @@
   --skill-border-disabled: #B3B7E4;
   --skill-background-disabled: #C0C6E9;
   --skill-background-disabled-hover: #C6CEFF;
+  --skill-border-selected: #000000;
+  --skill-background-selected: #A4F9BA;
+  --skill-background-selected-hover: #A4F9BA;
 
   --button: var(--primary);
   --button-disabled: #9BA8DD;
 
   --skill-info-selected: #5E6FDF;
-  --skill-info-selected-text: yellow;
+  --skill-info-selected-text: #FFFF00;
 
-  --check: white;
+  --check: #FFFFFF;
 }
 
 *,
@@ -139,6 +142,12 @@ th {
   margin: 1rem 3rem;
 }
 
+.content {
+  display: flex;
+  margin: 2rem 3rem;
+  gap: 2rem;
+}
+
 .footer {
   display: flex;
   justify-content: flex-end;
@@ -171,10 +180,13 @@ th {
 }
 
 /* ---------- */
-.main {
+.grids {
   display: grid;
-  margin: 2rem 3rem;
   width: min-content;
+}
+
+.info {
+  padding-right: 1rem;
 }
 
 .skill-grid {
@@ -201,11 +213,6 @@ th {
 
 /* ---------- */
 .skill {
-  position: relative;
-}
-
-.skill-box {
-  position: relative;
   display: flex;
   flex-direction: column;
   gap: 0.1rem;
@@ -220,57 +227,57 @@ th {
   transition: background 0.3s;
 }
 
-.skill-box.disabled {
+.skill.disabled {
   border: 2px solid var(--skill-border-disabled);
   background: var(--skill-background-disabled);
 }
 
-.skill-box:hover {
-  background: var(--skill-background-hover);
-  z-index: 10;
+.skill.selected {
+  border: 2px solid var(--skill-border-selected);
+  background: var(--skill-background-selected);
 }
 
-.skill-box.disabled:hover {
+.skill:hover {
+  background: var(--skill-background-hover);
+}
+
+.skill.disabled:hover {
   background: var(--skill-background-disabled-hover);
 }
 
-.skill-box .skill-header {
+.skill.selected:hover {
+  background: var(--skill-background-selected-hover);
+}
+
+.skill .skill-header {
   display: flex;
   justify-content: space-between;
 }
 
-.skill-box .skill-name {
+.skill .skill-name {
   color: var(--skill-name);
   font-weight: bold;
 }
 
-.skill-box .skill-points {
+.skill .skill-points {
   height: min-content;
   padding: 0 2px;
   border-radius: 4px;
   font-size: 0.9rem;
 }
 
-.skill-box .skill-points.active {
+.skill .skill-points.active {
   background: var(--spend);
 }
 
-.skill-box .skill-buttons {
+.skill .skill-buttons {
   display: flex;
   justify-content: flex-end;
 }
 
 .skill-info {
-  display: none;
-  position: absolute;
   width: fit-content;
   border-radius: 0.4rem;
-  user-select: none;
-  z-index: 9;
-}
-
-.skill-box:hover + .skill-info {
-  display: block;
 }
 
 .skill-info table {
@@ -281,16 +288,6 @@ th {
 .skill-info .selected {
   background: var(--skill-info-selected);
   color: var(--skill-info-selected-text);
-}
-
-.skill-info.display-top {
-  -webkit-transform: translateY(-100%);
-  transform: translateY(-100%);
-  top: 0;
-}
-
-.skill-info.display-left {
-  right: 0;
 }
 
 /* ---------- */
