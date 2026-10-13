@@ -61,6 +61,7 @@ const loadData = async () => {
 //---------------------------------------- Functions -----------------------------
 //--------------------------------------------------------------------------------
 const changeClass = () => {
+  state.currentSkill = ""
   state.skillAllocation = global.classes[state.currentClass].skills.reduce((acc, curr) => (acc[curr] = 0, acc), {})
 }
 
